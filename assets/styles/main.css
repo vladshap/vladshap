@@ -209,7 +209,8 @@ strong {
   font-weight: 700; }
 
 small {
-  font-size: 87.5%; }
+  font-size: 75%;
+  opacity: .5; }
 
 .freelance {
   display: table;
