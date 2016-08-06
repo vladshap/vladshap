@@ -1,0 +1,36 @@
+html {
+    box-sizing: border-box;
+    background-color: $base-bg-color;
+}
+
+html,
+body {
+    //height: 100%;
+    //width: 100%;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    color: $base-text-color;
+    font-family: $base-body-font;
+    font-size: $base-font-size;
+    font-weight: $font-weight-regular;
+    line-height: $base-line-height;
+    opacity: 1;
+    //overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+
+    //&.loaded {
+    //    overflow: auto;
+    //}
+
+    //To prevent the iPhone and iPad from inflating fonts
+    @include respond-to($large, max) {
+        -webkit-text-size-adjust: 100%;
+    }
+}

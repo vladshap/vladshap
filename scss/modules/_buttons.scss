@@ -1,0 +1,36 @@
+.btn {
+    background-color: $color-gallery;
+    border: 1px solid transparent;
+    color: $color-bunker;
+    cursor: pointer;
+    display: inline-block;
+    font-size: .75rem;
+    font-weight: $font-weight-semibold;
+    letter-spacing: 3px;
+    line-height: 1.5rem;
+    margin: 0;
+    outline: none;
+    padding: .5rem 2.5rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: .2s;
+    vertical-align: top;
+
+    &:hover {
+        background-color: $color-bunker;
+        border-color: $color-gallery;
+        color: $color-gallery;
+        text-decoration: none;
+    }
+
+
+    + .btn {
+        margin-left: 1em;
+    }
+
+    &--centered {
+        display: table;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

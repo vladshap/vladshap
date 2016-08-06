@@ -1,0 +1,42 @@
+@mixin respond-to($size, $dir: $default-direction) {
+    @if ($size == retina) {
+        @media only screen and (min-resolution: 2dppx), (-webkit-min-device-pixel-ratio: 2.0) {
+            @content;
+        }
+    } @else if ($size and $dir) {
+        @media screen and (#{$dir}-width: ($size)) {
+            @content;
+        }
+    }
+}
+
+
+// ==========================================================================
+// Plyr mixins
+// https://github.com/selz/plyr
+// ==========================================================================
+
+// <input type="range"> styling
+@mixin plyr-range-track() {
+    height: $plyr-range-track-height;
+    background: transparent;
+    border: 0;
+    border-radius: ($plyr-range-track-height / 2);
+    user-select: none;
+}
+@mixin plyr-range-thumb() {
+    position: relative;
+    height: $plyr-range-thumb-height;
+    width: $plyr-range-thumb-width;
+    background: $plyr-range-thumb-bg;
+    border: $plyr-range-thumb-border;
+    border-radius: 100%;
+    transition: background .2s ease, border .2s ease, transform .2s ease;
+    box-shadow: $plyr-range-thumb-shadow;
+    box-sizing: border-box;
+}
+@mixin plyr-range-thumb-active() {
+    background: $plyr-range-thumb-active-bg;
+    border-color: $plyr-range-thumb-active-border-color;
+    transform: scale($plyr-range-thumb-active-scale);
+}

@@ -1,0 +1,102 @@
+// Typography
+
+p {
+    font-size: 1.125rem;
+    margin-bottom: 1.5rem;
+}
+
+a {
+    color: inherit;
+    text-decoration: underline;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+
+h1, h2, h3, h4 {
+    font-weight: inherit;
+    line-height: 1.2;
+    margin: 0 0 .5rem;
+}
+
+h1 {
+    font-size: 2.441em;
+    line-height: normal;
+    margin-top: 0;
+}
+
+h2 {
+    font-size: 1.4em;
+    font-weight: $font-weight-semibold;
+    line-height: normal;
+    margin-bottom: 1.25rem;
+}
+
+h3 {
+}
+
+h4 {
+    font-size: 1.563em;
+    font-weight: $font-weight-semibold;
+    line-height: normal;
+    margin-bottom: 1.25rem;
+}
+
+ul {
+    list-style: none;
+}
+
+em {
+    font-style: italic;
+    font-weight: normal;
+}
+
+strong {
+    font-weight: $font-weight-bold;
+}
+
+small {
+    font-size: 87.5%;
+}
+
+
+.freelance {
+    display: table;
+    font-size: .65rem;
+    font-weight: $font-weight-bold;
+    letter-spacing: 2px;
+    line-height: 1.2;
+    margin: 0 auto 3rem;
+    padding-left: .75rem;
+    position: relative;
+    text-transform: uppercase;
+
+    &::before,
+    &::after {
+        background-color: rgba(#00ff48, .5);
+        border-radius: 5px;
+        content: '';
+        display: inline-block;
+        left: 0;
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        vertical-align: top;
+    }
+
+    &::before {
+        box-shadow: 0 0 5px 0 #00ff48;
+        height: 4px;
+        margin-right: .5rem;
+        width: 4px;
+    }
+
+    &::after {
+        height: 2px;
+        left: 1px;
+        position: absolute;
+        width: 2px;
+    }
+}

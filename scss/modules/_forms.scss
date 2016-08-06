@@ -1,0 +1,111 @@
+$field-height: 44px;
+$label-width: 5rem;
+
+.contact-form {
+    //background-color: rgba($color-bunker, .9);
+    padding: 2rem 0;
+
+    @include respond-to($small) {
+        padding: 2rem 5rem;
+    }
+
+    .btn {
+        margin-bottom: 4rem;
+        margin-top: 0;
+    }
+}
+
+fieldset {
+    display: block;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+::-webkit-input-placeholder {
+    color: $input-placeholder-color;
+}
+
+::-moz-placeholder {
+    color: $input-placeholder-color;
+}
+
+:-ms-input-placeholder {
+    color: $input-placeholder-color;
+}
+
+label {
+    bottom: 0;
+    color: $color-gallery;
+    display: block;
+    font-size: .75rem;
+    font-weight: $font-weight-bold;
+    left: 0;
+    letter-spacing: 1px;
+    line-height: 20px;
+    pointer-events: none;
+    position: absolute;
+    text-transform: uppercase;
+    top: 0;
+    transition: .2s;
+    width: 100%;
+    z-index: 0;
+
+    @include respond-to($small) {
+        line-height: 44px;
+    }
+
+    &::before {
+        background-color: $color-gallery;
+        bottom: 0;
+        content: '';
+        height: 1px;
+        left: 0;
+        position: absolute;
+        transition: .2s ease-out;
+        width: 0;
+    }
+}
+
+.input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid rgba($color-gallery, .25);
+    border-radius: 0;
+    color: $color-gallery;
+    display: block;
+    font-size: .875rem;
+    height: $field-height;
+    margin-top: 20px;
+    outline: none;
+    transition: .2s;
+    width: 100%;
+    -webkit-appearance: none;
+
+    @include respond-to($small) {
+        margin-top: 0;
+        padding: 0 1rem 0 $label-width + 1rem;
+    }
+
+    &:focus {
+
+        ~ label {
+
+            &::before {
+                @include respond-to($medium) {
+                    width: 100%;
+                }
+            }
+
+        }
+    }
+
+    &.text-area {
+        min-height: 100px;
+        padding-top: .75rem;
+        resize: none;
+
+        ~ label {
+
+        }
+    }
+}

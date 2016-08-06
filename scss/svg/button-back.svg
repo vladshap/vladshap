@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="7px" height="12px" viewBox="0 0 7 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <title>Shape</title>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Finder" sketch:type="MSArtboardGroup" transform="translate(-158.000000, -250.000000)" fill="#000000">
+            <g id="Window" sketch:type="MSLayerGroup" transform="translate(141.000000, 221.000000)">
+                <g id="Toolbar" sketch:type="MSShapeGroup">
+                    <g id="button---back" transform="translate(17.000000, 29.000000)">
+                        <path d="M5.69167867,0.730123445 L0.704444086,5.77624882 L0.354452419,6.13037329 L0.707096383,6.48185664 L5.6071726,11.3658058 C5.80275633,11.5607459 6.11933839,11.560224 6.31427842,11.3646403 C6.50921845,11.1690566 6.50869662,10.8524745 6.31311289,10.6575345 L1.41303668,5.7735853 L1.41568898,6.47919313 L6.40292356,1.43306776 C6.59703627,1.2366629 6.59517812,0.920085865 6.39877327,0.725973154 C6.20236842,0.531860442 5.88579138,0.533718591 5.69167867,0.730123445 L5.69167867,0.730123445 Z" id="Shape"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

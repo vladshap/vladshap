@@ -1,0 +1,19 @@
+.frame__about {
+
+    .container {
+        //transition: .5s ease-out;
+        //opacity: 0;
+        //filter: blur(5px);
+
+    }
+
+    &.frame--active {
+        //opacity: 1;
+
+        .container {
+            //opacity: 1;
+            //filter: blur(0);
+        }
+    }
+
+}

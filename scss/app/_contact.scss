@@ -1,0 +1,174 @@
+.frame__contact {
+    min-height: 100vh;
+    padding-bottom: 1rem;
+}
+
+.social-links {
+    display: block;
+    text-align: center;
+    width: 100%;
+
+    .icon {
+        height: 1.25rem;
+        transition: .2s ease-out;
+        width: 1.25rem;
+        fill: $color-gallery;
+    }
+
+    li {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    a {
+        display: block;
+        padding: 1em;
+
+        &:hover {
+
+            .icon-github {
+                fill: #4183c4;
+            }
+
+            .icon-codepen {
+                fill: #fcd000;
+            }
+
+            .icon-flickr {
+                fill: #ff0084;
+            }
+
+            .icon-twitter {
+                fill: #55acee;
+            }
+
+            .icon-instagram {
+                fill: #e4405f;
+            }
+
+            .icon-dribbble {
+                fill: #ea4c89;
+            }
+        }
+    }
+}
+
+//.chicago-map {
+//
+//    @include respond-to($medium) {
+//        bottom: -5px;
+//        height: 80%;
+//        position: absolute;
+//        right: -10px;
+//    }
+//
+//    path {
+//        stroke: rgba($color-gallery, .2);
+//        stroke-width: 1;
+//    }
+//    .logan-square {
+//        opacity: 0;
+//        transform: translate(-10px, 0) scale(.5);
+//        transform-origin: 50% 50%;
+//        transition: .2s;
+//        transition-delay: .15s;
+//
+//        .finished & {
+//            opacity: 1;
+//            transform: translate(-7px, -5px) rotate(-10deg) scale(1);
+//        }
+//    }
+//
+//    .star {
+//        opacity: 0;
+//        transform: translate(0, 0) scale(.5);
+//        transform-origin: 100% 100%;
+//        transition: .2s;
+//
+//        .finished & {
+//            opacity: 1;
+//            transform: translate(0, 0) scale(1);
+//        }
+//
+//        polygon {
+//            display: block;
+//            fill: #963636;
+//            stroke-width: 0;
+//        }
+//    }
+//
+//    .ls-title {
+//        fill: $color-gallery;
+//        stroke-width: 0;
+//    }
+//}
+
+.canvas {
+    display: none;
+
+    @include respond-to($large) {
+        bottom: 0;
+        display: block;
+        left: 0;
+        overflow: hidden;
+        pointer-events: none;
+        position: fixed;
+        right: 0;
+        top: 0;
+        z-index: 0;
+    }
+
+    .loading & {
+        opacity: 0;
+    }
+
+    svg {
+
+        @include respond-to($medium) {
+            bottom: 5px;
+            height: 80%;
+            position: absolute;
+            right: 5px;
+        }
+
+        path {
+            stroke: rgba($color-gallery, .2);
+            stroke-width: 1;
+        }
+
+        .circle {
+            opacity: 0;
+            transform: scale(.5);
+            transform-origin: 100% 100%;
+            transition: .2s;
+            stroke-width: 0;
+            transition-delay: .25s;
+            fill: #D0021B;
+        }
+
+    }
+
+
+    .title {
+        opacity: 0;
+        transform: scale(.5);
+        transform-origin: 50% 50%;
+        transition: .2s;
+        transition-delay: 0;
+    }
+
+    &.finished {
+
+        .title {
+            opacity: 1;
+            transform:  scale(1);
+            transition-delay: .25s;
+        }
+
+        .circle {
+            opacity: 1;
+            transition-delay: 0s;
+            transform: scale(1.25);
+        }
+    }
+}

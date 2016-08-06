@@ -1,0 +1,53 @@
+//TYPOGRAPHY
+//$base-sans-serif: "azo-sans-web", "Helvetica", sans-serif;
+$base-sans-serif: "brandon-grotesque", sans-serif;
+//$base-serif: "Garamond", "Georgia", serif;
+
+$base-heading-font: $base-sans-serif;
+//$base-heading-font: "skinny bastard";
+$base-body-font: $base-sans-serif;
+$base-line-height: 1.45;
+$base-font-size: 16px;
+
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-semibold: 500;
+$font-weight-bold: 700;
+$font-weight-black: 900;
+
+//MAIN COLOR PALETTE - For naming colors variables, I used http://chir.ag/projects/name-that-color/
+$color-bunker: #090d11;
+$color-gallery: #eee;
+
+//$color-bunker: #eee;
+//$color-gallery: #090d11;
+
+//COMMON COLORS
+$base-text-color: $color-gallery;
+$base-bg-color: $color-bunker;
+
+$system-highlight: #227df4;
+$base-border: #414447;
+
+//Forms
+$input-placeholder-color: rgba($color-gallery, .35);
+
+
+//SUSY GRID
+$susy: (
+    columns: 12,
+    gutters: 0,
+    math: fluid,
+    output: isolate,
+    gutter-position: inside,
+);
+
+$global-padding: 2rem;
+
+// MEDIA QUERIES
+$small:  34em;
+$medium: 48em;
+$large:  62em;
+$xlarge: 75em;
+$default-direction: 'min'; // 'min' for mobile first, 'max' for desktop first.
+
