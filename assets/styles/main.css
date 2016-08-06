@@ -655,6 +655,8 @@ figure {
       fill: #e4405f; }
     .social-links a:hover .icon-dribbble {
       fill: #ea4c89; }
+    .social-links a:hover .icon-spotify {
+      fill: #2ebd59; }
 
 .project {
   background-repeat: none;
