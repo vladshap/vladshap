@@ -274,14 +274,12 @@ small {
     margin-left: auto;
     margin-right: auto; }
 
-.contact-form {
-  padding: 2rem 0; }
-  @media screen and (min-width: 34em) {
-    .contact-form {
-      padding: 2rem 5rem; } }
-  .contact-form .btn, .contact-form .project--btn {
-    margin-bottom: 4rem;
-    margin-top: 0; }
+@media screen and (min-width: 34em) {
+  .contact-form {
+    padding: 0 5rem; } }
+
+.contact-form .btn, .contact-form .project--btn {
+  margin-top: 0; }
 
 fieldset {
   display: block;
@@ -442,7 +440,6 @@ label {
 
 .frame {
   overflow: hidden;
-  padding: 3rem 0;
   position: relative; }
   .frame:last-of-type {
     border-bottom: 0; }
@@ -453,8 +450,22 @@ label {
       -ms-flex-direction: column;
           flex-direction: column;
       -ms-flex-pack: center;
-          justify-content: center;
-      padding: 6rem 0; } }
+          justify-content: center; } }
+  .frame__about {
+    padding-top: 3rem;
+    padding-bottom: 3rem; }
+    @media screen and (min-width: 48em) {
+      .frame__about {
+        padding-top: 6rem;
+        padding-bottom: 6rem; } }
+  .frame__contact {
+    padding-top: 3rem;
+    padding-bottom: 3rem; }
+    @media screen and (min-width: 62em) {
+      .frame__contact {
+        padding-top: 0;
+        padding-bottom: 0;
+        min-height: 100vh; } }
 
 figure {
   margin-bottom: 1.5rem;
@@ -612,26 +623,54 @@ figure {
   text-align: center; }
   .site-footer .copyright {
     font-size: .75rem;
-    margin-bottom: 0;
-    line-height: 20px; }
+    font-weight: 700;
+    line-height: 20px;
+    margin-bottom: 0; }
 
-.frame__about {
-  border-bottom: 0; }
-
-.frame__projects {
-  margin-bottom: 5rem; }
-  @media screen and (min-width: 48em) {
-    .frame__projects {
-      margin-bottom: 0; } }
+.social-links {
+  display: block;
+  margin-bottom: 1rem;
+  text-align: center;
+  width: 100%; }
+  .social-links .icon {
+    height: 1.25rem;
+    transition: .2s ease-out;
+    width: 1.25rem;
+    fill: #eee; }
+  .social-links li {
+    display: inline-block;
+    vertical-align: top; }
+  .social-links a {
+    display: block;
+    padding: 1em; }
+    .social-links a:hover .icon-github {
+      fill: #4183c4; }
+    .social-links a:hover .icon-codepen {
+      fill: #fcd000; }
+    .social-links a:hover .icon-flickr {
+      fill: #ff0084; }
+    .social-links a:hover .icon-twitter {
+      fill: #55acee; }
+    .social-links a:hover .icon-instagram {
+      fill: #e4405f; }
+    .social-links a:hover .icon-dribbble {
+      fill: #ea4c89; }
 
 .project {
   background-repeat: none;
   background-size: cover;
+  border-top: 1px solid #414447;
+  margin-bottom: 3rem;
   position: relative;
   width: 100%;
-  z-index: 1;
-  border-top: 1px solid #414447;
-  margin-top: 3rem; }
+  z-index: 1; }
+  .project:last-child {
+    border-bottom: 1px solid #414447;
+    padding-bottom: 3rem; }
+    @media screen and (min-width: 48em) {
+      .project:last-child {
+        border-bottom: 0;
+        padding-bottom: 0; } }
   @media screen and (min-width: 48em) {
     .project {
       border-top: 0;
@@ -668,22 +707,22 @@ figure {
       content: " ";
       display: block;
       clear: both; }
-    @media screen and (min-width: 75em) {
+    @media screen and (min-width: 48em) {
       .project--wrap {
-        max-width: 48em;
-        margin-left: auto;
-        margin-right: auto;
-        padding: 7.5em 1.5rem; }
-        .project--wrap:after {
-          content: " ";
-          display: block;
-          clear: both; } }
+        padding: 7.5em 1.5rem; } }
     @media screen and (min-width: 62em) {
       .project--wrap {
         padding: 12em 1.5rem; } }
     @media screen and (min-width: 75em) {
       .project--wrap {
-        padding: 16em 1.5rem; } }
+        padding: 16em 1.5rem;
+        max-width: 48em;
+        margin-left: auto;
+        margin-right: auto; }
+        .project--wrap:after {
+          content: " ";
+          display: block;
+          clear: both; } }
   .project--btn {
     margin-top: 1rem; }
 
@@ -711,38 +750,6 @@ figure {
   #project__osx {
     background-image: url("../images/bg/project-osx.jpg");
     background-position: 50% 80%; } }
-
-.frame__contact {
-  min-height: 100vh;
-  padding-bottom: 1rem; }
-
-.social-links {
-  display: block;
-  text-align: center;
-  width: 100%; }
-  .social-links .icon {
-    height: 1.25rem;
-    transition: .2s ease-out;
-    width: 1.25rem;
-    fill: #eee; }
-  .social-links li {
-    display: inline-block;
-    vertical-align: top; }
-  .social-links a {
-    display: block;
-    padding: 1em; }
-    .social-links a:hover .icon-github {
-      fill: #4183c4; }
-    .social-links a:hover .icon-codepen {
-      fill: #fcd000; }
-    .social-links a:hover .icon-flickr {
-      fill: #ff0084; }
-    .social-links a:hover .icon-twitter {
-      fill: #55acee; }
-    .social-links a:hover .icon-instagram {
-      fill: #e4405f; }
-    .social-links a:hover .icon-dribbble {
-      fill: #ea4c89; }
 
 .canvas {
   display: none; }

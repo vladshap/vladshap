@@ -4,7 +4,59 @@
 
     .copyright {
         font-size: .75rem;
-        margin-bottom: 0;
+        font-weight: $font-weight-bold;
         line-height: 20px;
+        margin-bottom: 0;
+    }
+}
+
+.social-links {
+    display: block;
+    margin-bottom: 1rem;
+    text-align: center;
+    width: 100%;
+
+    .icon {
+        height: 1.25rem;
+        transition: .2s ease-out;
+        width: 1.25rem;
+        fill: $color-gallery;
+    }
+
+    li {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    a {
+        display: block;
+        padding: 1em;
+
+        &:hover {
+
+            .icon-github {
+                fill: #4183c4;
+            }
+
+            .icon-codepen {
+                fill: #fcd000;
+            }
+
+            .icon-flickr {
+                fill: #ff0084;
+            }
+
+            .icon-twitter {
+                fill: #55acee;
+            }
+
+            .icon-instagram {
+                fill: #e4405f;
+            }
+
+            .icon-dribbble {
+                fill: #ea4c89;
+            }
+        }
     }
 }

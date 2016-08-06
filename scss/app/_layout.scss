@@ -12,7 +12,6 @@
 
 .frame {
     overflow: hidden;
-    padding: 3rem 0;
     position: relative;
     @include clearfix();
 
@@ -24,18 +23,34 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding: 6rem 0;
     }
 
-    //&__about {
-    //    padding-top: 50px;
-    //    @include respond-to($medium) {
-    //        padding-top: 100px;
-    //    }
-    //    @include respond-to($large) {
-    //        padding-top: 200px;
-    //    }
-    //}
+    &__about {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+
+        @include respond-to($medium) {
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+        }
+    }
+
+    &__projects {
+
+        @include respond-to($medium) {
+        }
+    }
+
+    &__contact {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+
+        @include respond-to($large) {
+            padding-top: 0;
+            padding-bottom: 0;
+            min-height: 100vh;
+        }
+    }
 }
 
 figure {

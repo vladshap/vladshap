@@ -1,23 +1,23 @@
-.frame__about {
-    border-bottom: 0;
-}
 
-.frame__projects {
-    margin-bottom: 5rem;
-
-    @include respond-to($medium) {
-        margin-bottom: 0;
-    }
-}
 
 .project {
     background-repeat: none;
     background-size: cover;
+    border-top: 1px solid $base-border;
+    margin-bottom: 3rem;
     position: relative;
     width: 100%;
     z-index: 1;
-    border-top: 1px solid $base-border;
-    margin-top: 3rem;
+
+    &:last-child {
+        border-bottom: 1px solid $base-border;
+        padding-bottom: 3rem;
+
+        @include respond-to($medium) {
+            border-bottom: 0;
+            padding-bottom: 0;
+        }
+    }
 
     @include respond-to($medium) {
         border-top: 0;
@@ -59,8 +59,7 @@
         z-index: 11;
         @include container($small);
 
-        @include respond-to($xlarge) {
-            @include container($medium);
+        @include respond-to($medium) {
             padding: 7.5em 1.5rem;
         }
 
@@ -70,6 +69,7 @@
 
         @include respond-to($xlarge) {
             padding: 16em 1.5rem;
+            @include container($medium);
         }
     }
 
