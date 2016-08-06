@@ -31,6 +31,7 @@
             viewportHeight = $(window).height();
             $('.site-header').css('height', viewportHeight);
             //console.log("viewport height: " + viewportHeight);
+
         }
         setFrameHeight();
 
@@ -126,7 +127,6 @@
             }, 500);
             e.preventDefault();
         });
-
 
     });
 
