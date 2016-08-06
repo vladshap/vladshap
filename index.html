@@ -24,7 +24,9 @@
         Temporarily setting body opacity to 0 to defer CSS loading.
         ...only to later load it via JavaScript. Look out for it around line 60.
     -->
-    <style>body {opacity: 0;}</style>
+    <style>body {
+        opacity: 0;
+    }</style>
 
     <!-- What's your device? I've got an icon for it...no, but really, is this necessary? -->
     <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicons/apple-touch-icon-57x57.png">
@@ -49,14 +51,14 @@
 
 </head>
 <body class="loading loading-images">
-    <!--
-        Here is this goofy Google way to load CSS that I mentioned above.
-        This seems like a bad idea, but this is the only way to get rid of that
-        pesky "render-blocking CSS in above-the-fold content"
-        issue that PageSpeed Insights throws at you...2016 I tell ya.
-        No, really look for yourself: https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery
-        I think it gave me one or two extra points on the PageSpeed Insights results. WAAHOO!!
-     -->
+<!--
+    Here is this goofy Google way to load CSS that I mentioned above.
+    This seems like a bad idea, but this is the only way to get rid of that
+    pesky "render-blocking CSS in above-the-fold content"
+    issue that PageSpeed Insights throws at you...2016 I tell ya.
+    No, really look for yourself: https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery
+    I think it gave me one or two extra points on the PageSpeed Insights results. WAAHOO!!
+ -->
 <noscript id="deferred-styles">
     <link href="assets/styles/main.min.css" rel="stylesheet" type="text/css"/>
 </noscript>
@@ -131,20 +133,20 @@
         <!--</symbol>-->
     </defs>
 </svg>
-    <!--
-        You know, that thing that spins and says "LOADING" for a bit...
-        Meanwhile you contemplate leaving this website, and never coming back to it. Yeah, blame this.
-    -->
+<!--
+    You know, that thing that spins and says "LOADING" for a bit...
+    Meanwhile you contemplate leaving this website, and never coming back to it. Yeah, blame this.
+-->
 <div class="loader">
     <svg class="circular" viewBox="25 25 50 50">
         <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
     </svg>
 </div>
-    <!--
-        I've got one of these giant, full-screen, trendy, slider-y headers that makes it look like there is nothing else below it,
-        but I ASSURE YOU that there is. Please scroll further... or wait a while to see some images rotate, BECAUSE SLIDERS ARE
-        COOL. Thanks, Ken Wheeler: kenwheeler.github.io/slick/
-    -->
+<!--
+    I've got one of these giant, full-screen, trendy, slider-y headers that makes it look like there is nothing else below it,
+    but I ASSURE YOU that there is. Please scroll further... or wait a while to see some images rotate, BECAUSE SLIDERS ARE
+    COOL. Thanks, Ken Wheeler: kenwheeler.github.io/slick/
+-->
 <header role="banner" class="site-header">
     <!--
         So where are we with the whole "h1" vs "a" thing on the website logos? Should this just be a link? Typically, for larger, multi-page websites,
@@ -156,10 +158,10 @@
             <svg class="logo-mark">
                 <use xlink:href="#vs"></use>
             </svg>
-                <!--
-                I'm actually confused as to whether putting a "visually-hidden" element with my name is redundant here?
-                Since my SVG <symbol> source has a <title></title> tag with the same information.... off to CSS-Tricks!
-                -->
+            <!--
+            I'm actually confused as to whether putting a "visually-hidden" element with my name is redundant here?
+            Since my SVG <symbol> source has a <title></title> tag with the same information.... off to CSS-Tricks!
+            -->
             <span class="vh">Vlad Shapochnikov</span>
         </a>
     </h1>
@@ -236,12 +238,14 @@
             <p>Previously I prototyped complex systems and web apps (I know this might sound super boring to you, but I
                 learned a lot!) at
                 <a
-                    href="http://devbridge.com/"
-                                                                   target="_blank">Devbridge
-                Group</a>, assisted in a web development course at
+                        href="http://devbridge.com/"
+                        target="_blank">Devbridge
+                    Group</a>, assisted in a web development course at
                 <a href="http://generalassemb.ly/">General Assembly</a>, and lead front-end development at <a
                         href="http://usmangroup.com/">Usman
                     Group</a>.</p>
+            <p>I've lost track of how many websites and products I've helped launch over the past six
+                years or so, but its safe to say that its well over 60.</p>
             <p>This website is a collection of some of the recent projects and clients that I've had the pleasure of
                 working with. I am constantly making changes and updates. Continue on to see <a
                         href="#projects">what I've been working on</a>.</p>
