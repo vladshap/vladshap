@@ -1,10 +1,10 @@
 {
-  "name": "vladshap.com-v2",
-  "version": "1.0.0",
+  "name": "vladshap.github.com",
+  "version": "2.0.0",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://vladshap@bitbucket.org/vladshap/vladshap.com-v2.git"
+    "url": "https://github.com/vladshap/vladshap.github.io"
   },
   "description": "",
   "main": "gulpfile.js",
@@ -24,7 +24,7 @@
   "author": "Vlad Shapochnikov",
   "license": "No License",
   "bugs": {
-    "url": "https://bitbucket.org/vladshap/vladshap.com-v2/issues"
+    "url": "https://github.com/vladshap/vladshap.github.io/issues"
   },
   "homepage": "http://vladshap.com",
   "devDependencies": {

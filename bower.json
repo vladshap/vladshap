@@ -6,17 +6,13 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "html5-boilerplate": "~5.2.0",
-    "jquery": "~2.1.4",
-    "susy": "~2.2.6",
-    "waypoints": "~4.0.0",
-    "60fps-scroll": "~0.1.1",
-    "scrollmagic": "ScrollMagic#~2.0.5",
-    "QueryLoader2": "queryloader2#~3.0.15",
-    "velocity": "~1.2.3",
-    "imagesloaded": "^4.1.0"
   },
   "devDependencies": {
-    "reset-css": "^2.0.2011012603"
+    "jquery": "~2.1.4",
+    "scrollmagic": "ScrollMagic#~2.0.5",
+    "gsap": "^1.19.0",
+    "slick-carousel": "^1.6.0",
+    "reset-css": "^2.0.2011012603",
+    "waitForImages": "^2.2.0"
   }
 }

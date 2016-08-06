@@ -50,13 +50,13 @@ gulp.task('scss-lint', function () {
 gulp.task('js', function(){
     return gulp.src(
             [
-                'scripts/jquery.js',
-                'scripts/TweenMax.js',
-                'scripts/ScrollMagic.js',
-                'scripts/animation.gsap.js',
-                //'scripts/debug.addindicators.js',
-                'scripts/slick.js',
-                'scripts/jquery.waitforimages.js',
+                'bower_components/jquery/dist/jquery.js',
+                'bower_components/gsap/src/uncompressed/TweenMax.js',
+                'bower_components/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js',
+                'bower_components/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js',
+                //'bower_components/scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js',
+                'bower_components/slick-carousel/slick/slick.js',
+                'bower_components/waitForImages/src/jquery.waitforimages.js',
                 'scripts/site.js'
             ])
         .pipe(sourcemaps.init())
