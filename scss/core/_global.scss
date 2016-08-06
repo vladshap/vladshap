@@ -52,17 +52,34 @@ body {
         bottom: 0;
         content: '';
         left: 0;
+        pointer-events: none;
         position: fixed;
         right: 0;
         top: 0;
         z-index: -1;
+    }
+
+    &::after {
+        color: $color-gallery;
+        content: 'Loading';
+        display: block;
+        font-family: "Helvetica Neue", "Helvetica", sans-serif;
+        font-size: .75rem;
+        font-weight: 500;
+        left: 50%;
+        letter-spacing: 1px;
         pointer-events: none;
+        position: absolute;
+        text-align: center;
+        text-transform: uppercase;
+        transform: translate(-50%, 0);
+        white-space: nowrap;
     }
 
     svg {
+        animation: spin 1s linear infinite;
         position: relative;
         z-index: 0;
-        animation: spin 1s linear infinite;
 
         .path {
             stroke-dasharray: 110;
@@ -81,6 +98,12 @@ body {
                 stroke-dasharray: 200;
                 stroke-dashoffset: 200;
             }
+        }
+
+        &::after {
+            opacity: 0;
+            transform: translate(-50%, 50%);
+            transition: .2s ease-in-out;
         }
     }
 }

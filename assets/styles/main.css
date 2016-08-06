@@ -106,15 +106,30 @@ body {
     bottom: 0;
     content: '';
     left: 0;
+    pointer-events: none;
     position: fixed;
     right: 0;
     top: 0;
-    z-index: -1;
-    pointer-events: none; }
+    z-index: -1; }
+  .loader::after {
+    color: #eee;
+    content: 'Loading';
+    display: block;
+    font-family: "Helvetica Neue", "Helvetica", sans-serif;
+    font-size: .75rem;
+    font-weight: 500;
+    left: 50%;
+    letter-spacing: 1px;
+    pointer-events: none;
+    position: absolute;
+    text-align: center;
+    text-transform: uppercase;
+    transform: translate(-50%, 0);
+    white-space: nowrap; }
   .loader svg {
+    animation: spin 1s linear infinite;
     position: relative;
-    z-index: 0;
-    animation: spin 1s linear infinite; }
+    z-index: 0; }
     .loader svg .path {
       stroke-dasharray: 110;
       stroke-dashoffset: 0;
@@ -126,6 +141,10 @@ body {
       transition: 1s ease-in-out;
       stroke-dasharray: 200;
       stroke-dashoffset: 200; }
+    .loaded .loader::after {
+      opacity: 0;
+      transform: translate(-50%, 50%);
+      transition: .2s ease-in-out; }
 
 @keyframes spin {
   100% {
