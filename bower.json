@@ -5,14 +5,14 @@
   "homepage": "http://vladshap.com/",
   "license": "MIT",
   "private": true,
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "jquery": "~2.1.4",
     "scrollmagic": "ScrollMagic#~2.0.5",
     "gsap": "^1.19.0",
     "slick-carousel": "^1.6.0",
     "reset-css": "^2.0.2011012603",
-    "waitForImages": "^2.2.0"
+    "waitForImages": "^2.2.0",
+    "susy": "^2.2.12"
   }
 }
