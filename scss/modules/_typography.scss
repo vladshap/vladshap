@@ -1,3 +1,6 @@
+/* latin-ext */
+@import 'https://fonts.googleapis.com/css?family=Josefin+Sans:400,700';
+
 // Typography
 
 p {
@@ -28,7 +31,7 @@ h1 {
 
 h2 {
     font-size: 1.4em;
-    font-weight: $font-weight-semibold;
+    font-weight: $font-weight-bold;
     line-height: normal;
     margin-bottom: 1.25rem;
 }
@@ -38,7 +41,7 @@ h3 {
 
 h4 {
     font-size: 1.563em;
-    font-weight: $font-weight-semibold;
+    font-weight: $font-weight-bold;
     line-height: normal;
     margin-bottom: 1.25rem;
 }

@@ -30,34 +30,6 @@
         opacity: 0;
     }</style>
 
-    <!-- I'm a super lengthy script just to include some fonts asynchronously from TypeKit -->
-    <script>
-        (function (d) {
-            var config = {
-                        kitId: 'szr1mxj',
-                        scriptTimeout: 3000,
-                        async: true
-                    },
-                    h = d.documentElement, t = setTimeout(function () {
-                        h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
-                    }, config.scriptTimeout), tk = d.createElement("script"), f = false, s = d.getElementsByTagName("script")[0], a;
-            h.className += " wf-loading";
-            tk.src = 'https://use.typekit.net/' + config.kitId + '.js';
-            tk.async = true;
-            tk.onload = tk.onreadystatechange = function () {
-                a = this.readyState;
-                if (f || a && a != "complete" && a != "loaded")return;
-                f = true;
-                clearTimeout(t);
-                try {
-                    Typekit.load(config)
-                } catch (e) {
-                }
-            };
-            s.parentNode.insertBefore(tk, s)
-        })(document);
-    </script>
-
     <!-- What's your device? I've got an icon for it -->
     <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicons/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicons/apple-touch-icon-60x60.png">
