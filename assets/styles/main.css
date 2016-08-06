@@ -91,22 +91,49 @@ body {
       -webkit-text-size-adjust: 100%; } }
 
 .loader {
-  height: 40px;
+  height: 50px;
   left: 50%;
-  margin-left: -20px;
-  margin-top: -20px;
+  margin-left: -25px;
+  margin-top: -25px;
   pointer-events: none;
   position: absolute;
   top: 50%;
-  transform: scale(1);
-  width: 40px;
-  z-index: 100; }
-  .loader svg path {
-    fill: #eee; }
+  width: 50px;
+  z-index: 100;
+  transition: .5s ease-in-out; }
+  .loader svg {
+    animation: spin 2s linear infinite;
+    height: 100%;
+    transform-origin: center center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto; }
+    .loader svg .path {
+      stroke-dasharray: 1, 200;
+      stroke-dashoffset: 0;
+      animation: dash 1.5s ease-in-out infinite;
+      stroke-linecap: round;
+      stroke: #eee; }
   .loaded .loader {
-    opacity: 0;
-    transform: scale(0);
-    transition: .2s ease-in-out; }
+    opacity: 0; }
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg); } }
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0; }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px; }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124px; } }
 
 p {
   font-size: 1.125rem;

@@ -36,26 +36,39 @@ body {
 }
 
 .loader {
-    height: 40px;
+    height: 50px;
     left: 50%;
-    margin-left: -20px;
-    margin-top: -20px;
+    margin-left: -25px;
+    margin-top: -25px;
     pointer-events: none;
     position: absolute;
     top: 50%;
-    transform: scale(1);
-    width: 40px;
+    width: 50px;
     z-index: 100;
+    transition: .5s ease-in-out;
 
     svg {
-        path {
-            fill: $color-gallery;
+
+        animation: spin 2s linear infinite;
+        height: 100%;
+        transform-origin: center center;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+
+        .path {
+            stroke-dasharray: 1, 200;
+            stroke-dashoffset: 0;
+            animation: dash 1.5s ease-in-out infinite;
+            stroke-linecap: round;
+            stroke: $color-gallery;
         }
     }
 
     .loaded & {
         opacity: 0;
-        transform: scale(0);
-        transition: .2s ease-in-out;
     }
 }
