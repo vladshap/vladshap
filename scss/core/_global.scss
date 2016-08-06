@@ -1,6 +1,6 @@
 html {
-    box-sizing: border-box;
     background-color: $base-bg-color;
+    box-sizing: border-box;
 }
 
 html,
@@ -22,15 +22,40 @@ body {
     font-weight: $font-weight-regular;
     line-height: $base-line-height;
     opacity: 1;
-    //overflow: hidden;
+    overflow: hidden;
     -webkit-font-smoothing: antialiased;
 
-    //&.loaded {
-    //    overflow: auto;
-    //}
+    &.loaded {
+        overflow: auto;
+    }
 
     //To prevent the iPhone and iPad from inflating fonts
     @include respond-to($large, max) {
         -webkit-text-size-adjust: 100%;
+    }
+}
+
+.loader {
+    height: 40px;
+    left: 50%;
+    margin-left: -20px;
+    margin-top: -20px;
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    transform: scale(1);
+    width: 40px;
+    z-index: 100;
+
+    svg {
+        path {
+            fill: $color-gallery;
+        }
+    }
+
+    .loaded & {
+        opacity: 0;
+        transform: scale(0);
+        transition: .2s ease-in-out;
     }
 }
