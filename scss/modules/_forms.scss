@@ -2,7 +2,6 @@ $field-height: 44px;
 $label-width: 5rem;
 
 .contact-form {
-    //background-color: rgba($color-bunker, .9);
     padding: 2rem 0;
 
     @include respond-to($small) {

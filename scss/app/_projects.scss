@@ -7,29 +7,21 @@
 }
 
 .project {
-    //border-top: 1px solid rgba($color-gallery, .1);
-    //margin-bottom: 25px;
+    background-repeat: none;
+    background-size: cover;
     position: relative;
-    //min-height: 100vh;
     width: 100%;
     z-index: 1;
-    background-size: cover;
-    background-repeat: none;
-    //background-attachment: fixed;
-    //display: flex;
-    //align-items: center;
 
     &::before {
-        position: absolute;
-        content: '';
         background-color: rgba($color-bunker, .8);
-        top: 0;
-        left: 0;
         bottom: 0;
+        content: '';
+        left: 0;
+        position: absolute;
         right: 0;
+        top: 0;
     }
-
-
 
     &::after {
         content: '';
@@ -58,38 +50,6 @@
             padding: 7.5em 1.5rem;
         }
     }
-
-    //&--bg {
-    //    display: none;
-    //
-    //    @include respond-to($medium) {
-    //        background-attachment: fixed;
-    //        background-color: $color-bunker;
-    //        background-position: 50% 50%;
-    //        background-size: cover;
-    //        bottom: 0;
-    //        display: block;
-    //        left: 0;
-    //        opacity: 0;
-    //        pointer-events: none;
-    //        position: absolute;
-    //        right: 0;
-    //        top: 0;
-    //        transform: scale(1.045);
-    //        transition: .15s opacity ease-out, .15s transform ease-out;
-    //        z-index: 0;
-    //    }
-    //
-    //    img {
-    //        display: none;
-    //        height: auto;
-    //        position: absolute;
-    //
-    //        @include respond-to($medium) {
-    //            display: block;
-    //        }
-    //    }
-    //}
 
     &--btn {
         @extend .btn;
