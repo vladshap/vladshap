@@ -104,7 +104,7 @@
 
             new ScrollMagic.Scene({
                 triggerElement: "#contact",
-                duration: 1,
+                duration: 100,
                 tweenChanges: true,
                 triggerHook: 0,
                 offset: 0

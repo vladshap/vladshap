@@ -3,7 +3,11 @@
 }
 
 .frame__projects {
-    padding-bottom: 0;
+    margin-bottom: 5rem;
+
+    @include respond-to($medium) {
+        margin-bottom: 0;
+    }
 }
 
 .project {
@@ -12,6 +16,13 @@
     position: relative;
     width: 100%;
     z-index: 1;
+    border-top: 1px solid $base-border;
+    margin-top: 3rem;
+
+    @include respond-to($medium) {
+        border-top: 0;
+        margin-top: 0;
+    }
 
     &::before {
 
@@ -43,13 +54,22 @@
 
     &--wrap {
         display: block;
-        padding: 3.5rem 1.5rem;
+        padding: 3rem 1.5rem 0;
         position: relative;
         z-index: 11;
-        @include container(40em);
+        @include container($small);
 
-        @include respond-to($medium) {
+        @include respond-to($xlarge) {
+            @include container($medium);
             padding: 7.5em 1.5rem;
+        }
+
+        @include respond-to($large) {
+            padding: 12em 1.5rem;
+        }
+
+        @include respond-to($xlarge) {
+            padding: 16em 1.5rem;
         }
     }
 
@@ -89,7 +109,7 @@
 
     @include respond-to($medium) {
         background-image: url('../images/bg/project-ow.jpg');
-        background-position: 50% 40%;
+        background-position: 50% 30%;
     }
 }
 

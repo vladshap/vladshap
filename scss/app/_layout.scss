@@ -1,9 +1,13 @@
 .container {
-    @include container(40em);
     padding-left: 1.5rem;
     padding-right: 1.5rem;
     position: relative;
     width: 100%;
+    @include container($small);
+
+    @include respond-to($xlarge) {
+        @include container($medium);
+    }
 }
 
 .frame {
