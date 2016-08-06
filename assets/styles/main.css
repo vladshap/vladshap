@@ -98,27 +98,34 @@ body {
   pointer-events: none;
   position: absolute;
   top: 50%;
+  transition: 1s ease-in-out opacity;
   width: 50px;
-  z-index: 100;
-  transition: .5s ease-in-out; }
-  .loader svg {
-    animation: spin 2s linear infinite;
-    height: 100%;
-    transform-origin: center center;
-    position: absolute;
-    top: 0;
+  z-index: 100; }
+  .loader::before {
+    background-color: #090d11;
     bottom: 0;
+    content: '';
     left: 0;
+    position: fixed;
     right: 0;
-    margin: auto; }
+    top: 0;
+    z-index: -1;
+    pointer-events: none; }
+  .loader svg {
+    position: relative;
+    z-index: 0;
+    animation: spin 1s linear infinite; }
     .loader svg .path {
-      stroke-dasharray: 1, 200;
+      stroke-dasharray: 110;
       stroke-dashoffset: 0;
-      animation: dash 1.5s ease-in-out infinite;
       stroke-linecap: round;
       stroke: #eee; }
   .loaded .loader {
     opacity: 0; }
+    .loaded .loader svg .path {
+      transition: 1s ease-in-out;
+      stroke-dasharray: 200;
+      stroke-dashoffset: 200; }
 
 @keyframes spin {
   100% {
@@ -223,11 +230,14 @@ small {
   line-height: 1.5rem;
   margin: 0;
   outline: none;
-  padding: .5rem 2.5rem;
+  padding: .5rem 1.5rem;
   text-decoration: none;
   text-transform: uppercase;
   transition: .2s;
   vertical-align: top; }
+  @media screen and (min-width: 48em) {
+    .btn, .project--btn {
+      padding: .5rem 2.5rem; } }
   .btn:hover, .project--btn:hover {
     background-color: #090d11;
     border-color: #eee;
@@ -407,7 +417,7 @@ main {
 
 .frame {
   overflow: hidden;
-  padding: 6rem 0;
+  padding: 3rem 0;
   position: relative; }
   .frame:last-of-type {
     border-bottom: 0; }
@@ -418,9 +428,8 @@ main {
       -ms-flex-direction: column;
           flex-direction: column;
       -ms-flex-pack: center;
-          justify-content: center; } }
-  .frame__about {
-    padding-top: 200px; }
+          justify-content: center;
+      padding: 6rem 0; } }
 
 figure {
   margin-bottom: 1.5rem;
@@ -447,16 +456,6 @@ figure {
       align-items: center;
   -ms-flex-pack: center;
       justify-content: center; }
-  .site-header::before {
-    background-color: transparent;
-    content: '';
-    height: 60px;
-    left: 0;
-    pointer-events: none;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 0; }
   .loading .site-header {
     overflow: hidden; }
 
@@ -482,11 +481,9 @@ figure {
     text-transform: uppercase;
     transition: .5s ease-in-out;
     vertical-align: top; }
-    .loaded .site-logo a:hover span {
-      opacity: 1; }
     .site-logo a:active {
-      transform: scale(1);
-      transition: .2s ease-in-out; }
+      transform: scale(0.98);
+      transition: .1s ease-in-out; }
 
 .logo-mark {
   display: block;
@@ -495,7 +492,10 @@ figure {
   position: relative;
   vertical-align: top;
   width: 4.5rem;
-  fill: rgba(238, 238, 238, 0.85); }
+  fill: rgba(238, 238, 238, 0.85);
+  transition: fill .2s ease-in-out; }
+  .logo-mark:hover {
+    fill: #eee; }
   @media screen and (min-width: 48em) {
     .logo-mark {
       height: 15rem;
@@ -504,23 +504,14 @@ figure {
 
 .bg {
   bottom: 0;
-  -webkit-filter: blur(0px);
-          filter: blur(0px);
   height: 100%;
   left: 0;
-  opacity: 1;
   overflow: hidden;
   position: absolute;
   right: 0;
   top: 0;
-  transition: 5s ease-in-out opacity, 4s ease-in-out -webkit-filter, 4s ease-in-out -moz-filter, 4s ease-in-out filter, 3s ease-in-out transform;
-  z-index: -1;
-  -moz-filter: blur(0px); }
-  .loading-images .bg {
-    opacity: 0; }
-  .loading .bg {
-    -webkit-filter: blur(20px);
-            filter: blur(20px); }
+  transition: 5s ease-in-out opacity, 3s ease-in-out transform;
+  z-index: -1; }
   .loaded .bg {
     transition: 0s; }
   .bg::before, .bg::after {
@@ -616,25 +607,26 @@ figure {
   position: relative;
   width: 100%;
   z-index: 1; }
-  .project::before {
-    background-color: rgba(9, 13, 17, 0.8);
-    bottom: 0;
-    content: '';
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0; }
-  .project::after {
-    content: '';
-    left: 0;
-    pointer-events: none;
-    position: absolute;
-    width: 100%;
-    z-index: 1; }
-  .project::after {
-    background: linear-gradient(to bottom, rgba(9, 13, 17, 0) 0%, #090d11 100%);
-    bottom: 0;
-    height: 50%; }
+  @media screen and (min-width: 48em) {
+    .project::before {
+      background-color: rgba(9, 13, 17, 0.8);
+      bottom: 0;
+      content: '';
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0; } }
+  @media screen and (min-width: 48em) {
+    .project::after {
+      background: linear-gradient(to bottom, rgba(9, 13, 17, 0) 0%, #090d11 100%);
+      bottom: 0;
+      content: '';
+      height: 50%;
+      left: 0;
+      pointer-events: none;
+      position: absolute;
+      width: 100%;
+      z-index: 1; } }
   .project--wrap {
     display: block;
     padding: 3.5rem 1.5rem;
@@ -653,25 +645,30 @@ figure {
   .project--btn {
     margin-top: 1rem; }
 
-#project__hightimes {
-  background-image: url("../images/bg/project-ht.jpg");
-  background-position: 50% 20%; }
+@media screen and (min-width: 48em) {
+  #project__hightimes {
+    background-image: url("../images/bg/project-ht.jpg");
+    background-position: 50% 20%; } }
 
-#project__flor {
-  background-image: url("../images/bg/project-flor.jpg");
-  background-position: 50% 80%; }
+@media screen and (min-width: 48em) {
+  #project__flor {
+    background-image: url("../images/bg/project-flor.jpg");
+    background-position: 50% 80%; } }
 
-#project__northern-fork {
-  background-image: url("../images/bg/project-nf.jpg");
-  background-position: 50% 60%; }
+@media screen and (min-width: 48em) {
+  #project__northern-fork {
+    background-image: url("../images/bg/project-nf.jpg");
+    background-position: 50% 60%; } }
 
-#project__onewake {
-  background-image: url("../images/bg/project-ow.jpg");
-  background-position: 50% 40%; }
+@media screen and (min-width: 48em) {
+  #project__onewake {
+    background-image: url("../images/bg/project-ow.jpg");
+    background-position: 50% 40%; } }
 
-#project__osx {
-  background-image: url("../images/bg/project-osx.jpg");
-  background-position: 50% 80%; }
+@media screen and (min-width: 48em) {
+  #project__osx {
+    background-image: url("../images/bg/project-osx.jpg");
+    background-position: 50% 80%; } }
 
 .frame__contact {
   min-height: 100vh;

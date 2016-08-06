@@ -14,30 +14,32 @@
     z-index: 1;
 
     &::before {
-        background-color: rgba($color-bunker, .8);
-        bottom: 0;
-        content: '';
-        left: 0;
-        position: absolute;
-        right: 0;
-        top: 0;
+
+        @include respond-to($medium) {
+            background-color: rgba($color-bunker, .8);
+            bottom: 0;
+            content: '';
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
     }
 
     &::after {
-        content: '';
-        left: 0;
-        pointer-events: none;
-        position: absolute;
-        width: 100%;
-        z-index: 1;
-    }
 
-    &::after {
-        background: linear-gradient(to bottom, rgba($color-bunker, 0) 0%, $color-bunker 100%);
-        bottom: 0;
-        height: 50%;
+        @include respond-to($medium) {
+            background: linear-gradient(to bottom, rgba($color-bunker, 0) 0%, $color-bunker 100%);
+            bottom: 0;
+            content: '';
+            height: 50%;
+            left: 0;
+            pointer-events: none;
+            position: absolute;
+            width: 100%;
+            z-index: 1;
+        }
     }
-
 
     &--wrap {
         display: block;
@@ -60,26 +62,41 @@
 
 
 #project__hightimes {
-    background-image: url('../images/bg/project-ht.jpg');
-    background-position: 50% 20%;
+
+    @include respond-to($medium) {
+        background-image: url('../images/bg/project-ht.jpg');
+        background-position: 50% 20%;
+    }
 }
 
 #project__flor {
-    background-image: url('../images/bg/project-flor.jpg');
-    background-position: 50% 80%;
+
+    @include respond-to($medium) {
+        background-image: url('../images/bg/project-flor.jpg');
+        background-position: 50% 80%;
+    }
 }
 
 #project__northern-fork {
-    background-image: url('../images/bg/project-nf.jpg');
-    background-position: 50% 60%;
+
+    @include respond-to($medium) {
+        background-image: url('../images/bg/project-nf.jpg');
+        background-position: 50% 60%;
+    }
 }
 
 #project__onewake {
-    background-image: url('../images/bg/project-ow.jpg');
-    background-position: 50% 40%;
+
+    @include respond-to($medium) {
+        background-image: url('../images/bg/project-ow.jpg');
+        background-position: 50% 40%;
+    }
 }
 
 #project__osx {
-    background-image: url('../images/bg/project-osx.jpg');
-    background-position: 50% 80%;
+
+    @include respond-to($medium) {
+        background-image: url('../images/bg/project-osx.jpg');
+        background-position: 50% 80%;
+    }
 }

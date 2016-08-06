@@ -10,11 +10,15 @@
     line-height: 1.5rem;
     margin: 0;
     outline: none;
-    padding: .5rem 2.5rem;
+    padding: .5rem 1.5rem;
     text-decoration: none;
     text-transform: uppercase;
     transition: .2s;
     vertical-align: top;
+
+    @include respond-to($medium) {
+        padding: .5rem 2.5rem;
+    }
 
     &:hover {
         background-color: $color-bunker;

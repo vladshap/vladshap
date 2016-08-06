@@ -19,7 +19,7 @@ main {
 
 .frame {
     overflow: hidden;
-    padding: 6rem 0;
+    padding: 3rem 0;
     position: relative;
     @include clearfix();
 
@@ -31,11 +31,18 @@ main {
         display: flex;
         flex-direction: column;
         justify-content: center;
+        padding: 6rem 0;
     }
 
-    &__about {
-        padding-top: 200px;
-    }
+    //&__about {
+    //    padding-top: 50px;
+    //    @include respond-to($medium) {
+    //        padding-top: 100px;
+    //    }
+    //    @include respond-to($large) {
+    //        padding-top: 200px;
+    //    }
+    //}
 }
 
 figure {

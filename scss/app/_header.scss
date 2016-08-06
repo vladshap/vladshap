@@ -9,25 +9,6 @@
     align-items: center;
     justify-content: center;
 
-    &::before {
-        background-color: transparent;
-        content: '';
-        height: 60px;
-        left: 0;
-        pointer-events: none;
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 0;
-    }
-
-    //&.pinned {
-    //    &::before {
-    //        background-color: rgba($color-bunker, .95);
-    //        transition: .5s;
-    //    }
-    //}
-    
     .loading & {
         overflow: hidden;
     }
@@ -49,12 +30,6 @@
         opacity: 0;
         transform: scale(.95);
     }
-    
-    //.pinned & {
-    //    left: 0;
-    //    position: fixed;
-    //    top: 0;
-    //}
 
     a {
         display: inline-block;
@@ -65,36 +40,10 @@
         transition: .5s ease-in-out;
         vertical-align: top;
 
-        @include respond-to($medium) {
-            //padding: 1rem 1.5rem;
-        }
-
-        &:hover {
-        }
-
-        .loaded &:hover {
-            //opacity: .75;
-
-            .logo-mark {
-            }
-
-            span {
-                opacity: 1;
-            }
-        }
-
-
         &:active {
-            transform: scale(1);
-            transition: .2s ease-in-out;
+            transform: scale(.98);
+            transition: .1s ease-in-out;
 
-        }
-
-        span {
-            //position: relative;
-            //top: 3rem;
-            //opacity: 0;
-            //transition: 1s ease-in-out;
         }
     }
 }
@@ -107,51 +56,32 @@
     vertical-align: top;
     width: 4.5rem;
     fill: rgba($color-gallery, .85);
+    transition: fill .2s ease-in-out;
+
+    &:hover {
+        fill: $color-gallery;
+    }
 
     @include respond-to($medium) {
         height: 15rem;
         left: -8px;
         width: 9rem;
     }
-
-    .loading & {
-        //animation: pulse 1s infinite ease-in-out;
-        //animation-fill-mode: both;
-    }
-
-    //.pinned & {
-    //    animation: fadeIn 1s;
-    //    height: 2.75rem;
-    //    opacity: 1!important;
-    //    transform: none!important;
-    //    width: 1.5rem;
-    //
-    //    @include respond-to($medium) {
-    //        left: 0;
-    //    }
-    //}
 }
 
 .bg {
     bottom: 0;
-    filter: blur(0px);
     height: 100%;
     left: 0;
-    opacity: 1;
     overflow: hidden;
     position: absolute;
     right: 0;
     top: 0;
-    transition: 5s ease-in-out opacity, 4s ease-in-out -webkit-filter, 4s ease-in-out -moz-filter, 4s ease-in-out filter, 3s ease-in-out transform;
+    transition: 5s ease-in-out opacity, 3s ease-in-out transform;
     z-index: -1;
-    -moz-filter: blur(0px);
 
     .loading-images & {
-        opacity: 0;
-    }
-
-    .loading & {
-        filter: blur(20px);
+        //opacity: 0;
     }
 
     .loaded & {

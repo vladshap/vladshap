@@ -43,26 +43,30 @@ body {
     pointer-events: none;
     position: absolute;
     top: 50%;
+    transition: 1s ease-in-out opacity;
     width: 50px;
     z-index: 100;
-    transition: .5s ease-in-out;
+
+    &::before {
+        background-color: $color-bunker;
+        bottom: 0;
+        content: '';
+        left: 0;
+        position: fixed;
+        right: 0;
+        top: 0;
+        z-index: -1;
+        pointer-events: none;
+    }
 
     svg {
-
-        animation: spin 2s linear infinite;
-        height: 100%;
-        transform-origin: center center;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        margin: auto;
+        position: relative;
+        z-index: 0;
+        animation: spin 1s linear infinite;
 
         .path {
-            stroke-dasharray: 1, 200;
+            stroke-dasharray: 110;
             stroke-dashoffset: 0;
-            animation: dash 1.5s ease-in-out infinite;
             stroke-linecap: round;
             stroke: $color-gallery;
         }
@@ -70,5 +74,13 @@ body {
 
     .loaded & {
         opacity: 0;
+
+        svg {
+            .path {
+                transition: 1s ease-in-out;
+                stroke-dasharray: 200;
+                stroke-dashoffset: 200;
+            }
+        }
     }
 }
