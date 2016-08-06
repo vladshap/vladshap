@@ -1,17 +1,9 @@
 ﻿$(document).ready(function () {
 
     $('img').waitForImages().done(function() {
-        // All descendant images have loaded, now slide up.
-
-        $('body').removeClass('loading-images');
-
+        $('body').removeClass('loading');
         setTimeout(function() {
-            $('body').removeClass('loading');
-
-            setTimeout(function() {
-                $('body').addClass('loaded');
-
-            }, 1000);
+            $('body').addClass('loaded');
         }, 500);
 
         $('.gallery').slick({
@@ -31,13 +23,8 @@
             viewportHeight = $(window).height();
             $('.site-header').css('height', viewportHeight);
             //console.log("viewport height: " + viewportHeight);
-
         }
         setFrameHeight();
-
-        //$(window).on("resize", function() {
-        //    setFrameHeight();
-        //});
 
         // ScrollMagic controller
         var controller = new ScrollMagic.Controller({
@@ -67,24 +54,8 @@
                 $(".site-header").addClass('pinned');
             });
 
-        //var frames = [".frame__about", ".frame__projects", ".frame__contact", ".frame__travel"],
-        //    activeClass = "frame--active",
-        //    totalFrames = frames.length;
-        //
-        //for (var i = 0; i < totalFrames; i++) {
-        //    if ($(frames[i]).length > 0) {
-        //        new ScrollMagic.Scene({
-        //            triggerElement: frames[i],
-        //            duration: $(frames[i]).outerHeight()
-        //        })
-        //            .setClassToggle(frames[i], activeClass)
-        //            .addTo(controller);
-        //    }
-        //}
-
-
         ///////////////////////
-        // Chicago Map Scene //
+        // SVG Map Scene //
         ///////////////////////
 
         var $svgPath = $(".canvas path");
@@ -118,7 +89,7 @@
         }
 
         // Bind click handler to menu items
-        // so we can get a fancy scroll animation
+        // so we can get a fancy smooth scroll animation
         $('a').on("click", function (e) {
             var href = $(this).attr("href"),
                 offsetTop = href === "#" ? 0 : $(href).offset().top + 1;
@@ -127,8 +98,6 @@
             }, 500);
             e.preventDefault();
         });
-
     });
-
 });
 

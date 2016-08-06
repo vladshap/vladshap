@@ -80,10 +80,6 @@
     transition: 5s ease-in-out opacity, 3s ease-in-out transform;
     z-index: -1;
 
-    .loading-images & {
-        //opacity: 0;
-    }
-
     .loaded & {
         transition: 0s;
     }
