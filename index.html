@@ -5,12 +5,12 @@
     <!--
         Hey! I see you lurking at my code...
         If you see any bugs, have suggestions, or think this code is shit, get at me on the twitters! - @vladshap
-        If you'd like to work together, I'm always looking for new interesting projects to work on! Get in touch -
-        whatsup@vladshap.com
+        If you'd like to work together, I'm always looking for new, interesting projects to work on!
+        Get in touch - vladshap@gmail.com
 
         --------------------
 
-        v0.0.0.0.1 - Copyright 2016 Vlad Shapochnikov.
+        v0.0.0.0.13422 - Copyright 2016 Vlad Shapochnikov. Feel free to steal anything, but it won't make ya happy.
     -->
 
     <meta charset="utf-8">
@@ -22,9 +22,7 @@
 
     <!--
         Temporarily setting body opacity to 0 to defer CSS loading.
-        Then later loading CSS via JavaScript.
-        Because its 2016...and Google told me to do so.
-        I'm hoping for quicker load times with this one...but mostly just experimenting.
+        ...only to later load it via JavaScript. See line 57.
     -->
     <style>body {
         opacity: 0;
@@ -53,7 +51,14 @@
 
 </head>
 <body class="loading loading-images">
-<!-- Here is this goofy Google way to load CSS. This seems like a bad idea... -->
+    <!--
+
+        Here is this goofy Google way to load CSS that I mentioned above.
+        This seems like a bad idea, but this is the only way to get rid of that pesky "render-blocking CSS in above-the-fold content"
+        issue that PageSpeed Insights throws at you...2016... I tell ya.
+        No, really look for yourself: https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery
+        I think it gave me one extra point on the PageSpeed Insights results. WAAHOO!!
+     -->
 <noscript id="deferred-styles">
     <link href="assets/styles/main.min.css" rel="stylesheet" type="text/css"/>
 </noscript>
@@ -73,7 +78,7 @@
     else window.addEventListener('load', loadDeferredStyles);
 </script>
 
-<!-- I should probably load these SVGs in externally via JS or whatever -->
+<!-- I should probably load this SVG in externally via JS or whatever, but...here it is! -->
 <svg style="position: absolute; width: 0; height: 0;" width="0" height="0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
         <symbol id="vs" viewBox="0 0 185 321">
@@ -128,22 +133,45 @@
         <!--</symbol>-->
     </defs>
 </svg>
+    <!--
+        You know, that thing that spins and says "LOADING" for a bit...
+        Meanwhile you contemplate leaving this website, shutting down your computer and throwing it out of
+        the nearest window. Yeah, its this.
+    -->
 <div class="loader">
     <svg class="circular" viewBox="25 25 50 50">
         <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
     </svg>
 </div>
+    <!--
+
+        I've got one of these giant, full-screen, trendy, slidery headers that makes it look like there is nothing else below it,
+        but I ASSURE YOU that there is. Please scroll further... or wait a while to see some images rotate, BECAUSE SLIDERS ARE
+        COOL. Thanks, Ken Wheeler: kenwheeler.github.io/slick/
+
+    -->
 <header role="banner" class="site-header">
+    <!--
+        So where are we with the whole "h1" vs "a" thing on the website logos? Should this just be a link? I always go
+        back and forth. Typically, for larger, multi-page websites, I  usually leave this as just a link, and move my h1
+        tag to the title of the current page, but given that this site is only one page...I think its okay. I'd love
+        to hear your thoughts on this, though.
+     -->
     <h1 class="site-logo">
         <a href="#about">
             <svg class="logo-mark">
                 <use xlink:href="#vs"></use>
             </svg>
+                <!--
+                I'm actually confused as to whether putting a "visually-hidden" element with my name is redundant here?
+                Since my SVG source has a "title" tag with the same information.... off to CSS-Tricks!
+                -->
             <span class="vh">Vlad Shapochnikov</span>
         </a>
     </h1>
     <div class="bg">
         <div class="gallery">
+            <!--Using srcsets for all the images...generated manually via http://www.responsivebreakpoints.com/ because I'm a n00b!-->
             <div class="photo">
                 <figure>
                     <img sizes="(max-width: 2880px) 100vw, 2880px"
@@ -203,6 +231,7 @@
                      src="/assets/images/vlad-shapochnikov_ulhcir_c_scale,w_1280.jpg"
                      alt="Photo of Vlad Shapochnikov">
             </figure>
+            <!-- Have I mentioned that my name is Vlad Shapochnikov enough yet? -->
             <p>Hello, my name is Vlad Shapochnikov. I'm a web developer and an aspiring explorer. I enjoy designing
                 thoughtful
                 products and apps. I see the world as a place to learn and I'm curious about the people
@@ -303,35 +332,14 @@
                     </fieldset>
                     <button class="btn btn--lg btn--centered btn--primary" type="submit">Send it!</button>
                 </form>
-
             </div>
-            <ul class="social-links">
-                <li><a href="http://twitter.com/vladshap/">
-                    <svg
-                            class="icon icon-twitter">
-                        <use xlink:href="#icon-twitter"></use>
-                    </svg>
-                </a></li>
-                <li><a href="http://instagram.com/vladshap/">
-                    <svg
-                            class="icon icon-instagram">
-                        <use xlink:href="#icon-instagram"></use>
-                    </svg>
-                </a></li>
-                <li><a href="http://github.com/vladshap/">
-                    <svg
-                            class="icon icon-github">
-                        <use xlink:href="#icon-github"></use>
-                    </svg>
-                </a></li>
-                <li><a href="http://codepen.io/vladshap/">
-                    <svg
-                            class="icon icon-codepen">
-                        <use xlink:href="#icon-codepen"></use>
-                    </svg>
-                </a></li>
-            </ul>
         </div>
+        <!--
+            Here is this cool SVG draw-y on scroll thingamagig.
+            Made possible with GSAP - http://greensock.com/gsap & ScrollMagic - http://scrollmagic.io/
+            The idea is that this will change depending on my current location... but it will most likely end up being
+            outdated. Right now it should be Thailand. Feel free to cross reference my instagram to REALLY stalk me.
+        -->
         <div class="canvas">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 326 601">
                 <g fill="none" fill-rule="evenodd">
@@ -345,14 +353,41 @@
     </section>
 </main>
 <footer role="contentinfo" class="site-footer">
+    <ul class="social-links">
+        <li><a href="http://twitter.com/vladshap/">
+            <svg
+                    class="icon icon-twitter">
+                <use xlink:href="#icon-twitter"></use>
+            </svg>
+        </a></li>
+        <li><a href="http://instagram.com/vladshap/">
+            <svg
+                    class="icon icon-instagram">
+                <use xlink:href="#icon-instagram"></use>
+            </svg>
+        </a></li>
+        <li><a href="http://github.com/vladshap/">
+            <svg
+                    class="icon icon-github">
+                <use xlink:href="#icon-github"></use>
+            </svg>
+        </a></li>
+        <li><a href="http://codepen.io/vladshap/">
+            <svg
+                    class="icon icon-codepen">
+                <use xlink:href="#icon-codepen"></use>
+            </svg>
+        </a></li>
+    </ul>
     <p class="copyright">
         <svg class="mtn">
             <use xlink:href="#mtn"></use>
         </svg>
-        &copy; 2016 Vlad Shapochnikov.
+        &copy; 2016 Vlad Shapochnikov. Feel free to steal anything, but it won't make ya happy.
     </p>
 </footer>
 </body>
+<!--Concatinated & Minified JS via Gulp-->
 <script src="/assets/js/site.min.js" async defer></script>
 <script>
     (function (i, s, o, g, r, a, m) {
