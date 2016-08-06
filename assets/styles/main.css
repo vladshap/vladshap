@@ -90,6 +90,9 @@ body {
     body {
       -webkit-text-size-adjust: 100%; } }
 
+img {
+  max-width: 100%; }
+
 .loader {
   height: 50px;
   left: 50%;
@@ -426,14 +429,6 @@ label {
     display: block;
     clear: both; }
 
-img {
-  max-width: 100%; }
-
-main {
-  background-color: #090d11;
-  margin-bottom: 74px;
-  position: relative; }
-
 .frame {
   overflow: hidden;
   padding: 3rem 0;
@@ -602,12 +597,7 @@ figure {
     transform: translate(-50%, -50%); }
 
 .site-footer {
-  bottom: 0;
-  left: 0;
   padding: 1rem 0;
-  position: fixed;
-  right: 0;
-  z-index: -1;
   text-align: center; }
   .site-footer .copyright {
     font-size: .75rem;
