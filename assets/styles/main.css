@@ -730,27 +730,27 @@ figure {
 
 @media screen and (min-width: 48em) {
   #project__hightimes {
-    background-image: url("//d1samizooutkxr.cloudfront.net/vladshap/assets/images/bg/project-ht.jpg");
+    background-image: url("http://assets.vladshap.com/assets/images/bg/project-ht.jpg");
     background-position: 50% 20%; } }
 
 @media screen and (min-width: 48em) {
   #project__flor {
-    background-image: url("//d1samizooutkxr.cloudfront.net/vladshap/assets/images/bg/project-flor.jpg");
+    background-image: url("http://assets.vladshap.com/assets/images/bg/project-flor.jpg");
     background-position: 50% 80%; } }
 
 @media screen and (min-width: 48em) {
   #project__northern-fork {
-    background-image: url("//d1samizooutkxr.cloudfront.net/vladshap/assets/images/bg/project-nf.jpg");
+    background-image: url("http://assets.vladshap.com/assets/images/bg/project-nf.jpg");
     background-position: 50% 60%; } }
 
 @media screen and (min-width: 48em) {
   #project__onewake {
-    background-image: url("//d1samizooutkxr.cloudfront.net/vladshap/assets/images/bg/project-ow.jpg");
+    background-image: url("http://assets.vladshap.com/assets/images/bg/project-ow.jpg");
     background-position: 50% 30%; } }
 
 @media screen and (min-width: 48em) {
   #project__osx {
-    background-image: url("//d1samizooutkxr.cloudfront.net/vladshap/assets/images/bg/project-osx.jpg");
+    background-image: url("http://assets.vladshap.com/assets/images/bg/project-osx.jpg");
     background-position: 50% 80%; } }
 
 .canvas {
