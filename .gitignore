@@ -14,3 +14,4 @@ out/
 assets/js/
 assets/styles/
 *.scssc
+aws.json

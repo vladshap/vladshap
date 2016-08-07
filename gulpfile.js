@@ -9,6 +9,9 @@ var scsslint = require('gulp-scss-lint');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var sourcemaps = require('gulp-sourcemaps');
+var gzip = require("gulp-gzip");
+var awspublish = require('gulp-awspublish');
+
 
 
 gulp.task('browser-sync', function () {
@@ -69,8 +72,25 @@ gulp.task('js', function(){
         .pipe(browserSync.reload({stream: true}));
 });
 
+gulp.task('s3-publish', function() {
+    var publisher = awspublish.create({
+        region: 'us-west-2',
+        params: {
+            Bucket: 'vladshap'
+        }
+    });
+    var headers = {
+        'Cache-Control': 'max-age=315360000, no-transform, public'
+    };
+    return gulp.src('assets/**')
+        .pipe(awspublish.gzip())
+        .pipe(publisher.publish(headers))
+        .pipe(publisher.sync())
+        //.pipe(publisher.cache())
+        .pipe(awspublish.reporter());
+});
 
-gulp.task('default', ['browser-sync'], function () {
+gulp.task('serve and watch', ['browser-sync'], function () {
     gulp.watch("scss/**/*.scss", ['styles']);
     gulp.watch("*.html", ['bs-reload']);
     gulp.watch("scripts/*.js", ['js']);
