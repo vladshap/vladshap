@@ -24,7 +24,6 @@
             $('.site-header').css('height', viewportHeight);
             //console.log("viewport height: " + viewportHeight);
         }
-        setFrameHeight();
 
         // ScrollMagic controller
         var controller = new ScrollMagic.Controller({
@@ -36,7 +35,9 @@
         // Intro Scene Tween
         var introTween = new TimelineMax().add([
             TweenMax.to(".logo-mark", 1, {scale:.85, y: "30%", opacity:0}),
-            TweenMax.to(".gallery", 1, {y: "20%"})
+            TweenMax.to(".gallery", 1, {y: "20%"}),
+            TweenMax.to(".scroll-indicator", 1, {y: "-100%", scale: .5})
+
         ]);
 
         //Intro Scene
