@@ -79,18 +79,23 @@ gulp.task('s3-publish', function() {
             Bucket: 'vladshap'
         }
     });
+
     var headers = {
         'Cache-Control': 'max-age=315360000, no-transform, public'
     };
+
+    var options = {
+    };
+
     return gulp.src('assets/**')
         .pipe(awspublish.gzip())
-        .pipe(publisher.publish(headers))
+        .pipe(publisher.publish(headers, options))
         .pipe(publisher.sync())
-        //.pipe(publisher.cache())
+        .pipe(publisher.cache())
         .pipe(awspublish.reporter());
 });
 
-gulp.task('serve and watch', ['browser-sync'], function () {
+gulp.task('watch', ['browser-sync'], function () {
     gulp.watch("scss/**/*.scss", ['styles']);
     gulp.watch("*.html", ['bs-reload']);
     gulp.watch("scripts/*.js", ['js']);
