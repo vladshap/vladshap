@@ -11,7 +11,6 @@ node_modules/
 bower_components/
 npm-debug.log
 out/
-assets/js/
-assets/styles/
+assets/
 *.scssc
 .awspublish-vladshap
