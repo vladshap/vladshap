@@ -26,11 +26,7 @@
         }
 
         // ScrollMagic controller
-        var controller = new ScrollMagic.Controller({
-            globalSceneOptions: {
-                triggerHook: 0
-            }
-        });
+        var controller = new ScrollMagic.Controller();
 
         // Intro Scene Tween
         var introTween = new TimelineMax().add([
@@ -43,7 +39,8 @@
         //Intro Scene
         new ScrollMagic.Scene({
             triggerElement: ".site-header",
-            duration: "100%"
+            duration: "100%",
+            triggerHook: 0
         })
             .setTween(introTween)
             .addTo(controller)
@@ -72,20 +69,20 @@
         getPathLength($svgPath);
 
         if ( $($svgPath).length > 0 ) {
-            var chicagoTween = new TimelineMax().add(TweenMax.to($svgPath, 1, {strokeDashoffset: 0}));
+            var mapTween = new TimelineMax().add(TweenMax.to($svgPath, 1, {strokeDashoffset: 0}));
 
             new ScrollMagic.Scene({
                 triggerElement: "#contact",
-                duration: 100,
-                tweenChanges: true,
-                triggerHook: 0,
-                offset: 0
+                triggerHook:.75
             })
-                .setTween(chicagoTween)
+                .setTween(mapTween)
                 .addTo(controller)
                 //.addIndicators()
-                .on("end", function () {
-                    $('.canvas').toggleClass('finished');
+                .on("enter", function () {
+                    $('.canvas').addClass('finished');
+                })
+                .on("leave", function () {
+                    $('.canvas').removeClass('finished');
                 });
         }
 
