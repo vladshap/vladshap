@@ -1,0 +1,7 @@
+<img sizes="(max-width: 1280px) 100vw, 1280px"
+ srcset="
+    //s3.amazonaws.com/vladshap/images/vlad-shapochnikov_ulhcir_c_scale,w_640.jpg 640w,
+    //s3.amazonaws.com/vladshap/images/vlad-shapochnikov_ulhcir_c_scale,w_995.jpg 995w,
+    //s3.amazonaws.com/vladshap/images/vlad-shapochnikov_ulhcir_c_scale,w_1280.jpg 1280w"
+ src="//s3.amazonaws.com/vladshap/images/vlad-shapochnikov_ulhcir_c_scale,w_1280.jpg"
+ alt="Photo of Vlad Shapochnikov">

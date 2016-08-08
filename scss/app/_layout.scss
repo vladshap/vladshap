@@ -8,6 +8,10 @@
     @include respond-to($xlarge) {
         @include container($medium);
     }
+
+    &--wide {
+        @include container($xlarge);
+    }
 }
 
 .frame {
@@ -20,9 +24,9 @@
     }
 
     @include respond-to($medium) {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        //display: flex;
+        //flex-direction: column;
+        //justify-content: center;
     }
 
     &__about {
@@ -70,13 +74,44 @@ figure {
     }
 
     figcaption {
-        opacity: 0;
-        transition: .25s ease-in-out;
+        position: absolute;
+        left: 100%;
+        white-space: nowrap;
+        bottom: -1rem;
+        padding-top: .25rem;
+        font-size: .75rem;
+        line-height: normal;
+        transform-origin: left top;
+        transform: rotate(-90deg);
+
+        a {
+            text-decoration: none;
+            font-weight: $font-weight-bold;
+            
+            &:hover {
+                text-decoration: underline;
+            }
+        }
     }
 
     &:hover {
         figcaption {
-            opacity: 1;
         }
     }
 }
+//
+//.about-image {
+//    float: left;
+//    position: absolute;
+//    width: 75%;
+//    right: -40%;
+//    top: -25%;
+//    z-index: -1;
+//    opacity: .5;
+//    //padding-right: 1.5rem;
+//}
+//
+//.about-content {
+//    //float: left;
+//    //width: 50%;
+//}
