@@ -26,29 +26,37 @@
     }
 
     &__about {
-        padding-top: 3rem;
         padding-bottom: 3rem;
+        padding-top: 3rem;
 
         @include respond-to($medium) {
-            padding-top: 6rem;
             padding-bottom: 6rem;
+            padding-top: 6rem;
         }
     }
 
     &__projects {
 
         @include respond-to($medium) {
+            margin-bottom: 200px;
         }
     }
 
     &__contact {
-        padding-top: 3rem;
+        height: auto;
         padding-bottom: 3rem;
+        padding-top: 3rem;
 
         @include respond-to($large) {
-            padding-top: 0;
             padding-bottom: 0;
-            min-height: 100vh;
+            padding-top: 0;
+        }
+
+        h2 {
+
+            @include respond-to($medium) {
+                margin-bottom: 4rem;
+            }
         }
     }
 }

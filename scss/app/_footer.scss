@@ -2,6 +2,10 @@
     padding: 1rem 0;
     text-align: center;
 
+    @include respond-to($medium) {
+        margin-top: 100px;
+    }
+
     .copyright {
         font-size: .75rem;
         font-weight: $font-weight-bold;

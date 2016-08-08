@@ -24,19 +24,27 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-    font-size: 2.441em;
+    font-size: 2.441rem;
     line-height: normal;
     margin-top: 0;
 }
 
 h2 {
-    font-size: 1.4em;
+    border-bottom: 1px solid $color-gallery;
+    font-size: 1em;
     font-weight: $font-weight-bold;
+    letter-spacing: 3px;
     line-height: normal;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
+    margin-top: 2rem;
+    text-transform: uppercase;
 }
 
 h3 {
+    font-size: 1.4rem;
+    font-weight: $font-weight-bold;
+    line-height: normal;
+    margin-bottom: 1.25rem;
 }
 
 h4 {
@@ -71,22 +79,31 @@ small {
     font-weight: $font-weight-bold;
     letter-spacing: 2px;
     line-height: 1.2;
-    margin: 0 auto 3rem;
+    margin: 5rem auto;
     padding-left: .75rem;
     position: relative;
+    text-align: right;
     text-transform: uppercase;
+
+    @include respond-to($medium) {
+        display: inline-block;
+        margin: 0;
+        position: absolute;
+        right: 1.5rem;
+        top: 2.125rem;
+    }
 
     &::before,
     &::after {
         background-color: rgba(#00ff48, .5);
         border-radius: 5px;
         content: '';
-        display: inline-block;
+        display: block;
         left: 0;
+        margin-top: -2px;
         position: absolute;
         top: 50%;
         transform: translate(0, -50%);
-        vertical-align: top;
     }
 
     &::before {

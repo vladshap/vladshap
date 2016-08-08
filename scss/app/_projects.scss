@@ -3,15 +3,15 @@
 .project {
     background-repeat: none;
     background-size: cover;
-    border-top: 1px solid $base-border;
-    margin-bottom: 3rem;
+    border-bottom: 1px solid $base-border;
+    padding-bottom: 3rem;
     position: relative;
     width: 100%;
     z-index: 1;
 
     &:last-child {
-        border-bottom: 1px solid $base-border;
         padding-bottom: 3rem;
+        border-bottom: 0;
 
         @include respond-to($medium) {
             border-bottom: 0;
@@ -20,7 +20,7 @@
     }
 
     @include respond-to($medium) {
-        border-top: 0;
+        border-bottom: 0;
         margin-top: 0;
     }
 
