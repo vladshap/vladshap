@@ -83,10 +83,11 @@ figure {
         line-height: normal;
         transform-origin: left top;
         transform: rotate(-90deg);
+        opacity: .5;
 
         a {
             text-decoration: none;
-            font-weight: $font-weight-bold;
+            //font-weight: $font-weight-bold;
             
             &:hover {
                 text-decoration: underline;
