@@ -30,14 +30,29 @@ h1 {
 }
 
 h2 {
-    border-bottom: 1px solid $color-gallery;
+    background-color: $color-bunker;
+    display: table;
     font-size: 1em;
     font-weight: $font-weight-bold;
     letter-spacing: 3px;
     line-height: normal;
-    margin-bottom: 1.5rem;
-    margin-top: 2rem;
+    margin: 2rem auto 1.5rem;
+    padding: 0 .5rem;
+    text-align: center;
     text-transform: uppercase;
+
+
+    &::before {
+        background-color: $color-gallery;
+        content: '';
+        display: block;
+        height: 1px;
+        left: 1.5rem;
+        position: absolute;
+        right: 1.5rem;
+        top: 6px;
+        z-index: -1;
+    }
 }
 
 h3 {
@@ -79,19 +94,11 @@ small {
     font-weight: $font-weight-bold;
     letter-spacing: 2px;
     line-height: 1.2;
-    margin: 5rem auto;
+    margin: 5rem auto 0;
     padding-left: .75rem;
     position: relative;
     text-align: right;
     text-transform: uppercase;
-
-    @include respond-to($medium) {
-        display: inline-block;
-        margin: 0;
-        position: absolute;
-        right: 1.5rem;
-        top: 0.125rem;
-    }
 
     &::before,
     &::after {
