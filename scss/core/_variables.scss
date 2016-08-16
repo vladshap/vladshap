@@ -1,5 +1,6 @@
 //TYPOGRAPHY
-$base-sans-serif: "Josefin Sans", sans-serif;
+//$base-sans-serif: "Josefin Sans", sans-serif;
+$base-sans-serif: "brandon-grotesque", sans-serif;
 
 $base-heading-font: $base-sans-serif;
 $base-body-font: $base-sans-serif;
@@ -7,7 +8,8 @@ $base-line-height: 1.45;
 $base-font-size: 16px;
 
 $font-weight-regular: 400;
-$font-weight-bold: 700;
+//$font-weight-bold: 700;
+$font-weight-bold: 900;
 
 //MAIN COLOR PALETTE - For naming colors variables, I used http://chir.ag/projects/name-that-color/
 $color-bunker: #090d11;

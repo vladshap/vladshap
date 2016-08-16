@@ -1,5 +1,5 @@
 /* latin-ext */
-@import 'https://fonts.googleapis.com/css?family=Josefin+Sans:400,700';
+//@import 'https://fonts.googleapis.com/css?family=Josefin+Sans:400,700';
 
 // Typography
 
@@ -50,7 +50,7 @@ h2 {
         left: 1.5rem;
         position: absolute;
         right: 1.5rem;
-        top: 6px;
+        top: 10px;
         z-index: -1;
     }
 }
@@ -87,6 +87,15 @@ small {
     opacity: .5;
 }
 
+.copyright {
+    font-size: .75rem;
+    line-height: 20px;
+    margin-bottom: 0;
+
+    @include respond-to($medium) {
+        font-size: .875rem;
+    }
+}
 
 .freelance {
     display: table;
