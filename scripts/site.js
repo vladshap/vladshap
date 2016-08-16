@@ -20,10 +20,12 @@
 
         var viewportHeight = 0;
         function setFrameHeight() {
-            viewportHeight = $(window).height();
+            viewportHeight = $(window).height() - 200;
             $('.site-header').css('height', viewportHeight);
             //console.log("viewport height: " + viewportHeight);
         }
+
+        setFrameHeight();
 
         // ScrollMagic controller
         var controller = new ScrollMagic.Controller();
