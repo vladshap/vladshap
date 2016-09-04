@@ -24,7 +24,7 @@
             bottom: 10%;
             position: absolute;
             right: -1px;
-            width: 75%;
+            width: 60%;
         }
 
         path {
@@ -32,45 +32,6 @@
             stroke-miterlimit: 10;
             stroke-width: .25;
             fill: none;
-        }
-    }
-
-
-    .current-location {
-        bottom: 30%;
-        font-size: .75rem;
-        font-weight: $font-weight-bold;
-        line-height: 1;
-        opacity: 0;
-        position: absolute;
-        right: 10px;
-        text-align: right;
-        text-transform: uppercase;
-        transform: scale(.5);
-        transform-origin: 50% 50%;
-        transition: .2s;
-        transition-delay: 0s;
-
-        .title {
-            display: block;
-            font-size: 1rem;
-            font-weight: $font-weight-regular;
-            text-transform: none;
-        }
-    }
-
-    &.finished {
-
-        .current-location {
-            opacity: 1;
-            transform:  scale(1);
-            transition-delay: .25s;
-        }
-
-        .circle {
-            opacity: 1;
-            transform: scale(1.25);
-            transition-delay: 0s;
         }
     }
 }

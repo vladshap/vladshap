@@ -103,7 +103,7 @@ small {
     font-weight: $font-weight-bold;
     letter-spacing: 2px;
     line-height: 1.2;
-    margin: 5rem auto 0;
+    margin: 5rem auto;
     padding-left: .75rem;
     position: relative;
     text-align: right;
@@ -134,5 +134,23 @@ small {
         left: 1px;
         position: absolute;
         width: 2px;
+    }
+}
+
+
+
+
+.current-location {
+    font-size: .75rem;
+    font-weight: $font-weight-bold;
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+
+    .title {
+        display: block;
+        font-size: 1rem;
+        font-weight: $font-weight-regular;
+        text-transform: none;
     }
 }
