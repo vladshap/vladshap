@@ -126,6 +126,11 @@ h4 {
 
 ul {
     list-style: none;
+
+    .resume & {
+        list-style-type: disc;
+        list-style-position: inside;
+    }
 }
 
 em {
