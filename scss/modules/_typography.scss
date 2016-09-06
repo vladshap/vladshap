@@ -127,7 +127,7 @@ h4 {
 ul {
     list-style: none;
 
-    .resume & {
+    &.bullets {
         list-style-type: disc;
         list-style-position: inside;
     }
