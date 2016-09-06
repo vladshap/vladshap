@@ -32,10 +32,10 @@ $input-placeholder-color: rgba($color-gallery, .35);
 //SUSY GRID
 $susy: (
     columns: 12,
-    gutters: 0,
+    gutters: 1,
     math: fluid,
     output: isolate,
-    gutter-position: inside,
+    gutter-position: after,
 );
 
 $global-padding: 2rem;

@@ -6,6 +6,29 @@
 p {
     font-size: 1.125rem;
     margin-bottom: 1.5rem;
+
+    .resume & {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    &.intro {
+
+        @include respond-to($small) {
+            font-size: 1.25rem;
+        }
+    }
+
+
+
+    &.job-title {
+        font-weight: $font-weight-bold;
+        //margin-bottom: .25rem;
+        margin-bottom: 0;
+        padding-right: 75px;
+        position: relative;
+        @include clearfix();
+    }
 }
 
 a {
@@ -24,9 +47,29 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-    font-size: 2.441rem;
-    line-height: normal;
-    margin-top: 0;
+    font-size: 1.25rem;
+    font-weight: $font-weight-regular;
+    letter-spacing: 2px;
+    line-height: 1;
+    margin: 2rem 0;
+    text-align: center;
+    text-transform: uppercase;
+
+    @include respond-to($small) {
+        font-size: 2rem;
+        letter-spacing: 3px;
+    }
+
+    .title {
+        display: block;
+        font-size: 1rem;
+        letter-spacing: 1px;
+
+        @include respond-to($small) {
+            font-size: 1.45rem;
+            letter-spacing: inherit;
+        }
+    }
 }
 
 h2 {
@@ -41,6 +84,9 @@ h2 {
     text-align: center;
     text-transform: uppercase;
 
+    .resume & {
+        background-color: $color-gallery;
+    }
 
     &::before {
         background-color: $color-gallery;
@@ -52,6 +98,15 @@ h2 {
         right: 1.5rem;
         top: 10px;
         z-index: -1;
+
+        .resume & {
+            background-color: $color-bunker;
+        }
+
+        .column & {
+            left: 0;
+            right: 0;
+        }
     }
 }
 
@@ -75,7 +130,7 @@ ul {
 
 em {
     font-style: italic;
-    font-weight: normal;
+    font-weight: $font-weight-regular;
 }
 
 strong {
@@ -85,6 +140,14 @@ strong {
 small {
     font-size: 75%;
     opacity: .5;
+}
+
+.date {
+    font-size: .875rem;
+    font-weight: $font-weight-bold;
+    position: absolute;
+    right: 0;
+    top: 2px;
 }
 
 .copyright {

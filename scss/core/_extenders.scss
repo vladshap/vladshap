@@ -46,3 +46,7 @@
 .vh {
     @extend %visuallyhidden;
 }
+
+.align-right {
+    float: right;
+}

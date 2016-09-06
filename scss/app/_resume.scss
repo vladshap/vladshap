@@ -1,0 +1,53 @@
+html {
+    background-color: $color-gallery;
+    box-sizing: border-box;
+}
+
+html,
+body {
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    color: $color-bunker;
+    font-family: $base-body-font;
+    font-size: $base-font-size;
+    font-weight: $font-weight-regular;
+    line-height: $base-line-height;
+    opacity: 1;
+    -webkit-font-smoothing: antialiased;
+
+
+    //To prevent the iPhone and iPad from inflating fonts
+    @include respond-to($large, max) {
+        -webkit-text-size-adjust: 100%;
+    }
+}
+
+.column {
+
+    @include respond-to($medium) {
+        @include span(6);
+    }
+
+    &:last-child {
+        @include respond-to($medium) {
+            @include omega();
+        }
+    }
+}
+
+.wrapper {
+    position: relative;
+}
+
+.resume-footer {
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}

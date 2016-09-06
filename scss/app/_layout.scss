@@ -9,9 +9,10 @@
         @include container($medium);
     }
 
-    &--wide {
-        @include container($xlarge);
+    .resume & {
+        @include container($large);
     }
+
 }
 
 .frame {
