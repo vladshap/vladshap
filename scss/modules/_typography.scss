@@ -211,7 +211,6 @@ small {
 .current-location {
     font-size: .75rem;
     font-weight: $font-weight-bold;
-    line-height: 1;
     text-align: center;
     text-transform: uppercase;
 
@@ -220,5 +219,13 @@ small {
         font-size: 1rem;
         font-weight: $font-weight-regular;
         text-transform: none;
+        line-height: 1;
+    }
+
+    .flag {
+        display: inline-block;
+        vertical-align: top;
+        margin-top: 2px;
+        margin-right: 4px;
     }
 }
