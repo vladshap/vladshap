@@ -21,16 +21,16 @@
     svg {
 
         @include respond-to($medium) {
-            bottom: 10%;
+            bottom: 0;
             position: absolute;
-            right: -1px;
-            width: 60%;
+            right: 0;
+            height: 90%;
         }
 
         path {
-            stroke: rgba($color-gallery, .75);
+            stroke: $base-border;
             stroke-miterlimit: 10;
-            stroke-width: .25;
+            stroke-width: .75;
             fill: none;
         }
     }

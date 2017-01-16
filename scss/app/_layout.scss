@@ -13,6 +13,9 @@
         @include container($large);
     }
 
+    &--wide {
+        @include container(90rem);
+    }
 }
 
 .frame {
@@ -76,20 +79,16 @@ figure {
 
     figcaption {
         position: absolute;
-        left: 100%;
+        right: 0;
         white-space: nowrap;
-        bottom: -1rem;
         padding-top: .25rem;
-        font-size: .75rem;
+        font-size: .5rem;
         line-height: normal;
-        transform-origin: left top;
-        transform: rotate(-90deg);
+        z-index: 10;
         opacity: .5;
 
         a {
             text-decoration: none;
-            //font-weight: $font-weight-bold;
-            
             &:hover {
                 text-decoration: underline;
             }
@@ -101,19 +100,8 @@ figure {
         }
     }
 }
-//
-//.about-image {
-//    float: left;
-//    position: absolute;
-//    width: 75%;
-//    right: -40%;
-//    top: -25%;
-//    z-index: -1;
-//    opacity: .5;
-//    //padding-right: 1.5rem;
-//}
-//
-//.about-content {
-//    //float: left;
-//    //width: 50%;
-//}
+
+.about-image {
+    opacity: .75;
+}
+
