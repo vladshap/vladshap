@@ -13,5 +13,5 @@ npm-debug.log
 out/
 *.scssc
 .awspublish-vladshap
-assets/styles/main.css
-assets/js/contact.js
+/assets/styles/main.css
+/assets/js/contact.js
