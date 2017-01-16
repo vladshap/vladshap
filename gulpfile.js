@@ -60,6 +60,7 @@ gulp.task('js', function(){
                 //'bower_components/scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js',
                 'bower_components/slick-carousel/slick/slick.js',
                 'bower_components/waitForImages/src/jquery.waitforimages.js',
+                'bower_components/instafeed.js/instafeed.js',
                 'scripts/site.js'
             ])
         .pipe(sourcemaps.init())

@@ -5,7 +5,9 @@
   "homepage": "http://vladshap.com/",
   "license": "MIT",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "instafeed.js": "^1.4.1"
+  },
   "devDependencies": {
     "jquery": "~2.1.4",
     "scrollmagic": "ScrollMagic#~2.0.5",
