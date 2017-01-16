@@ -6,35 +6,36 @@
             $('body').addClass('loaded');
         }, 500);
 
-        $('.gallery').slick({
-            autoplay: true,
-            speed: 1000,
-            autoplaySpeed: 5000,
-            keyboardNav: true,
-            fade: true,
-            infinite: true,
-            arrows: false,
-            dots: false,
-            cssEase: 'linear'
-        });
+        // $('.gallery').slick({
+        //     autoplay: true,
+        //     speed: 1000,
+        //     autoplaySpeed: 5000,
+        //     keyboardNav: true,
+        //     fade: true,
+        //     infinite: true,
+        //     arrows: false,
+        //     dots: false,
+        //     cssEase: 'linear'
+        // });
 
         var viewportHeight = 0;
         function setFrameHeight() {
             viewportHeight = $(window).height() - 200;
-            $('.site-header').css('height', viewportHeight);
-            //console.log("viewport height: " + viewportHeight);
+            // $('.site-header').css('height', viewportHeight);
+            // console.log("viewport height: " + viewportHeight);
         }
 
-        setFrameHeight();
+        // setFrameHeight();
 
         // ScrollMagic controller
         var controller = new ScrollMagic.Controller();
 
         // Intro Scene Tween
         var introTween = new TimelineMax().add([
-            TweenMax.to(".logo-mark", 1, {scale:.85, y: "30%", opacity:0}),
-            TweenMax.to(".gallery", 1, {y: "20%"}),
-            TweenMax.to(".scroll-indicator", 1, {y: "-100%", scale: .5})
+            TweenMax.to(".logo-mark", 1, {scale:.85, y: "20%", opacity:0}),
+            TweenMax.to(".logo-text", 1, {opacity:0}),
+            // TweenMax.to(".site-header", 1, {backgroundPosition: "0 -75%"}),
+            TweenMax.to(".scroll-indicator", 1, {y: "-90%", scale: .5})
 
         ]);
 
@@ -98,6 +99,18 @@
             }, 500);
             e.preventDefault();
         });
+
+        // Instagram
+        var feed = new Instafeed({
+            get: 'user',
+            userId: '12280671',
+            resolution: 'standard_resolution',
+            limit: '9',
+            template: '<li><a href="{{link}}" target="_blank"><img src="{{image}}" alt="{{caption}}"/></a></li>',
+            accessToken: '12280671.1677ed0.b4f90dc8d77b4430bf876a02ca04baaf'
+        });
+        feed.run();
+
     });
 });
 
