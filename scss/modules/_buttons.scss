@@ -1,9 +1,7 @@
 .btn {
-    background-color: $color-gallery;
-    border: 1px solid transparent;
-    color: $color-bunker;
     cursor: pointer;
     display: inline-block;
+    border: 1px solid $color-white;
     font-size: .75rem;
     font-weight: $font-weight-bold;
     letter-spacing: 3px;
@@ -15,15 +13,17 @@
     text-transform: uppercase;
     transition: .2s;
     vertical-align: top;
+    background-color: transparent;
+    color: $color-white;
 
     @include respond-to($medium) {
-        padding: .5rem 2.5rem;
+        //padding: .5rem 2.5rem;
     }
 
     &:hover {
-        background-color: transparent;
-        border-color: $color-gallery;
-        color: $color-gallery;
+        background-color: $color-white;
+        color: $color-black;
+        border-color: transparent;
         text-decoration: none;
     }
 

@@ -55,7 +55,7 @@ main {
     z-index: 100;
 
     &::before {
-        background-color: $color-bunker;
+        background-color: $color-black;
         bottom: 0;
         content: '';
         left: 0;
@@ -67,7 +67,7 @@ main {
     }
 
     &::after {
-        color: $color-gallery;
+        color: $color-white;
         content: 'Loading';
         display: block;
         font-family: "Helvetica Neue", "Helvetica", sans-serif;
@@ -92,7 +92,7 @@ main {
             stroke-dasharray: 110;
             stroke-dashoffset: 0;
             stroke-linecap: round;
-            stroke: $color-gallery;
+            stroke: $color-white;
         }
     }
 

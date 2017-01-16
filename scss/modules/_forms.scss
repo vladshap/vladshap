@@ -34,7 +34,7 @@ fieldset {
 
 label {
     bottom: 0;
-    color: $color-gallery;
+    color: $color-white;
     display: block;
     font-size: .75rem;
     font-weight: $font-weight-bold;
@@ -54,7 +54,7 @@ label {
     }
 
     &::before {
-        background-color: $color-gallery;
+        background-color: $color-white;
         bottom: 0;
         content: '';
         height: 1px;
@@ -68,9 +68,9 @@ label {
 .input {
     background-color: transparent;
     border: none;
-    border-bottom: 1px solid rgba($color-gallery, .25);
+    border-bottom: 1px solid rgba($color-white, .25);
     border-radius: 0;
-    color: $color-gallery;
+    color: $color-white;
     display: block;
     font-size: .875rem;
     height: $field-height;

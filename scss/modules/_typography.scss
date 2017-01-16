@@ -73,7 +73,7 @@ h1 {
 }
 
 h2 {
-    background-color: $color-bunker;
+    background-color: $color-black;
     display: table;
     font-size: 1em;
     font-weight: $font-weight-bold;
@@ -85,11 +85,11 @@ h2 {
     text-transform: uppercase;
 
     .resume & {
-        background-color: $color-gallery;
+        background-color: $color-white;
     }
 
     &::before {
-        background-color: $color-gallery;
+        background-color: $color-white;
         content: '';
         display: block;
         height: 1px;
@@ -100,7 +100,7 @@ h2 {
         z-index: -1;
 
         .resume & {
-            background-color: $color-bunker;
+            background-color: $color-black;
         }
 
         .column & {
@@ -165,12 +165,19 @@ small {
     }
 }
 
-.freelance {
-    display: table;
+.small {
+    display: block;
     font-size: .65rem;
     font-weight: $font-weight-bold;
     letter-spacing: 2px;
     line-height: 1.2;
+    position: relative;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.freelance {
+    display: table;
     margin: 5rem auto;
     padding-left: .75rem;
     position: relative;
