@@ -1,0 +1,24 @@
+.instafeed {
+	margin-bottom: 3rem;
+	margin-left: -1px;
+	margin-right: -1px;
+	@include clearfix();
+
+	li {
+		width: 33.33%;
+		float: left;
+		padding: 1px;
+
+		&:nth-child(3n+1) {
+			clear: both;
+		}
+
+		> a {
+			display: block;
+		}
+
+		img {
+			display: block;
+		}
+	}
+}
