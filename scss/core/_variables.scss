@@ -54,7 +54,7 @@ $pswp__background-color: $color-black;
 $pswp__placeholder-color: #222 !default;
 $pswp__box-sizing-border-box: false; // disable .pswp * { box-sizing:border-box } (in case you already have it in your site css)
 $pswp__root-z-index: 1500 !default;
-$pswp__assets-path: '/bower_components/photoswipe/src/css/default-skin/'; // path to skin assets folder (preloader, PNG and SVG sprite)
+$pswp__assets-path: '/assets/default-skin/'; // path to skin assets folder (preloader, PNG and SVG sprite)
 $pswp__error-text-color: #CCC !default; // "Image not loaded" text color
 $pswp__include-minimal-style: true !default;
 
