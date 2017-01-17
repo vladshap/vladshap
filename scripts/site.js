@@ -100,6 +100,8 @@
             e.preventDefault();
         });
 
+
+        var loadButton = document.getElementById('load-more');
         // Instagram
         var feed = new Instafeed({
             get: 'user',
@@ -109,13 +111,22 @@
             template:
             '<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">' +
                 '<a href="{{image}}" itemprop="contentUrl"  data-size="{{width}}x{{height}}">' +
-                    '<img src="{{image}}" alt="{{caption}}" itemprop="thumbnail" width="{{width}}" height="{{height}}"/>' +
+                    '<img src="{{image}}" id="{{id}}" alt="{{caption}}" itemprop="thumbnail" width="{{width}}" height="{{height}}"/>' +
                 '</a>' +
             '   <figcaption itemprop="caption description">{{caption}}</figcaption>' +
             '</figure>',
             accessToken: '12280671.1677ed0.b4f90dc8d77b4430bf876a02ca04baaf',
             after: function() {
+                // disable button if no more results to load
+                if (!this.hasNext()) {
+                    loadButton.setAttribute('disabled', 'disabled');
+                }
             }
+        });
+
+        // bind the load more button
+        loadButton.addEventListener('click', function() {
+            feed.next();
         });
         feed.run();
 
