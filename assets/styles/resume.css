@@ -232,7 +232,8 @@ small {
   font-size: .75rem;
   font-weight: 900;
   text-align: center;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  margin-top: 11rem; }
   .current-location .title {
     display: block;
     font-size: 1rem;
@@ -342,10 +343,6 @@ body {
     height: auto;
     padding-bottom: 3rem;
     padding-top: 3rem; }
-    @media screen and (min-width: 62em) {
-      .frame__contact {
-        padding-bottom: 10rem;
-        padding-top: 2rem; } }
     @media screen and (min-width: 48em) {
       .frame__contact h2 {
         margin-bottom: 4rem; } }

@@ -5,7 +5,7 @@
     z-index: 1;
     margin-bottom: 1.5rem;
     text-align: center;
-    border: 1px solid $color-white;
+    //border: 1px solid $color-white;
     padding: 3.5em 1.5rem;
 
     @include respond-to($small) {
@@ -65,15 +65,14 @@
         transition: .2s background-color;
     }
 
-    &:hover {
-
-        &::before {
-            @include respond-to($small) {
-                background-color: rgba($color-black, .9);
-            }
-        }
-    }
-
+    //&:hover {
+    //
+    //    &::before {
+    //        @include respond-to($small) {
+    //            background-color: rgba($color-black, .7);
+    //        }
+    //    }
+    //}
 
     &--btn {
         @extend .btn;
@@ -103,5 +102,9 @@
     &__osx {
         background-image: url('/assets/images/project-osx.jpg');
         background-position: 50% 80%;
+    }
+
+    &__work {
+        background-color: $base-border;
     }
 }

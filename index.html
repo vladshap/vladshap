@@ -248,7 +248,7 @@
                     <!--entertainment and culture, to hard-hitting news exposing the War on Drugs, HIGH TIMES has been the-->
                     <!--preeminent source for cannabis information since 1974. I helped with the front-end development of-->
                     <!--their newly redesigned online publication powered by WordPress.</p>-->
-                <a href="http://hightimes.com" target="_blank" class="project--btn">Get High</a>
+                <a href="http://hightimes.com" target="_blank" class="project--btn">Get Educated</a>
             </div>
         </article>
         <article class="project project__flor">
@@ -269,7 +269,7 @@
                 <!--<p>Northern Fork is a food delivery service that strives to deliver exceptional service for a-->
                     <!--variety of events. I helped develop the new website to coincide with the launch of the re-brand.-->
                 <!--</p>-->
-                <a href="http://northernfork.com" target="_blank" class="project--btn">Cater an event</a>
+                <a href="http://northernfork.com" target="_blank" class="project--btn">Cater Your Event</a>
             </div>
         </article>
         <article class="project project__onewake">
@@ -280,7 +280,7 @@
                     <!--their e-commerce platform powered by WordPress and WooCommerce to help establish their online-->
                     <!--presence to sell products as well as represent their entire team of riders.-->
                 <!--</p>-->
-                <a href="http://onewake.com" target="_blank" class="project--btn">Get the gear</a>
+                <a href="http://onewake.com" target="_blank" class="project--btn">Go Wakeboarding</a>
             </div>
         </article>
         <article class="project project__osx">
@@ -303,19 +303,18 @@
     <section class="frame" id="photography">
         <div class="container">
             <h2>Photography</h2>
-            <ul class="instafeed" id="instafeed"></ul>
             <p class="small">Follow me on <a href="http://instagram.com/vladshap/">Instagram</a></p>
+            <div class="instafeed" id="instafeed"></div>
         </div>
     </section>
     <section class="frame frame__contact" id="contact">
         <div class="container">
             <h2>Get in touch</h2>
             <!--I was serious up above when I mentioned that I'ma always looking to work on new and interesting projects!-->
-            <p>If you would like to work on a project together, have any questions or just want to say hello, feel free
-                to send me an email at
+            <p>I am currently looking to work on interesting projects. So if you have ideas that you would like to discuss, have any questions or just want to say hello, feel free to email me at
                 <a href="mailto:vladshap@gmail.com">vladshap@gmail.com</a></p>
-            <p class="small freelance">I am available for projects</p>
-            <p class="current-location">Currently traveling in: <span class="title"><span class="flag">🇩🇪</span>Berlin, Germany</span></p>
+            <!--<p class="small freelance">I am available for projects</p>-->
+            <p class="current-location">I am currently in: <span class="title"><span class="flag">🇩🇪</span>Berlin, Germany</span></p>
         </div>
         <!--
             Here is this cool SVG draw-y on scroll thingamagig.
@@ -382,6 +381,51 @@
         </p>
     </div>
 </footer>
+
+<!-- Root element of PhotoSwipe. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background. It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides.
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <!--<button class="pswp__button pswp__button&#45;&#45;fs" title="Toggle fullscreen"></button>-->
+                <!--<button class="pswp__button pswp__button&#45;&#45;zoom" title="Zoom in/out"></button>-->
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
 </body>
 <!--Concatinated & Minified JS via Gulp-->
 <script src="/assets/js/site.min.js" async defer></script>

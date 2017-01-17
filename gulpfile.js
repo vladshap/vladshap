@@ -61,6 +61,8 @@ gulp.task('js', function(){
                 'bower_components/slick-carousel/slick/slick.js',
                 'bower_components/waitForImages/src/jquery.waitforimages.js',
                 'bower_components/instafeed.js/instafeed.js',
+                'bower_components/photoswipe/dist/photoswipe.js',
+                'bower_components/photoswipe/dist/photoswipe-ui-default.js',
                 'scripts/site.js'
             ])
         .pipe(sourcemaps.init())

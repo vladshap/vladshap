@@ -56,8 +56,7 @@
         padding-top: 3rem;
 
         @include respond-to($large) {
-            padding-bottom: 10rem;
-            padding-top: 2rem;
+            //padding-top: 2rem;
         }
 
         h2 {
