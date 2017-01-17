@@ -66,9 +66,11 @@ gulp.task('js', function(){
                 'scripts/site.js'
             ])
         .pipe(sourcemaps.init())
-        .pipe(concat('concat.js'))
+        // .pipe(concat('concat.js'))
+        // .pipe(gulp.dest('assets/js'))
+        // .pipe(rename('site.min.js'))
+        .pipe(concat('site.min.js'))
         .pipe(gulp.dest('assets/js'))
-        .pipe(rename('site.min.js'))
         .pipe(uglify())
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest('assets/js'))
