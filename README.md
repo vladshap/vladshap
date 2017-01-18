@@ -9,5 +9,6 @@ If you've found a bug, it would be awesome if you created an issue!
 #### Colophon:
 * Preprocessed via [node-sass](https://github.com/sass/node-sass)
 * CSS vendor prefixes via [Autoprefixer](https://github.com/ai/autoprefixer)
-* Josefin Sans font via [Google Fonts](https://fonts.google.com/specimen/Josefin+Sans?query=jose)
+* VS logo design by [Nicole Hammonds](http://nicole-hammonds.com)
+* Brandon Grotesque font via [TypeKit](https://typekit.com/fonts/brandon-grotesque)
 * Social Icons generated via [IcoMoon](http://icomoon.io/app/)
