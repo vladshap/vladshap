@@ -99,6 +99,7 @@
 
             new ScrollMagic.Scene({
                 triggerElement: "#contact",
+                duration: 600,
                 triggerHook: .25
             })
                 .setTween(mapTween)
