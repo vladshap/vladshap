@@ -2,19 +2,10 @@
 	margin-bottom: 3rem;
 	margin-left: -1px;
 	margin-right: -1px;
-	opacity: 0;
-	transition: .75s $cubic-bezier;
-	transition-delay: .75s;
-	transform: translate(0, 10px);
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	@include clearfix();
-
-	.active & {
-		opacity: 1;
-		transform: translate(0, 0);
-	}
 
 	figure {
 		width: 33.33%;

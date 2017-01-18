@@ -25,9 +25,12 @@
         Temporarily setting body opacity to 0 to defer CSS loading.
         ...only to later load it via JavaScript. Look out for it around line 60.
     -->
-    <style>body {
-        opacity: 0;
-    }</style>
+    <!--<style>body {-->
+        <!--opacity: 0;-->
+    <!--}</style>-->
+    <!---->
+
+    <link rel="stylesheet" href="/assets/styles/main.min.css">
 
     <!-- What's your device? I've got an icon for it...no, but really, is this necessary? -->
     <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicons/apple-touch-icon-57x57.png">
@@ -51,60 +54,33 @@
     <meta name="theme-color" content="#ffffff">
 
     <script>
-        (function (d) {
-            var config = {
-                        kitId: 'dzy0drz',
-                        scriptTimeout: 3000,
-                        async: true
-                    },
-                    h = d.documentElement, t = setTimeout(function () {
-                        h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
-                    }, config.scriptTimeout), tk = d.createElement("script"), f = false, s = d.getElementsByTagName("script")[0], a;
-            h.className += " wf-loading";
-            tk.src = 'https://use.typekit.net/' + config.kitId + '.js';
-            tk.async = true;
-            tk.onload = tk.onreadystatechange = function () {
-                a = this.readyState;
-                if (f || a && a != "complete" && a != "loaded")return;
-                f = true;
-                clearTimeout(t);
-                try {
-                    Typekit.load(config)
-                } catch (e) {
-                }
-            };
-            s.parentNode.insertBefore(tk, s)
-        })(document);
+//        (function (d) {
+//            var config = {
+//                        kitId: 'dzy0drz',
+//                        scriptTimeout: 3000,
+//                        async: true
+//                    },
+//                    h = d.documentElement, t = setTimeout(function () {
+//                        h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
+//                    }, config.scriptTimeout), tk = d.createElement("script"), f = false, s = d.getElementsByTagName("script")[0], a;
+//            h.className += " wf-loading";
+//            tk.src = 'https://use.typekit.net/' + config.kitId + '.js';
+//            tk.async = true;
+//            tk.onload = tk.onreadystatechange = function () {
+//                a = this.readyState;
+//                if (f || a && a != "complete" && a != "loaded")return;
+//                f = true;
+//                clearTimeout(t);
+//                try {
+//                    Typekit.load(config)
+//                } catch (e) {
+//                }
+//            };
+//            s.parentNode.insertBefore(tk, s)
+//        })(document);
     </script>
 </head>
 <body class="loading">
-<!--
-    Here is this goofy Google way to load CSS that I mentioned above.
-    This seems like a bad idea, but this is the only way to get rid of that
-    pesky "render-blocking CSS in above-the-fold content"
-    issue that PageSpeed Insights throws at you...2016 I tell ya.
-    No, really look for yourself: https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery
-    I think it gave me one or two extra points on the PageSpeed Insights results. WAAHOO!!
- -->
-<noscript id="deferred-styles">
-    <link href="/assets/styles/main.min.css" rel="stylesheet" type="text/css"/>
-    <!--<link href="/assets/styles/main.min.css" rel="stylesheet" type="text/css"/>-->
-</noscript>
-<script>
-    var loadDeferredStyles = function () {
-        var addStylesNode = document.getElementById("deferred-styles");
-        var replacement = document.createElement("div");
-        replacement.innerHTML = addStylesNode.textContent;
-        document.body.appendChild(replacement)
-        addStylesNode.parentElement.removeChild(addStylesNode);
-    };
-    var raf = requestAnimationFrame || mozRequestAnimationFrame ||
-            webkitRequestAnimationFrame || msRequestAnimationFrame;
-    if (raf) raf(function () {
-        window.setTimeout(loadDeferredStyles, 0);
-    });
-    else window.addEventListener('load', loadDeferredStyles);
-</script>
 
 <!-- I should probably load this SVG in externally via JS or whatever, but...here it is! -->
 <svg style="position: absolute; width: 0; height: 0;" width="0" height="0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -184,6 +160,7 @@
             <span class="small">A Web Developer &amp; Designer</span>
         </span>
     </h1>
+    <span class="bg"></span>
     <a class="scroll-indicator" href="#about"><span class="dots"></span></a>
 </header>
 <main role="main">
@@ -191,7 +168,7 @@
         <div class="container">
             <h2>About Me</h2>
         </div>
-        <div class="container">
+        <div class="container animated">
             <!--<figure class="about-image">-->
                 <!--<img sizes="(max-width: 1440px) 100vw, 1440px"-->
                      <!--srcset="-->
@@ -275,19 +252,19 @@
             </div>
         </div>
     </section>
-    <section class="frame" id="photography">
+    <section class="frame frame--photography" id="photography">
         <div class="container">
             <h2>Photography</h2>
-            <p class="small">Follow me on <a href="http://instagram.com/vladshap/">Instagram</a></p>
-            <div class="instafeed" id="instafeed"></div>
-            <button id="load-more" class="btn btn--centered">Load More</button>
+            <p class="small animated">Follow me on <a href="http://instagram.com/vladshap/">Instagram</a></p>
+            <div class="instafeed animated" id="instafeed"></div>
+            <button id="load-more" class="btn btn--centered animated">Load More</button>
         </div>
     </section>
     <section class="frame frame__contact" id="contact">
         <div class="container">
             <h2>Get in touch</h2>
         </div>
-        <div class="container container--tiny">
+        <div class="container container--tiny animated">
             <p>If you have a project you&rsquo;re interested in discussing with me or just want to say hello, drop me a line below, I&rsquo;d love to talk.</p>
             <form action="https://formspree.io/vladshap@gmail.com" class="contact-form" method="POST">
                 <label for="name" class="vh">Your Name</label>
@@ -299,7 +276,7 @@
                 <input type="submit" class="btn btn--centered" value="Send Message">
             </form>
         </div>
-        <p class="current-location">I am currently in: <span class="title"><span class="flag">🇩🇪</span>Berlin, Germany</span></p>
+        <p class="current-location animated">I am currently in: <span class="title"><span class="flag">🇩🇪</span>Berlin, Germany</span></p>
         <!--
             Here is this cool SVG draw-y on scroll thingamagig.
             Made possible with GSAP - http://greensock.com/gsap & ScrollMagic - http://scrollmagic.io/
@@ -415,18 +392,18 @@
 <script src="/assets/js/site.min.js" async defer></script>
 <!--They are tracking us, (wo)man...RUN FOR YA LIFE!-->
 <script>
-    (function (i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function () {
-                    (i[r].q = i[r].q || []).push(arguments)
-                }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-    ga('create', 'UA-28250928-1', 'auto');
-    ga('send', 'pageview');
+//    (function (i, s, o, g, r, a, m) {
+//        i['GoogleAnalyticsObject'] = r;
+//        i[r] = i[r] || function () {
+//                    (i[r].q = i[r].q || []).push(arguments)
+//                }, i[r].l = 1 * new Date();
+//        a = s.createElement(o),
+//                m = s.getElementsByTagName(o)[0];
+//        a.async = 1;
+//        a.src = g;
+//        m.parentNode.insertBefore(a, m)
+//    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+//    ga('create', 'UA-28250928-1', 'auto');
+//    ga('send', 'pageview');
 </script>
 </html>

@@ -20,18 +20,4 @@
     padding-top: 80px;
     padding-bottom: 80px;
     @include clearfix();
-
-    p {
-        opacity: 0;
-        transition: .75s $cubic-bezier;
-        transition-delay: .75s;
-        transform: translate(0, 10px);
-    }
-
-    &.active {
-        p {
-            opacity: 1;
-            transform: translate(0, 0);
-        }
-    }
 }

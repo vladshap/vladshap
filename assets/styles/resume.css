@@ -124,7 +124,7 @@ h2 {
   letter-spacing: 3px;
   line-height: normal;
   margin: 0 auto 3rem;
-  padding: 5px .35rem 0 .5rem;
+  padding: 0 .35rem 0 .5rem;
   text-align: center;
   text-transform: uppercase;
   color: transparent;
@@ -132,8 +132,7 @@ h2 {
   @media screen and (min-width: 48em) {
     h2 {
       margin-bottom: 5rem; } }
-  .active h2 {
-    padding-top: 0;
+  .frame--active h2 {
     opacity: 1;
     color: inherit; }
   .resume h2 {
@@ -148,8 +147,8 @@ h2 {
     right: 50%;
     top: 10px;
     z-index: -1;
-    transition: 2s; }
-    .active h2::before {
+    transition: 0.75s cubic-bezier(0.58, 0.3, 0.51, 0.82); }
+    .frame--active h2::before {
       left: 1.5rem;
       right: 1.5rem; }
     .resume h2::before {
@@ -222,7 +221,12 @@ small {
       font-weight: 900;
       text-align: center;
       text-transform: uppercase;
-      margin-top: 11rem; } }
+      margin-top: 11rem;
+      opacity: 0;
+      transiton: .2s ease-in-out; } }
+  @media screen and (min-width: 48em) {
+    .current-location.show {
+      opacity: 1; } }
   .current-location .title {
     display: block;
     font-size: 1rem;
@@ -308,11 +312,3 @@ body {
   position: relative;
   padding-top: 80px;
   padding-bottom: 80px; }
-  .frame p {
-    opacity: 0;
-    transition: 0.75s cubic-bezier(0.58, 0.3, 0.51, 0.82);
-    transition-delay: .75s;
-    transform: translate(0, 10px); }
-  .frame.active p {
-    opacity: 1;
-    transform: translate(0, 0); }

@@ -19,8 +19,6 @@ p {
         }
     }
 
-
-
     &.job-title {
         font-weight: $font-weight-bold;
         //margin-bottom: .25rem;
@@ -80,7 +78,7 @@ h2 {
     letter-spacing: 3px;
     line-height: normal;
     margin: 0 auto 3rem;
-    padding: 5px .35rem 0 .5rem;
+    padding: 0 .35rem 0 .5rem;
     text-align: center;
     text-transform: uppercase;
     color: transparent;
@@ -90,8 +88,7 @@ h2 {
         margin-bottom: 5rem;
     }
 
-    .active & {
-        padding-top: 0;
+    .frame--active & {
         opacity: 1;
         color: inherit;
     }
@@ -110,9 +107,9 @@ h2 {
         right: 50%;
         top: 10px;
         z-index: -1;
-        transition: 2s;
+        transition: .75s $cubic-bezier;
 
-        .active & {
+        .frame--active & {
             left: 1.5rem;
             right: 1.5rem;
         }
@@ -205,6 +202,14 @@ small {
         text-align: center;
         text-transform: uppercase;
         margin-top: 11rem;
+        opacity: 0;
+        transiton: .2s ease-in-out;
+    }
+
+    &.show {
+        @include respond-to($medium) {
+            opacity: 1;
+        }
     }
 
     .title {

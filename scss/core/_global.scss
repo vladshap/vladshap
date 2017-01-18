@@ -21,17 +21,23 @@ body {
     font-size: $base-font-size;
     font-weight: $font-weight-regular;
     line-height: $base-line-height;
-    opacity: 1;
-    overflow: hidden;
     -webkit-font-smoothing: antialiased;
-
-    &.loaded {
-        overflow: auto;
-    }
 
     //To prevent the iPhone and iPad from inflating fonts
     @include respond-to($large, max) {
         -webkit-text-size-adjust: 100%;
+    }
+}
+
+
+.animated {
+    @extend %animated;
+    @extend %fadeOutDown;
+    animation-delay: 0;
+
+    .frame--active & {
+        @extend %fadeInUp;
+        animation-delay: .5s;
     }
 }
 
@@ -41,6 +47,7 @@ img {
 }
 
 main {
+
 }
 
 .loader {
@@ -49,7 +56,7 @@ main {
     margin-left: -25px;
     margin-top: -25px;
     pointer-events: none;
-    position: absolute;
+    position: fixed;
     top: 50%;
     transition: 1s ease-in-out opacity;
     width: 50px;

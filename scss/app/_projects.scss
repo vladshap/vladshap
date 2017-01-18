@@ -16,6 +16,13 @@
     text-align: center;
     padding: 3.5em 1.5rem;
     width: 100%;
+    @extend %animated;
+    @extend %fadeOutDown;
+
+
+    &.show {
+        @extend %fadeInUp;
+    }
 
     @include respond-to($medium) {
         width: 49%;
@@ -44,31 +51,23 @@
         bottom: 0;
         content: '';
         left: 0;
-        opacity: 1;
+        opacity: .8;
         position: absolute;
         right: 0;
         top: 0;
         z-index: -1;
-        transition: .4s $cubic-bezier;
-        transition-delay: .5s;
-
-        .active & {
-            opacity: .8;
-        }
+        //transition: .4s $cubic-bezier;
+        //transition-delay: .5s;
+        //
+        //.frame--active & {
+        //    opacity: .8;
+        //}
     }
 
     h3 {
-
         transition: .5s $cubic-bezier transform, .5s $cubic-bezier opacity;
         opacity: 0;
         transform: translate(0, -15px);
-        transition-delay: 0;
-
-        .active & {
-            transform: translate(0, 0);
-            opacity: 1;
-            transition-delay: .75s;
-        }
     }
 
     &--btn {
@@ -77,12 +76,18 @@
         transition: .5s $cubic-bezier transform, .5s $cubic-bezier opacity;
         opacity: 0;
         transform: translate(0, 10px);
-        transition-delay: 0s;
 
-        .active & {
+    }
+
+    &.show {
+        h3 {
             transform: translate(0, 0);
             opacity: 1;
-            transition-delay: .75s;
+        }
+
+        .project--btn {
+            transform: translate(0, 0);
+            opacity: 1;
         }
     }
     
