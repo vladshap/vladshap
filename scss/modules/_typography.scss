@@ -79,10 +79,22 @@ h2 {
     font-weight: $font-weight-bold;
     letter-spacing: 3px;
     line-height: normal;
-    margin: 2rem auto 1.5rem;
-    padding: 0 .35rem 0 .5rem;
+    margin: 0 auto 3rem;
+    padding: 5px .35rem 0 .5rem;
     text-align: center;
     text-transform: uppercase;
+    color: transparent;
+    transition: .5s $cubic-bezier;
+
+    @include respond-to($medium) {
+        margin-bottom: 5rem;
+    }
+
+    .active & {
+        padding-top: 0;
+        opacity: 1;
+        color: inherit;
+    }
 
     .resume & {
         background-color: $color-white;
@@ -93,11 +105,17 @@ h2 {
         content: '';
         display: block;
         height: 1px;
-        left: 1.5rem;
+        left: 50%;
         position: absolute;
-        right: 1.5rem;
+        right: 50%;
         top: 10px;
         z-index: -1;
+        transition: 2s;
+
+        .active & {
+            left: 1.5rem;
+            right: 1.5rem;
+        }
 
         .resume & {
             background-color: $color-black;
@@ -177,51 +195,17 @@ small {
     text-align: center;
 }
 
-.freelance {
-    display: table;
-    margin: 5rem auto;
-    padding-left: .75rem;
-    position: relative;
-    text-align: right;
-    text-transform: uppercase;
-
-    &::before,
-    &::after {
-        background-color: rgba(#00ff48, .5);
-        border-radius: 5px;
-        content: '';
-        display: block;
-        left: 0;
-        margin-top: -2px;
-        position: absolute;
-        top: 50%;
-        transform: translate(0, -50%);
-    }
-
-    &::before {
-        box-shadow: 0 0 5px 0 #00ff48;
-        height: 4px;
-        margin-right: .5rem;
-        width: 4px;
-    }
-
-    &::after {
-        height: 2px;
-        left: 1px;
-        position: absolute;
-        width: 2px;
-    }
-}
-
-
-
-
 .current-location {
-    font-size: .75rem;
-    font-weight: $font-weight-bold;
-    text-align: center;
-    text-transform: uppercase;
-    margin-top: 11rem;
+    display: none;
+    
+    @include respond-to($medium) {
+        display: block;
+        font-size: .75rem;
+        font-weight: $font-weight-bold;
+        text-align: center;
+        text-transform: uppercase;
+        margin-top: 11rem;
+    }
 
     .title {
         display: block;

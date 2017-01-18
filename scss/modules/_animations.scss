@@ -68,3 +68,33 @@
         stroke-dashoffset: -124px;
     }
 }
+
+@keyframes dot {
+    0% {
+        transform: scale(.75);
+        opacity: .25;
+    }
+    25% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(.75);
+        opacity: .25;
+    }
+}
+
+@keyframes arrow {
+    0% {
+        transform: scale(.75) rotate(45deg);
+        opacity: .25;
+    }
+    25% {
+        transform: scale(1) rotate(45deg);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(.75) rotate(45deg);
+        opacity: .25;
+    }
+}

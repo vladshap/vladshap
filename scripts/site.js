@@ -1,22 +1,10 @@
 ﻿$(document).ready(function () {
 
-    $('img').waitForImages().done(function() {
+    // $('img').waitForImages().done(function() {
         $('body').removeClass('loading');
         setTimeout(function() {
             $('body').addClass('loaded');
-        }, 500);
-
-        // $('.gallery').slick({
-        //     autoplay: true,
-        //     speed: 1000,
-        //     autoplaySpeed: 5000,
-        //     keyboardNav: true,
-        //     fade: true,
-        //     infinite: true,
-        //     arrows: false,
-        //     dots: false,
-        //     cssEase: 'linear'
-        // });
+        }, 0);
 
         var viewportHeight = 0;
         function setFrameHeight() {
@@ -24,7 +12,6 @@
             // $('.site-header').css('height', viewportHeight);
             // console.log("viewport height: " + viewportHeight);
         }
-
         // setFrameHeight();
 
         // ScrollMagic controller
@@ -32,27 +19,63 @@
 
         // Intro Scene Tween
         var introTween = new TimelineMax().add([
-            TweenMax.to(".logo-mark", 1, {scale:.85, y: "20%", opacity:0}),
-            TweenMax.to(".logo-text", 1, {opacity:0}),
-            // TweenMax.to(".site-header", 1, {backgroundPosition: "0 -75%"}),
-            TweenMax.to(".scroll-indicator", 1, {y: "-90%", scale: .5})
+            TweenMax.to(".site-logo", 1, {scale:.9, y: "20%", opacity:0}),
+            TweenMax.to(".scroll-indicator", 1, {y: "-90%", scale: .5, opacity: 0})
 
         ]);
 
-        //Intro Scene
+        // Intro Scene
         new ScrollMagic.Scene({
             triggerElement: ".site-header",
             duration: "100%",
             triggerHook: 0
         })
             .setTween(introTween)
-            .addTo(controller)
+            .addTo(controller);
+
             //.addIndicators()
+            // .on("enter", function () {
+            //     $(".site-header").removeClass('pinned');
+            // })
+            // .on("leave", function () {
+            //     $(".site-header").addClass('pinned');
+            // });
+
+        new ScrollMagic.Scene({
+            triggerElement: "#about",
+            duration: "0",
+            triggerHook: .5
+        })
+            .addTo(controller)
             .on("enter", function () {
-                $(".site-header").removeClass('pinned');
-            })
-            .on("leave", function () {
-                $(".site-header").addClass('pinned');
+                $("#about").addClass('active');
+            });
+        new ScrollMagic.Scene({
+            triggerElement: "#projects",
+            duration: "0",
+            triggerHook: .5
+        })
+            .addTo(controller)
+            .on("enter", function () {
+                $("#projects").addClass('active');
+            });
+        new ScrollMagic.Scene({
+            triggerElement: "#photography",
+            duration: "0",
+            triggerHook: .5
+        })
+            .addTo(controller)
+            .on("enter", function () {
+                $("#photography").addClass('active');
+            });
+        new ScrollMagic.Scene({
+            triggerElement: "#contact",
+            duration: "0",
+            triggerHook: .5
+        })
+            .addTo(controller)
+            .on("enter", function () {
+                $("#contact").addClass('active');
             });
 
         ///////////////////////
@@ -76,11 +99,10 @@
 
             new ScrollMagic.Scene({
                 triggerElement: "#contact",
-                triggerHook:.75
+                triggerHook: .25
             })
                 .setTween(mapTween)
                 .addTo(controller)
-                //.addIndicators()
                 .on("enter", function () {
                     $('.canvas').addClass('finished');
                 })
@@ -223,8 +245,6 @@
                     nodeIndex++;
                 }
 
-
-
                 if(index >= 0) {
                     // open PhotoSwipe if valid index found
                     openPhotoSwipe( index, clickedGallery );
@@ -352,6 +372,6 @@
         initPhotoSwipeFromDOM('.instafeed');
 
 
-    });
+    // });
 });
 
