@@ -5,14 +5,16 @@
         $('body').addClass('loaded');
     }, 0);
 
+    // Set the header height to the size of the viewport
     var viewportHeight = 0;
     function setHeaderHeight() {
         viewportHeight = $(window).height();
         $('.site-header').css('height', viewportHeight);
-        console.log("viewport height: " + viewportHeight);
+        //console.log("viewport height: " + viewportHeight);
     }
     setHeaderHeight();
 
+    // Similar to a debounce function, just making sure resize events don't get triggered for every pixel, and delays it by 250ms.
     var resizeTimer;
     $(window).on('resize', function(e) {
 
@@ -22,45 +24,35 @@
         }, 250);
     });
 
+    // Some classes that I'll use to activate frames
+    var activeFrame = 'frame--active',
+        frames = ['#about', '#projects', '#photography', '#contact' ],
+        projects = ['.project__hightimes', '.project__northern-fork', '.project__flor', '.project__onewake', '.project__osx', '.project__work'];
+
     // ScrollMagic controller
     var controller = new ScrollMagic.Controller();
 
-    // Intro Scene Tween
-    var introTween = new TimelineMax().add([
-        TweenMax.to(".site-logo", 1, { scale:.9, y: "20%", opacity:0 }),
+    // Logo animation on scroll
+    var logo = new TimelineMax().add([
+        TweenMax.to(".site-logo", 1, { scale:.9, y: "20%", opacity: 0 }),
         TweenMax.to(".scroll-indicator", 1, { y: "-90%", scale: .5, opacity: 0 })
-
     ]);
 
-    // Intro Scene
     new ScrollMagic.Scene({
         triggerElement: ".site-header",
         duration: "100%",
         triggerHook: 0
     })
-        .setTween(introTween)
+        .setTween(logo)
         .addTo(controller);
 
-    // $(window).scroll(function () {
-    //     var scrollPercentage = 100 * ($(this).scrollTop() / $(window).height());
-    //     if (scrollPercentage >= 50){
-    //         $('.bg').addClass('fixed');
-    //     } else {
-    //         $('.bg').removeClass('fixed');
-    //     }
-    // });
-
-    var scene = new ScrollMagic.Scene({
+    // Background pin
+    var bg = new ScrollMagic.Scene({
         triggerElement: "#about",
         triggerHook: .33
     })
         .setPin(".bg")
         .addTo(controller);
-
-    // Some classes that I'll use to activate frames
-    var activeFrame = 'frame--active',
-        frames = ['#about', '#projects', '#photography', '#contact' ],
-        projects = ['.project__hightimes', '.project__northern-fork', '.project__flor', '.project__onewake', '.project__osx', '.project__work'];
 
     // Activate frames as they scroll into view
     $.each(frames, function (i, el) {
@@ -96,10 +88,7 @@
             });
     });
 
-    ///////////////////////
-    // SVG Map Scene //
-    ///////////////////////
-
+    // Animating svg map on scroll
     var $svgPath = $(".canvas path");
 
     // Get path lengths for a given SVG
@@ -117,7 +106,6 @@
 
         new ScrollMagic.Scene({
             triggerElement: "#contact",
-            // duration: 600,
             triggerHook: .25
         })
             .setTween(mapTween)
@@ -131,8 +119,7 @@
             });
     }
 
-    // Bind click handler to menu items
-    // so we can get a fancy smooth scroll animation
+    // Bind click handler to menu items so we can get a fancy smooth scroll animation
     $('a').on("click", function (e) {
         var href = $(this).attr("href"),
             offsetTop = href === "#" ? 0 : $(href).offset().top + 1;
@@ -142,8 +129,7 @@
         e.preventDefault();
     });
 
-
-    // Instagram
+    // Instagram feed
     var feed = new Instafeed({
         get: 'user',
         userId: '12280671',
@@ -165,6 +151,7 @@
         }
     });
 
+    // Load more instagrams
     var loadButton = document.getElementById('load-more');
     // // bind the load more button
     loadButton.addEventListener('click', function() {
@@ -172,7 +159,8 @@
     });
     feed.run();
 
-    var initPhotoSwipeFromDOM = function(gallerySelector) {
+    // Photoswipe gallery
+    var instagramGallery = function(gallerySelector) {
 
         // parse slide data (url, title, size ...) from DOM elements
         // (children of gallerySelector)
@@ -387,10 +375,6 @@
             openPhotoSwipe( hashData.pid ,  galleryElements[ hashData.gid - 1 ], true, true );
         }
     };
-
-    // execute above function
-    initPhotoSwipeFromDOM('.instafeed');
-
+    instagramGallery('.instafeed');
 
 });
-
