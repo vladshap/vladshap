@@ -1,7 +1,6 @@
 .site-header {
 	display: flex;
 	flex-direction: column;
-	//height: 100vh;
 	min-height: 450px;
 	padding: 0;
 	position: relative;
@@ -27,13 +26,6 @@
 	background-attachment: scroll;
 	background-position: 50% 100%;
 	z-index: -1;
-
-	&.fixed {
-		@include respond-to($medium) {
-			top: -50%;
-			position: fixed;
-		}
-	}
 
 	&::before,
 	&::after {

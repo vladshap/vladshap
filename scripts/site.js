@@ -28,7 +28,6 @@
     // Intro Scene Tween
     var introTween = new TimelineMax().add([
         TweenMax.to(".site-logo", 1, { scale:.9, y: "20%", opacity:0 }),
-        TweenMax.to(".bg", 1, { opacity:.25 }),
         TweenMax.to(".scroll-indicator", 1, { y: "-90%", scale: .5, opacity: 0 })
 
     ]);
@@ -42,14 +41,21 @@
         .setTween(introTween)
         .addTo(controller);
 
-    $(window).scroll(function () {
-        var scrollPercentage = 100 * ($(this).scrollTop() / $(window).height());
-        if (scrollPercentage >= 50){
-            $('.bg').addClass('fixed');
-        } else {
-            $('.bg').removeClass('fixed');
-        }
-    });
+    // $(window).scroll(function () {
+    //     var scrollPercentage = 100 * ($(this).scrollTop() / $(window).height());
+    //     if (scrollPercentage >= 50){
+    //         $('.bg').addClass('fixed');
+    //     } else {
+    //         $('.bg').removeClass('fixed');
+    //     }
+    // });
+
+    var scene = new ScrollMagic.Scene({
+        triggerElement: "#about",
+        triggerHook: .33
+    })
+        .setPin(".bg")
+        .addTo(controller);
 
     // Some classes that I'll use to activate frames
     var activeFrame = 'frame--active',
