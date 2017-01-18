@@ -34,13 +34,14 @@
 
     // Logo animation on scroll
     var logo = new TimelineMax().add([
-        TweenMax.to(".site-logo", 1, { scale:.9, y: "20%", opacity: 0 }),
+        TweenMax.to(".site-logo", 1, { scale: .95, y: "10%", opacity: 0 }),
+        TweenMax.to(".bg", 1, { opacity: .5 }),
         TweenMax.to(".scroll-indicator", 1, { y: "-90%", scale: .5, opacity: 0 })
     ]);
 
     new ScrollMagic.Scene({
         triggerElement: ".site-header",
-        duration: "100%",
+        duration: "66.66%",
         triggerHook: 0
     })
         .setTween(logo)
