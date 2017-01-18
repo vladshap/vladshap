@@ -42,17 +42,6 @@
         .setTween(introTween)
         .addTo(controller);
 
-    // Header Scene
-    // new ScrollMagic.Scene({
-    //     triggerElement: ".bg",
-    //     duration: "100%",
-    //     triggerHook: 0,
-    //     offset: -0.75
-    // })
-    //     .addTo(controller)
-        // .setPin('.bg');
-
-
     $(window).scroll(function () {
         var scrollPercentage = 100 * ($(this).scrollTop() / $(window).height());
         if (scrollPercentage >= 50){
@@ -73,7 +62,7 @@
         new ScrollMagic.Scene({
             triggerElement: frames[i],
             duration: "0",
-            triggerHook: .5
+            triggerHook: .6
         })
             .addTo(controller)
             .on("enter", function () {
