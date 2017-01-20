@@ -108,11 +108,6 @@
         background-position: 50% 60%;
     }
 
-    &__onewake {
-        background-image: url('/assets/images/project-ow.jpg');
-        background-position: 50% 30%;
-    }
-
     &__osx {
         background-image: url('/assets/images/project-osx.jpg');
         background-position: 50% 80%;
@@ -120,5 +115,7 @@
 
     &__work {
         background-color: $base-border;
+        width: 100%;
+        margin: 0;
     }
 }
