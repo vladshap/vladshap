@@ -47,22 +47,24 @@
 
 
     &::before {
-        background-color: $color-black;
+        background-color: rgba($color-black, .8);
         bottom: 0;
         content: '';
         left: 0;
-        opacity: .8;
         position: absolute;
         right: 0;
         top: 0;
         z-index: -1;
-        //transition: .4s $cubic-bezier;
-        //transition-delay: .5s;
-        //
-        //.frame--active & {
-        //    opacity: .8;
-        //}
+        //border: 0px solid $color-black;
+        //transition: .1s ease-in-out border-width;
+
     }
+
+    //&:hover {
+    //    &::before {
+    //        border-width: 5px;
+    //    }
+    //}
 
     h3 {
         transition: .5s $cubic-bezier transform, .5s $cubic-bezier opacity;

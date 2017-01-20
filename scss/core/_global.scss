@@ -29,6 +29,63 @@ body {
     }
 }
 
+.scroll-line{
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    z-index: 10;
+
+
+    .line {
+        @include respond-to($medium) {
+            width: 2px;
+            position: absolute;
+            top: 0;
+            left: 5px;
+            background-color: rgba($color-white, .2);
+            height: 0%;
+        }
+    }
+
+    .scroll-menu {
+        position: absolute;
+        left: 3px;
+        top: 0;
+        height: 100%;
+
+        li {
+            position: absolute;
+        }
+
+        a {
+            text-transform: uppercase;
+            text-decoration: none;
+            font-size: .75rem;
+            display: block;
+            line-height: 12px;
+            padding-top: 1rem;
+            padding-right: 1rem;
+            padding-bottom: 1rem;
+            margin-top: -24px;
+            color: $base-border;
+            position: relative;
+            padding-left: 10px;
+
+            &::before {
+                content: '';
+                position: absolute;
+                width: 6px;
+                height: 6px;
+                border-radius: 3px;
+                top: 50%;
+                margin-top: -3px;
+                left: 0;
+                background-color: $base-border;
+            }
+        }
+    }
+}
 
 .animated {
     @extend %animated;

@@ -26,7 +26,7 @@
 
     // Some classes that I'll use to activate frames
     var activeFrame = 'frame--active',
-        frames = ['#about', '#projects', '#photography', '#contact' ],
+        frames = ['#about', '#projects', '#photography', '#contact'],
         projects = ['.project__hightimes', '.project__northern-fork', '.project__flor', '.project__onewake', '.project__osx', '.project__work'];
 
     // ScrollMagic controller
@@ -36,7 +36,7 @@
     var logo = new TimelineMax().add([
         TweenMax.to(".site-logo", 1, { scale: .95, y: "10%", opacity: 0 }),
         TweenMax.to(".bg", 1, { opacity: .5 }),
-        TweenMax.to(".scroll-indicator", 1, { y: "-90%", scale: .5, opacity: 0 })
+        TweenMax.to(".scroll-indicator", 1, { y: "-90%", opacity: 0 })
     ]);
 
     new ScrollMagic.Scene({
@@ -50,10 +50,27 @@
     // Background pin
     var bg = new ScrollMagic.Scene({
         triggerElement: "#about",
-        triggerHook: .33
+        triggerHook: .25
     })
-        .setPin(".bg")
+        .setPin('.bg')
+        .setClassToggle('.site-header', 'sticky')
         .addTo(controller);
+
+
+    var docheight = $(document).height();
+    var winheight = $(window).height();
+
+    function scrollLine () {
+        $(window).scroll(function() {
+            var wintop = $(window).scrollTop();
+            var scrolled = (wintop / (docheight - winheight)) * 100;
+            // $('.line').css('height', (scrolled + '%'));
+
+            $('.counter').text(scrolled.toFixed(0));
+
+        });
+    }
+    // scrollLine();
 
     // Activate frames as they scroll into view
     $.each(frames, function (i, el) {
@@ -64,12 +81,14 @@
             triggerHook: .6
         })
             .addTo(controller)
+            // .addIndicators()
             .on("enter", function () {
                 $(frames[i]).addClass(activeFrame);
-            })
-            .on("leave", function () {
-                $(frames[i]).removeClass(activeFrame);
             });
+
+        // var percentOffset = ( $(frames[i]).offset().top / (docheight - winheight) ) * 100;
+        // $('.scroll-menu').append('<li style="top: '+ percentOffset.toFixed(2) +'%"><a href="' + frames[i] + '">'+ frames[i].replace('#', '') +'</a></li>');
+
     });
 
     // Animate projects as they scroll into view
@@ -83,10 +102,10 @@
             .addTo(controller)
             .on("enter", function () {
                 $(projects[i]).addClass('show');
-            })
-            .on("leave", function () {
-                $(projects[i]).removeClass('show');
             });
+            // .on("leave", function () {
+            //     $(projects[i]).removeClass('show');
+            // });
     });
 
     // Animating svg map on scroll
@@ -146,18 +165,19 @@
         accessToken: '12280671.1677ed0.b4f90dc8d77b4430bf876a02ca04baaf',
         after: function() {
             // disable button if no more results to load
-            if (!this.hasNext()) {
-                loadButton.setAttribute('disabled', 'disabled');
-            }
+            // if (!this.hasNext()) {
+            //     loadButton.setAttribute('disabled', 'disabled');
+            // }
+
         }
     });
 
     // Load more instagrams
-    var loadButton = document.getElementById('load-more');
-    // // bind the load more button
-    loadButton.addEventListener('click', function() {
-        feed.next();
-    });
+    // var loadButton = document.getElementById('load-more');
+    // // // bind the load more button
+    // loadButton.addEventListener('click', function() {
+    //     feed.next();
+    // });
     feed.run();
 
     // Photoswipe gallery

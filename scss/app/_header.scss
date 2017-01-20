@@ -11,6 +11,9 @@
 	//	overflow: hidden;
 	//}
 
+	&.sticky {
+		align-items: flex-start;
+	}
 }
 
 .bg {
@@ -51,12 +54,21 @@
 }
 
 .site-logo {
-	display: inline-block;
+	display: block;
 	margin: 0;
 	position: relative;
 	text-align: center;
 	vertical-align: top;
 	z-index: 10;
+
+	.sticky & {
+		position: fixed;
+		top: 0;
+		opacity: 1 !important;
+		transition: .5s opacity;
+		transform: translate(0, 0) !important;
+		margin-bottom: 0;
+	}
 }
 
 .logo-mark {
@@ -69,22 +81,30 @@
 	fill: $color-white;
 	stroke-width: .5;
 	stroke: $color-black;
-	transition: 4s $cubic-bezier;
-	transform: translate(0, 0) scale(1);
 
 	&:hover {
 		fill: rgba($color-white, .85);
 	}
 
-	.loading & {
-		transform: translate(0, -5px) scale(.95);
-	}
-
 	@include respond-to($medium) {
 		height: 15rem;
-		left: -8px;
 		width: 9rem;
 	}
+
+	.sticky & {
+		width: 1rem;
+		height: 1.75rem;
+		top: .25rem;
+		left: .25rem;
+
+		@include respond-to($medium) {
+			width: 2rem;
+			height: 3.5rem;
+			top: 1.5rem;
+			left: 1.5rem;
+		}
+	}
+
 }
 
 .logo-text {
@@ -93,11 +113,10 @@
 	text-decoration: none;
 	text-transform: uppercase;
 	text-shadow: 0 0 5px $color-black;
-	transition: 4s $cubic-bezier;
-	transform: translate(0, 0) scale(1);
+	pointer-events: none;
 
-	.loading & {
-		transform: translate(0, 10px) scale(.95);
+	.sticky & {
+		display: none;
 	}
 }
 
