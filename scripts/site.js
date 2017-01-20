@@ -27,7 +27,7 @@
     // Some classes that I'll use to activate frames
     var activeFrame = 'frame--active',
         frames = ['#about', '#projects', '#photography', '#contact'],
-        projects = ['.project__hightimes', '.project__northern-fork', '.project__flor', '.project__onewake', '.project__osx', '.project__work'];
+        projects = ['.project__hightimes', '.project__northern-fork', '.project__flor', '.project__osx', '.project__work'];
 
     // ScrollMagic controller
     var controller = new ScrollMagic.Controller();
@@ -410,9 +410,9 @@
             });
 
             if (empty) {
-                $('#send-message').attr('disabled', 'disabled');
+                $('#send-message').attr('disabled', 'disabled').text('Finish Your Message');
             } else {
-                $('#send-message').removeAttr('disabled');
+                $('#send-message').removeAttr('disabled').text('Send Message');
             }
         });
     }
