@@ -2,16 +2,17 @@
     cursor: pointer;
     display: inline-block;
     border: 1px solid $color-white;
+    border-radius: 22px;
     font-size: .75rem;
     font-weight: $font-weight-regular;
     letter-spacing: 3px;
-    line-height: 1.5rem;
+    line-height: 1.65rem;
     margin: 0;
     outline: none;
     padding: .5rem 1.5rem;
     text-decoration: none;
     text-transform: uppercase;
-    transition: .5s ease-in-out;
+    transition: .2s ease-in-out;
     vertical-align: top;
     background-color: transparent;
     color: $color-white;
@@ -27,6 +28,27 @@
         text-decoration: none;
     }
 
+    &--alt {
+        background-color: $color-white;
+        color: $color-black;
+        border: 1px solid $color-white;
+
+
+        &:hover {
+            background-color: transparent;
+            border-color: $color-white;
+            color: $color-white;
+            text-decoration: none;
+        }
+
+        &:disabled {
+            &:hover {
+                background-color: $color-white;
+                color: $color-black;
+            }
+        }
+    }
+
     + .btn {
         margin-left: 1em;
     }
@@ -35,5 +57,15 @@
         display: table;
         margin-left: auto;
         margin-right: auto;
+    }
+
+    &--full {
+        display: block;
+        width: 100%;
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+        opacity: .1;
     }
 }

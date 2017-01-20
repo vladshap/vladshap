@@ -398,4 +398,24 @@
     };
     instagramGallery('.instafeed');
 
+
+    function checkForm($el) {
+        $($el).keyup(function () {
+
+            var empty = false;
+            $('.contact-form > .input[required]').each(function () {
+                if ($(this).val() == '') {
+                    empty = true;
+                }
+            });
+
+            if (empty) {
+                $('#send-message').attr('disabled', 'disabled');
+            } else {
+                $('#send-message').removeAttr('disabled');
+            }
+        });
+    }
+    checkForm('.contact-form .input');
+
 });

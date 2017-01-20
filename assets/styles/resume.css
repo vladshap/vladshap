@@ -93,7 +93,9 @@ a {
 h1, h2, h3, h4 {
   font-weight: inherit;
   line-height: 1.2;
-  margin: 0 0 .5rem; }
+  margin: 0 0 .5rem;
+  font-family: "brandon-grotesque", sans-serif;
+  text-transform: uppercase; }
 
 h1 {
   font-size: 1.25rem;
@@ -101,8 +103,7 @@ h1 {
   letter-spacing: 2px;
   line-height: 1;
   margin: 2rem 0;
-  text-align: center;
-  text-transform: uppercase; }
+  text-align: center; }
   @media screen and (min-width: 34em) {
     h1 {
       font-size: 2rem;
@@ -126,7 +127,6 @@ h2 {
   margin: 0 auto 3rem;
   padding: 0 .35rem 0 .5rem;
   text-align: center;
-  text-transform: uppercase;
   color: transparent;
   transition: 0.5s cubic-bezier(0.58, 0.3, 0.51, 0.82); }
   @media screen and (min-width: 48em) {
@@ -161,8 +161,7 @@ h3 {
   font-size: 1.4rem;
   font-weight: 900;
   line-height: normal;
-  margin-bottom: 1.25rem;
-  text-transform: uppercase; }
+  margin-bottom: 1.25rem; }
 
 h4 {
   font-size: 1.563em;

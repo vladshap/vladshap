@@ -10,10 +10,11 @@
 .project {
     background-repeat: no-repeat;
     background-size: cover;
-    position: relative;
     z-index: 1;
-    margin-bottom: 2%;
+    position: relative;
+    display: block;
     text-align: center;
+    margin-bottom: 1.5rem;
     padding: 3.5em 1.5rem;
     width: 100%;
     @extend %animated;
@@ -26,6 +27,7 @@
 
     @include respond-to($medium) {
         width: 49%;
+        margin-bottom: 2%;
         padding: 7.5em 1.5rem;
 
     }
@@ -45,6 +47,13 @@
         }
     }
 
+    &:last-child {
+        @include respond-to($medium) {
+            width: 100%;
+            margin-right: 0;
+            margin-bottom: 0;
+        }
+    }
 
     &::before {
         background-color: rgba($color-black, .8);
@@ -55,16 +64,7 @@
         right: 0;
         top: 0;
         z-index: -1;
-        //border: 0px solid $color-black;
-        //transition: .1s ease-in-out border-width;
-
     }
-
-    //&:hover {
-    //    &::before {
-    //        border-width: 5px;
-    //    }
-    //}
 
     h3 {
         transition: .5s $cubic-bezier transform, .5s $cubic-bezier opacity;
@@ -115,7 +115,5 @@
 
     &__work {
         background-color: $base-border;
-        width: 100%;
-        margin: 0;
     }
 }

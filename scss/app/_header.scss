@@ -22,12 +22,8 @@
 	left: 0;
 	height: 100%;
 	width: 100%;
-	background-color: $base-bg-color;
-	background-image: url('/assets/images/moss-wallpaper.jpg');
-	background-repeat: no-repeat;
+	background: $base-bg-color url('/assets/images/moss-wallpaper.jpg') no-repeat scroll 50% 100%;
 	background-size: cover;
-	background-attachment: scroll;
-	background-position: 50% 100%;
 	z-index: -1;
 
 	&::before,
@@ -64,10 +60,9 @@
 	.sticky & {
 		position: fixed;
 		top: 0;
-		opacity: 1 !important;
-		transition: .5s opacity;
-		transform: translate(0, 0) !important;
 		margin-bottom: 0;
+		@extend %animated;
+		@extend %fadeIn;
 	}
 }
 
