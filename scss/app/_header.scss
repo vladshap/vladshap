@@ -22,9 +22,18 @@
 	left: 0;
 	height: 100%;
 	width: 100%;
-	background: $base-bg-color url('/assets/images/moss-wallpaper.jpg') no-repeat scroll 50% 100%;
+	//background: $base-bg-color url('/assets/images/moss-wallpaper.jpg') no-repeat scroll 50% 100%;
+	background: $base-bg-color url('/assets/images/wall_1685.jpg') no-repeat scroll 50% 0%;
 	background-size: cover;
 	z-index: -1;
+
+	@include respond-to($small) {
+		background-image: url('/assets/images/wall_2458.jpg');
+	}
+
+	@include respond-to($medium) {
+		background-image: url('/assets/images/wall_2880.jpg');
+	}
 
 	&::before,
 	&::after {
