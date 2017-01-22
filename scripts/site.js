@@ -34,7 +34,7 @@
 
     // Logo animation on scroll
     var logo = new TimelineMax().add([
-        TweenMax.to(".site-logo", 1, { scale: .95, y: "10%", opacity: 0 }),
+        TweenMax.to(".site-logo", 1, { y: "10%", opacity: 0 }),
         TweenMax.to(".bg", 1, { opacity: .5 }),
         TweenMax.to(".scroll-indicator", 1, { y: "-90%", opacity: 0 })
     ]);
