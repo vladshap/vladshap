@@ -77,10 +77,6 @@
 	stroke-width: .5;
 	stroke: $color-black;
 
-	&:hover {
-		fill: rgba($color-white, .85);
-	}
-
 	@include respond-to($medium) {
 		height: 15rem;
 		width: 9rem;
