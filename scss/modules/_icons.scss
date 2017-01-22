@@ -5,3 +5,27 @@
     margin: 2rem auto 1rem;
     width: 30px;
 }
+
+.icon {
+
+    .btn & {
+
+        display: inline-block;
+        vertical-align: baseline;
+        width: 10px;
+        height: 10px;
+        margin-left: -10px;
+        transform: translate(5px, 1px) scale(0);
+        transform-origin: 10px 5px;
+        fill: $color-black;
+        z-index: -1;
+        transition: .25s $cubic-bezier;
+        opacity: 0;
+
+    }
+
+    .btn:hover & {
+        opacity: 1;
+        transform: translate(10px, 1px) scale(1);
+    }
+}
