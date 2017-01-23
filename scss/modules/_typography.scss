@@ -190,39 +190,3 @@ small {
     text-transform: uppercase;
     text-align: center;
 }
-
-.current-location {
-    display: none;
-    
-    @include respond-to($medium) {
-        display: block;
-        font-size: .75rem;
-        font-weight: $font-weight-bold;
-        text-align: center;
-        text-transform: uppercase;
-        margin-top: 11rem;
-        opacity: 0;
-        transiton: .2s ease-in-out;
-    }
-
-    &.show {
-        @include respond-to($medium) {
-            opacity: 1;
-        }
-    }
-
-    .title {
-        display: block;
-        font-size: 1rem;
-        font-weight: $font-weight-regular;
-        text-transform: none;
-        line-height: 1;
-    }
-
-    .flag {
-        display: inline-block;
-        vertical-align: top;
-        margin-top: 2px;
-        margin-right: 4px;
-    }
-}

@@ -24,7 +24,8 @@
             bottom: 0;
             position: absolute;
             right: 0;
-            height: 90%;
+            height: 80%;
+            z-index: 0;
         }
 
         path {
@@ -33,5 +34,44 @@
             stroke-width: .75;
             fill: none;
         }
+    }
+}
+
+.current-location {
+    display: none;
+
+    @include respond-to($medium) {
+        display: block;
+        position: absolute;
+        right: 1.5rem;
+        bottom: 0;
+        font-size: .75rem;
+        font-weight: $font-weight-bold;
+        text-align: center;
+        text-transform: uppercase;
+        opacity: 0;
+        z-index: 1;
+        transition: .2s ease-in-out;
+    }
+
+    .finished & {
+        @include respond-to($medium) {
+            opacity: 1;
+        }
+    }
+
+    .title {
+        display: block;
+        font-size: 1rem;
+        font-weight: $font-weight-regular;
+        text-transform: none;
+        line-height: 1;
+    }
+
+    .flag {
+        display: inline-block;
+        vertical-align: top;
+        margin-top: 2px;
+        margin-right: 4px;
     }
 }

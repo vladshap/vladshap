@@ -136,10 +136,9 @@
             .addTo(controller)
             .on("enter", function () {
                 $('.canvas').addClass('finished');
-                $('.current-location').addClass('show');
             })
             .on("leave", function () {
-                $('.current-location').removeClass('show');
+                $('.canvas').removeClass('finished');
             });
     }
 

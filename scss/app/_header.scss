@@ -134,7 +134,6 @@
 	line-height: 1.2;
 	position: relative;
 	text-transform: uppercase;
-	text-align: center;
 
 	@include respond-to($medium) {
 		font-size: 1.1rem;

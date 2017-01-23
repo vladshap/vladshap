@@ -146,7 +146,7 @@
             <use xlink:href="#vs"></use>
         </svg>
         <span class="logo-text">
-            Vlad Shapochnikov
+            <span class="name">Vlad Shapochnikov</span>
             <span class="tag-line">developer &ndash; photographer &ndash; adventurer</span>
         </span>
     </h1>
@@ -258,7 +258,6 @@
                 <button type="submit" class="btn btn--full btn--alt" id="send-message" disabled="disabled">Finish Your Message</button>
             </form>
         </div>
-        <p class="current-location animated">I am currently in: <span class="title"><span class="flag">🇩🇪</span>Berlin, Germany</span></p>
         <!--
             Here is this cool SVG draw-y on scroll thingamagig.
             Made possible with GSAP - http://greensock.com/gsap & ScrollMagic - http://scrollmagic.io/
@@ -268,6 +267,7 @@
             own, separate SVG tag.
         -->
         <div class="canvas">
+            <p class="current-location">I am currently in: <span class="title"><span class="flag">🇩🇪</span>Berlin, Germany</span></p>
             <svg viewBox="0 0 587 793" xmlns="http://www.w3.org/2000/svg">
                 <title>Germany</title>
                 <g stroke-width=".5" fill="none" fill-rule="evenodd">
@@ -277,10 +277,22 @@
 </main>
 <footer role="contentinfo" class="site-footer">
     <!-- Gotta have these, otherwise how will people find me? -->
-    <svg class="mtn">
-        <use xlink:href="#mtn"></use>
-    </svg>
+    <!--<svg class="mtn">-->
+        <!--<use xlink:href="#mtn"></use>-->
+    <!--</svg>-->
     <ul class="social-links">
+        <li><a href="http://github.com/vladshap/" target="_blank">
+            <svg
+                    class="icon icon-github">
+                <use xlink:href="#icon-github"></use>
+            </svg>
+        </a></li>
+        <li><a href="http://codepen.io/vladshap/" target="_blank">
+            <svg
+                    class="icon icon-codepen">
+                <use xlink:href="#icon-codepen"></use>
+            </svg>
+        </a></li>
         <li><a href="http://twitter.com/vladshap/" target="_blank">
             <svg
                     class="icon icon-twitter">
@@ -297,18 +309,6 @@
             <svg
                     class="icon icon-youtube">
                 <use xlink:href="#icon-youtube"></use>
-            </svg>
-        </a></li>
-        <li><a href="http://github.com/vladshap/" target="_blank">
-            <svg
-                    class="icon icon-github">
-                <use xlink:href="#icon-github"></use>
-            </svg>
-        </a></li>
-        <li><a href="http://codepen.io/vladshap/" target="_blank">
-            <svg
-                    class="icon icon-codepen">
-                <use xlink:href="#icon-codepen"></use>
             </svg>
         </a></li>
         <li><a href="https://play.spotify.com/user/vladshap" target="_blank">

@@ -1,9 +1,9 @@
 .site-footer {
-    padding: 1rem 0;
+    padding-bottom: 1.5rem;
     text-align: center;
 
     @include respond-to($medium) {
-        margin-top: 100px;
+        //margin-top: 100px;
     }
 }
 
