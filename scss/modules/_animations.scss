@@ -56,6 +56,23 @@
     animation-name: fadeOutDown;
 }
 
+
+
+@keyframes slideInUp {
+    from {
+        transform: translate3d(0, 200%, 0);
+        visibility: visible;
+    }
+
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+%slideInUp {
+    animation-name: slideInUp;
+}
+
 @keyframes spin {
     100% {
         transform: rotate(360deg);

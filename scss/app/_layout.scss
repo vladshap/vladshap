@@ -19,5 +19,14 @@
     position: relative;
     padding-top: 80px;
     padding-bottom: 80px;
-    @include clearfix();
+    //box-shadow: 0 1px 0 0 red;
+    //@include clearfix();
+
+    @include respond-to($large) {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 }

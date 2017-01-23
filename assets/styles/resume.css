@@ -43,7 +43,7 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-p.job-title:after, .frame:after {
+p.job-title:after {
   clear: both;
   content: '';
   display: table; }
@@ -311,3 +311,14 @@ body {
   position: relative;
   padding-top: 80px;
   padding-bottom: 80px; }
+  @media screen and (min-width: 62em) {
+    .frame {
+      min-height: 100vh;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-direction: column;
+          flex-direction: column;
+      -ms-flex-align: center;
+          align-items: center;
+      -ms-flex-pack: center;
+          justify-content: center; } }

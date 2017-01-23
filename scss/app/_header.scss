@@ -1,19 +1,13 @@
 .site-header {
-	display: flex;
-	flex-direction: column;
 	min-height: 450px;
 	padding: 0;
+	margin-bottom: 80px;
 	position: relative;
+	display: flex;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 
-	//.loading & {
-	//	overflow: hidden;
-	//}
-
-	&.sticky {
-		align-items: flex-start;
-	}
 }
 
 .bg {
@@ -65,13 +59,14 @@
 	text-align: center;
 	vertical-align: top;
 	z-index: 10;
+	width: 100%;
 
 	.sticky & {
 		position: fixed;
 		top: 0;
+		left: 0;
 		margin-bottom: 0;
-		@extend %animated;
-		@extend %fadeIn;
+		width: auto;
 	}
 }
 
@@ -96,6 +91,8 @@
 		height: 1.75rem;
 		top: .25rem;
 		left: .25rem;
+		@extend %animated;
+		@extend %fadeIn;
 
 		@include respond-to($medium) {
 			width: 2rem;
@@ -109,16 +106,48 @@
 
 .logo-text {
 	display: block;
-	font-size: 1rem;
-	text-decoration: none;
-	text-transform: uppercase;
-	letter-spacing: 2px;
+	//font-size: 1rem;
+	//text-decoration: none;
+	//text-transform: uppercase;
+	//letter-spacing: 2px;
+	//font-weight: $font-weight-bold;
+	//text-shadow: 0 0 5px $color-black;
+	//pointer-events: none;
+
+
+	font-size: 1.25rem;
 	font-weight: $font-weight-bold;
-	text-shadow: 0 0 5px $color-black;
-	pointer-events: none;
+	letter-spacing: 2px;
+	text-shadow: 0 0 20px $color-black, 0 0 15px rgba($color-black, 0.25), 0 0 1px rgba($color-black, 0.5), 0 0 50px $color-black;
+	position: absolute;
+	top: 50%;
+	margin-top: -27px;
+	left: 0;
+	right: 0;
+	text-align: center;
+
+	@include respond-to($medium) {
+		font-size: 2.5rem;
+	}
 
 	.sticky & {
 		display: none;
+	}
+}
+
+.tag-line {
+	display: block;
+	font-size: .69rem;
+	font-weight: $font-weight-regular;
+	letter-spacing: 0;
+	line-height: 1.2;
+	position: relative;
+	text-transform: uppercase;
+	text-align: center;
+
+	@include respond-to($medium) {
+		font-size: 1.1rem;
+		letter-spacing: 2px;
 	}
 }
 
@@ -127,16 +156,16 @@
 	height: 50px;
 	left: 50%;
 	margin-left: -25px;
-	opacity: 0;
+	//opacity: 0;
 	position: absolute;
-	bottom: 2%;
-	transition: opacity 3s cubic-bezier(.55, .16, .48, .93);
+	bottom: 1rem;
+	//transition: opacity 3s cubic-bezier(.55, .16, .48, .93);
 	width: 50px;
 	z-index: 100;
 
 	.loaded & {
-		opacity: 1;
-		transition-delay: 2s;
+		//opacity: 1;
+		//transition-delay: 2s;
 	}
 
 	&::before,

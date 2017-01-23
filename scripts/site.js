@@ -34,9 +34,10 @@
 
     // Logo animation on scroll
     var logo = new TimelineMax().add([
-        TweenMax.to(".site-logo", 1, { y: "10%", opacity: 0 }),
+        TweenMax.to(".logo-text", 1, { y: "-150%", opacity: .5 }),
+        TweenMax.to(".logo-mark", 1, { y: "10%", opacity: 0 }),
         TweenMax.to(".bg", 1, { opacity: .5 }),
-        TweenMax.to(".scroll-indicator", 1, { y: "-90%", opacity: 0 })
+        TweenMax.to(".scroll-indicator", 1, { opacity: 0 })
     ]);
 
     new ScrollMagic.Scene({
@@ -85,6 +86,9 @@
             .on("enter", function () {
                 $(frames[i]).addClass(activeFrame);
             });
+            // .on("leave", function () {
+            //     $(frames[i]).removeClass(activeFrame);
+            // });
 
         // var percentOffset = ( $(frames[i]).offset().top / (docheight - winheight) ) * 100;
         // $('.scroll-menu').append('<li style="top: '+ percentOffset.toFixed(2) +'%"><a href="' + frames[i] + '">'+ frames[i].replace('#', '') +'</a></li>');
