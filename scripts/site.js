@@ -27,7 +27,8 @@
     // Some classes that I'll use to activate frames
     var activeFrame = 'frame--active',
         frames = ['#about', '#projects', '#photography', '#contact'],
-        projects = ['.project__hightimes', '.project__northern-fork', '.project__flor', '.project__osx', '.project__work'];
+        projects = ['.project__hightimes', '.project__northern-fork', '.project__flor', '.project__osx', '.project__work',
+            '.insta-1', '.insta-2', '.insta-3', '.insta-4', '.insta-5', '.insta-6', '.insta-7', '.insta-8', '.insta-9'];
 
     // ScrollMagic controller
     var controller = new ScrollMagic.Controller();
@@ -73,44 +74,53 @@
     }
     // scrollLine();
 
-    // Activate frames as they scroll into view
-    $.each(frames, function (i, el) {
-        // console.log(frames[i]);
-        new ScrollMagic.Scene({
-            triggerElement: frames[i],
-            duration: "0",
-            triggerHook: .6
-        })
-            .addTo(controller)
-            // .addIndicators()
-            .on("enter", function () {
-                $(frames[i]).addClass(activeFrame);
-            });
-            // .on("leave", function () {
-            //     $(frames[i]).removeClass(activeFrame);
-            // });
+    function activateFrames () {
+        // Activate frames as they scroll into view
+        $.each(frames, function (i, el) {
+            // console.log(frames[i]);
+            new ScrollMagic.Scene({
+                triggerElement: frames[i],
+                duration: "0",
+                triggerHook: .6
+            })
+                .addTo(controller)
+                // .addIndicators()
+                .on("enter", function () {
+                    $(frames[i]).addClass(activeFrame);
+                    // $( 'a[href*="'+frames[i]+'"]' ).addClass('active');
+                })
+                .on("leave", function () {
+                    $(frames[i]).removeClass(activeFrame);
+                    // $( 'a[href*="'+frames[i]+'"]' ).removeClass('active');
+                });
 
-        // var percentOffset = ( $(frames[i]).offset().top / (docheight - winheight) ) * 100;
-        // $('.scroll-menu').append('<li style="top: '+ percentOffset.toFixed(2) +'%"><a href="' + frames[i] + '">'+ frames[i].replace('#', '') +'</a></li>');
+            // var percentOffset = ( $(frames[i]).offset().top / (docheight - winheight) ) * 100;
+            // $('.scroll-menu').append('<li style="top: '+ percentOffset.toFixed(2) +'%"><a href="' + frames[i] + '">'+ frames[i].replace('#', '') +'</a></li>');
 
-    });
+        });
+    }
+    activateFrames();
 
-    // Animate projects as they scroll into view
-    $.each(projects, function (i, el) {
-        // console.log(projects[i]);
-        new ScrollMagic.Scene({
-            triggerElement: projects[i],
-            duration: "0",
-            triggerHook: .6
-        })
-            .addTo(controller)
-            .on("enter", function () {
-                $(projects[i]).addClass('show');
-            });
-            // .on("leave", function () {
-            //     $(projects[i]).removeClass('show');
-            // });
-    });
+
+    function animateProjects () {
+        // Animate projects as they scroll into view
+        $.each(projects, function (i, el) {
+            // console.log(projects[i]);
+            new ScrollMagic.Scene({
+                triggerElement: projects[i],
+                duration: "0",
+                triggerHook: .6
+            })
+                .addTo(controller)
+                .on("enter", function () {
+                    $(projects[i]).addClass('show');
+                })
+                .on("leave", function () {
+                    $(projects[i]).removeClass('show');
+                });
+        });
+    }
+
 
     // Animating svg map on scroll
     var $svgPath = $(".canvas path");
@@ -153,25 +163,27 @@
     });
 
     // Instagram feed
+    var imageCount = 1;
     var feed = new Instafeed({
         get: 'user',
         userId: '12280671',
         resolution: 'standard_resolution',
         limit: '9',
         template:
-        '<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">' +
-            '<a href="{{image}}" itemprop="contentUrl"  data-size="{{width}}x{{height}}">' +
+        '<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" class="insta-{{model.customClassName}}">' +
+            '<a href="{{image}}" itemprop="contentUrl" data-size="{{width}}x{{height}}">' +
                 '<img src="{{image}}" id="{{id}}" alt="{{caption}}" itemprop="thumbnail" width="{{width}}" height="{{height}}"/>' +
             '</a>' +
             '<figcaption itemprop="caption description">{{caption}}</figcaption>' +
         '</figure>',
         accessToken: '12280671.1677ed0.b4f90dc8d77b4430bf876a02ca04baaf',
         after: function() {
-            // disable button if no more results to load
-            // if (!this.hasNext()) {
-            //     loadButton.setAttribute('disabled', 'disabled');
-            // }
-
+            animateProjects();
+        },
+        filter: function(image) {
+            image.customClassName = imageCount;
+            imageCount++;
+            return true;
         }
     });
 
@@ -216,8 +228,6 @@
                     w: parseInt(size[0], 10),
                     h: parseInt(size[1], 10)
                 };
-
-
 
                 if(figureEl.children.length > 1) {
                     // <figcaption> content
@@ -420,5 +430,7 @@
         });
     }
     checkForm('.contact-form .input');
+
+
 
 });

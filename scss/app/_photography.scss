@@ -19,6 +19,13 @@
 			display: block;
 		}
 
+		@extend %animated;
+		@extend %fadeOutDown;
+
+		&.show {
+			@extend %fadeInUp;
+			animation-delay: .5s;
+		}
 	}
 
 	figcaption {

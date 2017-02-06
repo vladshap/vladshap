@@ -12,3 +12,11 @@ If you've found a bug, it would be awesome if you created an issue!
 * VS logo design by [Nicole Hammonds](http://nicole-hammonds.com)
 * Brandon Grotesque font via [TypeKit](https://typekit.com/fonts/brandon-grotesque)
 * Social Icons generated via [IcoMoon](http://icomoon.io/app/)
+
+
+
+
+
+
+
+

@@ -16,7 +16,6 @@
 	left: 0;
 	height: 100%;
 	width: 100%;
-	//background: $base-bg-color url('/assets/images/moss-wallpaper.jpg') no-repeat scroll 50% 100%;
 	background: $base-bg-color url('/assets/images/wall_1685.jpg') no-repeat scroll 50% 0%;
 	background-size: cover;
 	z-index: -1;
@@ -203,6 +202,64 @@
 			animation-delay: .5s;
 			height: 6px;
 			width: 6px;
+		}
+	}
+}
+
+.site-nav {
+	position: fixed;
+	left: 1.5rem;
+	top: 50%;
+	transform: rotate(90deg) translate(-50%, 200%);
+	transform-origin: 0 100%;
+	z-index: 20;
+	transition: .25s $cubic-bezier;
+	opacity: 0;
+
+	.sticky & {
+		transform: rotate(90deg) translate(-50%, 0%);
+		opacity: 1;
+	}
+
+	ul {
+		//margin: 0;
+		font-size: 0;
+	}
+	
+	li {
+		display: inline-block;
+		vertical-align: top;
+		//margin-right: 1rem;
+	}
+	
+	a {
+		text-transform: uppercase;
+		text-decoration: none;
+		font-size: .75rem;
+		letter-spacing: 1px;
+		font-weight: $font-weight-bold;
+		position: relative;
+		padding-left: 5px;
+		padding-right: 5px;
+
+		&::before {
+			content: '';
+			position: absolute;
+			height: 1px;
+			background-color: $color-white;
+			left: 0;
+			bottom: -2px;
+			right: 100%;
+			width: auto;
+			transition: .15s linear all;
+		}
+
+		&.active {
+
+			&::before {
+
+				right: 0
+			}
 		}
 	}
 }

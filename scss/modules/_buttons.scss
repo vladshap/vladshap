@@ -16,16 +16,36 @@
     vertical-align: top;
     background-color: transparent;
     color: $color-white;
+    overflow: hidden;
+    position: relative;
+    transform: scale(1);
 
     @include respond-to($medium) {
         padding: .5rem 2.5rem;
     }
 
-    &:hover {
+    &::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        height: 1000%;
         background-color: $color-white;
+        opacity: 0;
+        transition: .2s ease-in-out;
+        z-index: -1;
+        pointer-events: none;
+    }
+
+    &:hover {
         color: $color-black;
-        border-color: transparent;
         text-decoration: none;
+        //transform: scale(1.05) !important;
+
+        &::before {
+            opacity: 1;
+        }
     }
 
     &--alt {

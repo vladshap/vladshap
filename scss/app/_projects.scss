@@ -20,7 +20,6 @@
     @extend %animated;
     @extend %fadeOutDown;
 
-
     &.show {
         @extend %fadeInUp;
     }
