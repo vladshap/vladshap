@@ -10,21 +10,25 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var sourcemaps = require('gulp-sourcemaps');
 var gzip = require("gulp-gzip");
-var awspublish = require('gulp-awspublish');
+var cp = require('child_process');
+// var awspublish = require('gulp-awspublish');
 
-
+var jekyll   = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
+var messages = {
+    jekyllBuild: '<span style="color: grey">Running:</span> jekyll build'
+};
 
 gulp.task('browser-sync', function () {
     browserSync({
         server: {
-            baseDir: "./"
+            baseDir: "_site"
         }
     });
 });
 
-gulp.task('bs-reload', function () {
-    browserSync.reload();
-});
+// gulp.task('bs-reload', function () {
+//     browserSync.reload();
+// });
 
 gulp.task('styles', function () {
     gulp.src(['scss/**/*.scss'])
@@ -36,10 +40,10 @@ gulp.task('styles', function () {
         }))
         .pipe(sass())
         .pipe(autoprefixer('last 2 versions'))
-        .pipe(gulp.dest('assets/styles/'))
+        .pipe(gulp.dest('_site/assets/styles/'))
         .pipe(rename({suffix: '.min'}))
         .pipe(minifycss())
-        .pipe(gulp.dest('assets/styles/'))
+        .pipe(gulp.dest('_site/assets/styles/'))
         .pipe(browserSync.reload({stream: true}))
 });
 
@@ -63,6 +67,7 @@ gulp.task('js', function(){
                 'bower_components/instafeed.js/instafeed.js',
                 'bower_components/photoswipe/dist/photoswipe.js',
                 'bower_components/photoswipe/dist/photoswipe-ui-default.js',
+                'bower_components/exif-js/exif.js',
                 'scripts/site.js'
             ])
         .pipe(sourcemaps.init())
@@ -70,38 +75,50 @@ gulp.task('js', function(){
         // .pipe(gulp.dest('assets/js'))
         // .pipe(rename('site.min.js'))
         .pipe(concat('site.min.js'))
-        .pipe(gulp.dest('assets/js'))
+        .pipe(gulp.dest('_site/assets/js'))
         .pipe(uglify())
         .pipe(sourcemaps.write('./'))
-        .pipe(gulp.dest('assets/js'))
+        .pipe(gulp.dest('_site/assets/js'))
         .pipe(browserSync.reload({stream: true}));
 });
 
-gulp.task('s3-publish', function() {
-    var publisher = awspublish.create({
-        region: 'us-west-2',
-        params: {
-            Bucket: 'vladshap'
-        }
-    });
 
-    var headers = {
-        'Cache-Control': 'max-age=315360000, no-transform, public'
-    };
-
-    var options = {
-    };
-
-    return gulp.src('assets/**')
-        .pipe(awspublish.gzip())
-        .pipe(publisher.publish(headers, options))
-        .pipe(publisher.sync())
-        .pipe(publisher.cache())
-        .pipe(awspublish.reporter());
+gulp.task('jekyll-build', function (done) {
+    browserSync.notify(messages.jekyllBuild);
+    return cp.spawn( jekyll , ['build'], {stdio: 'inherit'})
+        .on('close', done);
 });
 
+gulp.task('jekyll-rebuild', ['jekyll-build', 'styles', 'js'], function () {
+    browserSync.reload();
+});
+
+// gulp.task('s3-publish', function() {
+//     var publisher = awspublish.create({
+//         region: 'us-west-2',
+//         params: {
+//             Bucket: 'vladshap'
+//         }
+//     });
+//
+//     var headers = {
+//         'Cache-Control': 'max-age=315360000, no-transform, public'
+//     };
+//
+//     var options = {
+//     };
+//
+//     return gulp.src('assets/**')
+//         .pipe(awspublish.gzip())
+//         .pipe(publisher.publish(headers, options))
+//         .pipe(publisher.sync())
+//         .pipe(publisher.cache())
+//         .pipe(awspublish.reporter());
+// });
+
 gulp.task('watch', ['browser-sync'], function () {
+    gulp.watch(['*.html', '_layouts/*.html', '_posts/*', '_photos/*', '_includes/*.html'], ['jekyll-rebuild']);
     gulp.watch("scss/**/*.scss", ['styles']);
-    gulp.watch("*.html", ['bs-reload']);
+    // gulp.watch("*.html", ['bs-reload']);
     gulp.watch("scripts/*.js", ['js']);
 });

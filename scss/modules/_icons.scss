@@ -29,3 +29,69 @@
         transform: translate(10px, 1px) scale(1);
     }
 }
+
+.scroll-indicator {
+    display: block;
+    height: 50px;
+    left: 50%;
+    margin-left: -25px;
+    position: absolute;
+    bottom: 1rem;
+    width: 50px;
+    z-index: 10;
+
+    .loaded & {
+        //opacity: 1;
+        //transition-delay: 2s;
+    }
+
+    &::before,
+    &::after {
+        content: '';
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    &::before {
+        animation: dot 3s infinite ease-in-out;
+        border: 1px solid $color-white;
+        border-radius: 10px;
+        height: 12px;
+        width: 12px;
+    }
+
+    &::after {
+        animation: arrow 3s infinite ease-in-out;
+        animation-delay: .75s;
+        border-bottom: 1px solid $color-white;
+        border-right: 1px solid $color-white;
+        height: 7px;
+        opacity: .25;
+        transform: rotate(45deg);
+        width: 7px;
+    }
+
+    span {
+        display: block;
+        &::before,
+        &::after {
+            animation: dot 3s infinite ease-in-out;
+            border: 1px solid $color-white;
+            border-radius: 10px;
+            content: '';
+            display: block;
+            margin: 5px auto;
+        }
+        &::before {
+            animation-delay: .25s;
+            height: 8px;
+            width: 8px;
+        }
+        &::after {
+            animation-delay: .5s;
+            height: 6px;
+            width: 6px;
+        }
+    }
+}

@@ -1,0 +1,10 @@
+{% include head.html %}
+{% include header.html %}
+<main role="main">
+    {% if page.home_header %}
+    <div class="bg"></div>
+    <a class="scroll-indicator" href="#about"><span class="dots"></span><span class="vh">Scroll Down</span></a>
+    {% endif %}
+    {{ content }}
+</main>
+{% include footer.html %}

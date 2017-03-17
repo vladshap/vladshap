@@ -9,10 +9,14 @@
     var viewportHeight = 0;
     function setHeaderHeight() {
         viewportHeight = $(window).height();
-        $('.site-header').css('height', viewportHeight);
+        $('.home-header').css('height', viewportHeight);
         //console.log("viewport height: " + viewportHeight);
     }
-    setHeaderHeight();
+
+    if ($('.home-header').length > 0) {
+        setHeaderHeight();
+    }
+
 
     // Similar to a debounce function, just making sure resize events don't get triggered for every pixel, and delays it by 250ms.
     var resizeTimer;
@@ -41,66 +45,62 @@
         TweenMax.to(".scroll-indicator", 1, { opacity: 0 })
     ]);
 
-    new ScrollMagic.Scene({
-        triggerElement: ".site-header",
-        duration: "66.66%",
-        triggerHook: 0
-    })
-        .setTween(logo)
-        .addTo(controller);
+
+
+    if ($('.home-header').length > 0) {
+        new ScrollMagic.Scene({
+            triggerElement: ".home-header",
+            duration: "66.66%",
+            triggerHook: 0
+        })
+            .setTween(logo)
+            .addTo(controller);
+    }
 
     // Background pin
-    var bg = new ScrollMagic.Scene({
-        triggerElement: "#about",
-        triggerHook: .25
-    })
+
+    if($('#about').length > 0) {
+        var bg = new ScrollMagic.Scene({
+            triggerElement: "#about",
+            triggerHook: .25
+        })
+        .setClassToggle('.home-header', 'header--stuck')
         .setPin('.bg')
-        .setClassToggle('.site-header', 'sticky')
         .addTo(controller);
+    }
 
 
     var docheight = $(document).height();
     var winheight = $(window).height();
 
-    function scrollLine () {
-        $(window).scroll(function() {
-            var wintop = $(window).scrollTop();
-            var scrolled = (wintop / (docheight - winheight)) * 100;
-            // $('.line').css('height', (scrolled + '%'));
-
-            $('.counter').text(scrolled.toFixed(0));
-
-        });
-    }
-    // scrollLine();
 
     function activateFrames () {
         // Activate frames as they scroll into view
         $.each(frames, function (i, el) {
             // console.log(frames[i]);
-            new ScrollMagic.Scene({
-                triggerElement: frames[i],
-                duration: "0",
-                triggerHook: .6
-            })
-                .addTo(controller)
-                // .addIndicators()
-                .on("enter", function () {
-                    $(frames[i]).addClass(activeFrame);
-                    // $( 'a[href*="'+frames[i]+'"]' ).addClass('active');
+
+            // if (frames[i].length > 0) {
+                new ScrollMagic.Scene({
+                    triggerElement: frames[i],
+                    duration: "0",
+                    triggerHook: .6
                 })
-                .on("leave", function () {
-                    $(frames[i]).removeClass(activeFrame);
-                    // $( 'a[href*="'+frames[i]+'"]' ).removeClass('active');
-                });
-
-            // var percentOffset = ( $(frames[i]).offset().top / (docheight - winheight) ) * 100;
-            // $('.scroll-menu').append('<li style="top: '+ percentOffset.toFixed(2) +'%"><a href="' + frames[i] + '">'+ frames[i].replace('#', '') +'</a></li>');
-
+                    .addTo(controller)
+                    // .addIndicators()
+                    .on("enter", function () {
+                        $(frames[i]).addClass(activeFrame);
+                        // $( 'a[href*="'+frames[i]+'"]' ).addClass('active');
+                    })
+                    .on("leave", function () {
+                        $(frames[i]).removeClass(activeFrame);
+                        // $( 'a[href*="'+frames[i]+'"]' ).removeClass('active');
+                    });
+                // var percentOffset = ( $(frames[i]).offset().top / (docheight - winheight) ) * 100;
+                // $('.scroll-menu').append('<li style="top: '+ percentOffset.toFixed(2) +'%"><a href="' + frames[i] + '">'+ frames[i].replace('#', '') +'</a></li>');
+            // }
         });
     }
-    activateFrames();
-
+    // activateFrames();
 
     function animateProjects () {
         // Animate projects as they scroll into view
@@ -178,7 +178,7 @@
         '</figure>',
         accessToken: '12280671.1677ed0.b4f90dc8d77b4430bf876a02ca04baaf',
         after: function() {
-            animateProjects();
+            // animateProjects();
         },
         filter: function(image) {
             image.customClassName = imageCount;
@@ -193,10 +193,14 @@
     // loadButton.addEventListener('click', function() {
     //     feed.next();
     // });
-    feed.run();
+
+
+    if ($('#instafeed').length > 0) {
+        feed.run();
+    }
 
     // Photoswipe gallery
-    var instagramGallery = function(gallerySelector) {
+    var photoswipeGallery = function(gallerySelector) {
 
         // parse slide data (url, title, size ...) from DOM elements
         // (children of gallerySelector)
@@ -409,8 +413,31 @@
             openPhotoSwipe( hashData.pid ,  galleryElements[ hashData.gid - 1 ], true, true );
         }
     };
-    instagramGallery('.instafeed');
 
+    if ($('#instafeed').length > 0) {
+        // exists.
+        photoswipeGallery('.instafeed');
+    }
+
+    photoswipeGallery('.gallery');
+
+
+    $('.photo a').on('click', function(e) {
+        e.preventDefault();
+        console.log("click: ");
+    });
+
+    // window.onload=getExif;
+    //
+    // function getExif() {
+    //     var img = document.getElementById("img1");
+    //     EXIF.getData(img, function() {
+    //         var make = EXIF.getTag(this, "Make");
+    //         var model = EXIF.getTag(this, "Model");
+    //         var makeAndModel = document.getElementById("makeAndModel");
+    //         makeAndModel.innerHTML = `${make} ${model}`;
+    //     });
+    // }
 
     function checkForm($el) {
         $($el).keyup(function () {
@@ -430,7 +457,5 @@
         });
     }
     checkForm('.contact-form .input');
-
-
 
 });
