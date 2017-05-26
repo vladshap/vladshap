@@ -2,30 +2,23 @@
 layout: default
 title: Home
 permalink: /
-home_header: true
 ---
 
-    <section class="frame frame__about" id="about">
-        <div class="container">
-            <h2>About Me</h2>
-        </div>
-        <div class="container animated">
-            <!--<figure class="about-image">-->
-                <!--<img sizes="(max-width: 1440px) 100vw, 1440px"-->
-                     <!--srcset="-->
-                        <!--/assets/images/vlad_valle_frances_gwp29p_c_scale,w_640.jpg 640w,-->
-                        <!--/assets/images/vlad_valle_frances_gwp29p_c_scale,w_972.jpg 972w,-->
-                        <!--/assets/images/vlad_valle_frances_gwp29p_c_scale,w_1259.jpg 1259w,-->
-                        <!--/assets/images/vlad_valle_frances_gwp29p_c_scale,w_1440.jpg 1440w"-->
-                     <!--src="/assets/images/vlad_valle_frances_gwp29p_c_scale,w_1440.jpg"-->
-                     <!--alt="Photo of Vlad Shapochnikov at the French Valley in Torres del Paine">-->
-                <!--<figcaption><a href="http://mattsoria.com" target="_blank">photo by: <strong>Matt Soria</strong></a>-->
-                <!--</figcaption>-->
-            <!--</figure>-->
-            <p>Hello, my name is Vlad Shapochnikov and I am an independent web developer, designer and an adventure seeker from Chicago, IL. I am currently traveling around the world to expand my mind, learn about the cycles of various cultures, and breathe new inspiration into my own life.</p>
+<section class="frame about">
+    <div class="container">
+        <h1>About Me</h1>
+        <div class="about--me">
+            <p>👋 Hello, my name is Vlad Shapochnikov and I web developer, designer and an adventure seeker from Chicago, IL. Currently I'm freelancing and traveling around the world to expand my mind, learn about the cycles of various cultures, and breathe new inspiration into my own life.</p>
             <p>Previously I worked at <a href="http://officeofexperience.com" target="_blank">Office of Experience</a>, <a href="http://devbridge.com/" target="_blank">Devbridge</a>, <a href="http://generalassemb.ly/">General Assembly</a>, and <a
-                        href="http://usmangroup.com/">Usman Group</a>. I am currently looking to take on new, interesting projects so
+                        href="http://usmangroup.com/">Usman Group</a>. I'm always looking to take on new, interesting projects so
                 <a href="#contact">get in touch</a>!</p>
-            <p>This website is a collection of my most recent <a href="#projects">projects</a> and ideas that I've been tinkering with.</p>
+            <p>This website is a collection of my most recent <a href="/projects/">projects</a>, <a href="/photos/">photos</a>, and ideas that I've been tinkering with.</p>
+            <a href="/projects/" class="btn btn--alt">View Projects</a>
+            {% include social-links.html %}
         </div>
-    </section>
+        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" class="about--image">
+            <img src="/assets/images/my-face.png" alt="Portrait of Vlad Shapochnikov" itemprop="thumbnail">
+            <figcaption itemprop="caption description">Yo!</figcaption>
+        </figure>
+    </div>
+</section>

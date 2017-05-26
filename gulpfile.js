@@ -20,6 +20,7 @@ var messages = {
 
 gulp.task('browser-sync', function () {
     browserSync({
+        notify: false,
         server: {
             baseDir: "_site"
         }
@@ -67,7 +68,9 @@ gulp.task('js', function(){
                 'bower_components/instafeed.js/instafeed.js',
                 'bower_components/photoswipe/dist/photoswipe.js',
                 'bower_components/photoswipe/dist/photoswipe-ui-default.js',
-                'bower_components/exif-js/exif.js',
+                'bower_components/justifiedGallery/dist/js/jquery.justifiedGallery.js',
+                // 'bower_components/history.js/scripts/uncompressed/history.js',
+                'bower_components/history.js/scripts/bundled/html5/jquery.history.js',
                 'scripts/site.js'
             ])
         .pipe(sourcemaps.init())
@@ -84,7 +87,7 @@ gulp.task('js', function(){
 
 
 gulp.task('jekyll-build', function (done) {
-    browserSync.notify(messages.jekyllBuild);
+    // browserSync.notify(messages.jekyllBuild);
     return cp.spawn( jekyll , ['build'], {stdio: 'inherit'})
         .on('close', done);
 });

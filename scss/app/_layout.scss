@@ -1,18 +1,21 @@
 main {
-    padding-top: 64px;
+    padding-top: 8rem;
+    z-index: 1;
+    position: relative;
+    background-color: $base-bg-color;
 
-    @include respond-to($large) {
-        //padding-left: 0;
+    @include respond-to($small) {
+        padding-top: 6rem;
     }
 }
 
 
 .container {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-left: $base-padding;
+    padding-right: $base-padding;
     position: relative;
     width: 100%;
-    @include container($medium);
+    @include container($large);
 
     .resume & {
         @include container($large);
@@ -22,14 +25,14 @@ main {
         @include container($small);
     }
 
+    &--large {
+        @include container($large);
+    }
+
 }
 
 .frame {
     position: relative;
-    padding-top: 80px;
-    padding-bottom: 80px;
-    //box-shadow: 0 1px 0 0 red;
-    //@include clearfix();
 
     @include respond-to($large) {
         min-height: calc( 100vh - 64px);
@@ -40,45 +43,11 @@ main {
     }
 }
 
+.image {
+    margin-bottom: $base-padding;
+    border: 1px solid $base-border;
 
-
-.bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background: $base-bg-color url('/assets/images/moss_1536.jpg') no-repeat scroll 50% 100%;
-    background-size: cover;
-    z-index: -1;
-
-    @include respond-to($small) {
-        background-image: url('/assets/images/moss_2048.jpg');
-    }
-
-    @include respond-to($medium) {
-        background-image: url('/assets/images/moss_2880.jpg');
-    }
-
-    &::before,
-    &::after {
-        content: '';
-        left: 0;
-        pointer-events: none;
-        position: absolute;
-        width: 100%;
-        z-index: 1;
-    }
-
-    &::before {
-        background: linear-gradient(to bottom, rgba($color-black, 0) 0%, rgba($color-black, .5) 100%);
-        bottom: 0;
-        height: 50%;
-    }
-
-    &::after {
-        background: linear-gradient(to bottom, rgba($color-black, 0) 0%, $color-black 100%);
-        bottom: 0;
-        height: 200px;
+    img {
+        display: block;
     }
 }

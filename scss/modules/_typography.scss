@@ -1,5 +1,12 @@
-/* latin-ext */
-//@import 'https://fonts.googleapis.com/css?family=Josefin+Sans:400,700';
+//@import url('https://fonts.googleapis.com/css?family=Sorts+Mill+Goudy:400i');
+
+@font-face {
+	font-family: 'Sorts Mill Goudy';
+	font-style: italic;
+	font-weight: 400;
+	src: local('Sorts Mill Goudy Italic'), local('SortsMillGoudy-Italic'), url(https://fonts.gstatic.com/s/sortsmillgoudy/v6/UUu1lKiy4hRmBWk599VL1ScduHglN_S7aJvGYHj_Mow.woff2) format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
 
 // Typography
 
@@ -21,7 +28,6 @@ p {
 
     &.job-title {
         font-weight: $font-weight-bold;
-        //margin-bottom: .25rem;
         margin-bottom: 0;
         padding-right: 75px;
         position: relative;
@@ -41,99 +47,44 @@ a {
 h1, h2, h3, h4 {
     font-weight: inherit;
     line-height: 1.2;
-    margin: 0 0 .5rem;
     font-family: $base-sans-serif;
-    text-transform: uppercase;
+    //text-transform: uppercase;
 }
 
 h1 {
-    font-size: 1.25rem;
-    font-weight: $font-weight-regular;
-    letter-spacing: 2px;
+    font-size: 2.5rem;
+    font-family: $base-serif;
+    font-weight: 400;
     line-height: 1;
-    margin: 2rem 0;
-    text-align: center;
+	display: table;
+    background-color: $base-bg-color;
+    margin: 0 0 $base-padding 0;
+    padding: 0 10px 0 0;
+	color: inherit;
 
-    @include respond-to($small) {
-        font-size: 2rem;
-        letter-spacing: 3px;
+    .loaded & {
     }
 
-    .title {
-        display: block;
-        font-size: 1rem;
-        letter-spacing: 1px;
+    &::after {
+        background-color: $base-text-color;
+        content: '';
+	    position: absolute;
+        height: 1px;
+        top: 28px;
+        z-index: -1;
+        left: $base-padding;
+        right: 100%;
+        transition: .75s $cubic-bezier;
+        transition-delay: .6s;
 
-        @include respond-to($small) {
-            font-size: 1.45rem;
-            letter-spacing: inherit;
+        .loaded & {
+            right: $base-padding;
         }
     }
 }
 
 h2 {
-    background-color: $color-black;
-    display: table;
-    font-size: 1em;
-    font-weight: $font-weight-bold;
-    letter-spacing: 3px;
-    line-height: normal;
-    margin: 0 auto .5rem;
-    padding: 0 .35rem 0 .5rem;
-    text-align: center;
-    color: transparent;
-    transition: .5s $cubic-bezier;
-
-    @include respond-to($medium) {
-        //margin-bottom: 5rem;
-    }
-
-    //.frame--active & {
-        opacity: 1;
-        color: inherit;
-    //}
-
-    .resume & {
-        background-color: $color-white;
-    }
-
-    &::before {
-        background-color: $color-white;
-        content: '';
-        display: block;
-        height: 1px;
-        left: 50%;
-        position: absolute;
-        right: 50%;
-        top: 10px;
-        z-index: -1;
-        transition: .75s $cubic-bezier;
-
-        //.frame--active & {
-            left: 1.5rem;
-            right: 1.5rem;
-        //}
-
-        .resume & {
-            background-color: $color-black;
-        }
-
-        .column & {
-            left: 0;
-            right: 0;
-        }
-    }
-}
-
-h3 {
     font-size: 1.4rem;
-    font-weight: $font-weight-bold;
-    line-height: normal;
-    margin-bottom: 1.25rem;
-}
-
-h4 {
-    font-size: 1.563em;
     font-weight: $font-weight-bold;
     line-height: normal;
     margin-bottom: 1.25rem;
@@ -189,4 +140,14 @@ small {
     position: relative;
     text-transform: uppercase;
     text-align: center;
+}
+
+.instagram-text {
+    text-decoration: none;
+    //font-weight: $font-weight-regular;
+    //text-transform: lowercase;
+    
+    &:hover {
+        background: linear-gradient(-135deg,#1400c8,#b900b4,#f50000);
+    }
 }

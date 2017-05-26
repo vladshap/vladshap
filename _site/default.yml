@@ -1,9 +1,0 @@
-scss_files: "**/*.scss"
-
-linters:
-  Indentation:
-    enabled: false
-    allow_non_nested_indentation: false
-    character: tab # or 'space'
-    width: 4
-

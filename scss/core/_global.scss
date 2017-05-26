@@ -23,6 +23,8 @@ body {
     line-height: $base-line-height;
     -webkit-font-smoothing: antialiased;
 
+    //background-color: red;
+
     //To prevent the iPhone and iPad from inflating fonts
     @include respond-to($large, max) {
         -webkit-text-size-adjust: 100%;
@@ -115,7 +117,7 @@ img {
     z-index: 100;
 
     &::before {
-        background-color: $color-black;
+        background-color: $base-bg-color;
         bottom: 0;
         content: '';
         left: 0;
@@ -127,7 +129,7 @@ img {
     }
 
     &::after {
-        color: $color-white;
+        color: $base-text-color;
         content: 'Loading';
         display: block;
         font-family: "Helvetica Neue", "Helvetica", sans-serif;
@@ -152,7 +154,7 @@ img {
             stroke-dasharray: 110;
             stroke-dashoffset: 0;
             stroke-linecap: round;
-            stroke: $color-white;
+            stroke: $base-text-color;
         }
     }
 

@@ -13,10 +13,10 @@ exclude: [
   ]
 keep_files: ["assets"]
 navigation:
-#  - title: About
-#    url: /
-  - title: Work
-    url: /work/
+  - title: Home
+    url: /
+  - title: Projects
+    url: /projects/
   - title: Photos
     url: /photos/
   - title: Contact

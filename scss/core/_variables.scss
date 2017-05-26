@@ -1,5 +1,6 @@
 //TYPOGRAPHY
-$base-serif: "garamond-premier-pro-display", serif;
+//$base-serif: "le-monde-livre-classic-std-s", serif;
+$base-serif: 'Sorts Mill Goudy', serif;
 $base-sans-serif: "brandon-grotesque", "Brandon Grotesque", sans-serif;
 
 $base-heading-font: $base-sans-serif;
@@ -15,19 +16,20 @@ $font-weight-bold: 900;
 //$color-black: #090d11;
 $color-black: #08090E;
 $color-white: #eee;
+$color-green: #2ead2b;
 
 //$color-black: #eee;
 //$color-white: #08090E;
 
 //COMMON COLORS
-$base-text-color: $color-white;
-$base-bg-color: $color-black;
+$base-text-color: $color-black;
+$base-bg-color: $color-white;
 
 $system-highlight: #227df4;
 $base-border: #414447;
 
 //Forms
-$input-placeholder-color: rgba($color-white, .35);
+$input-placeholder-color: rgba($base-text-color, .35);
 
 //ANIMATION
 $cubic-bezier: cubic-bezier(.58, .3, .51, .82);
@@ -42,7 +44,7 @@ $susy: (
     gutter-position: after,
 );
 
-$global-padding: 2rem;
+$base-padding: 1.5rem;
 
 // MEDIA QUERIES
 $small:  34em;

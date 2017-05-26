@@ -11,7 +11,6 @@
         right: 0;
         top: 0;
         z-index: -1;
-
     }
 
     .loading & {
@@ -21,18 +20,19 @@
     svg {
 
         @include respond-to($medium) {
-            bottom: 0;
+            bottom: 3rem;
             position: absolute;
-            right: 0;
-            height: 80%;
+            right: .5rem;
+            width: auto;
+            height: 70%;
             z-index: 0;
         }
 
         path {
             stroke: $base-border;
             stroke-miterlimit: 10;
-            stroke-width: .75;
-            fill: none;
+            stroke-width: .25;
+            fill: $base-bg-color;
         }
     }
 }

@@ -10,7 +10,7 @@
 
         --------------------
 
-        v0.1.0.2.34 - Copyrighted in 2017, by ME. Feel free to steal anything, but it won't make you happy.
+        v2.1.9.3.52 - Copyrighted in 2017, by ME. Feel free to steal anything, but it won't make you happy.
     -->
 
     <meta charset="utf-8">
@@ -24,7 +24,12 @@
     <meta property="og:title" content="Vlad Shapochnikov - A web developer and an aspiring explorer.">
     <meta property="og:url" content="vladshap.com">
 
+    {% if page.url == "/resume/" %}
+    <link rel="stylesheet" href="/assets/styles/resume.min.css">
+    {% else %}
     <link rel="stylesheet" href="/assets/styles/main.min.css">
+    {% endif %}
+
 
     <!-- What's your device? I've got an icon for it...no, but really, is this necessary? -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -61,15 +66,17 @@
         })(document);
     </script>
 </head>
-<body class="loading">
+<body class="loaded">
 
+{% if page.url != "/resume/" %}
 {% include svg.html %}
 <!--
     You know, that thing that spins and says "LOADING" for a bit...
     Meanwhile you contemplate leaving this website, and never coming back to it. Yeah, blame this.
 -->
-<div class="loader">
-    <svg class="circular" viewBox="25 25 50 50">
-        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
-    </svg>
-</div>
+<!--<div class="loader">-->
+    <!--<svg class="circular" viewBox="25 25 50 50">-->
+        <!--<circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>-->
+    <!--</svg>-->
+<!--</div>-->
+{% endif %}

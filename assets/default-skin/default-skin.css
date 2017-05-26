@@ -45,7 +45,7 @@
     padding: 0;
     border: 0; }
 
-/* pswp__ui--over-close class it added when mouse is over element that should close gallery */
+/* pswp__ui--over-close class it added when mouse is over element that should close photos */
 .pswp__ui--over-close .pswp__button--close {
   opacity: 1; }
 
@@ -470,7 +470,7 @@ a.pswp__share--download:hover {
   /* Force paint & create composition layer for controls. */
   opacity: 0.001; }
 
-/* pswp__ui--one-slide class is added when there is just one item in gallery */
+/* pswp__ui--one-slide class is added when there is just one item in photos */
 .pswp__ui--one-slide .pswp__button--arrow--left,
 .pswp__ui--one-slide .pswp__button--arrow--right,
 .pswp__ui--one-slide .pswp__counter {

@@ -46,8 +46,23 @@ body {
     position: relative;
 }
 
+.resume-header {
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+}
+
 .resume-footer {
     margin-top: 5rem;
     margin-bottom: 3rem;
     text-align: center;
+}
+
+.resume-body {
+    padding-top: 0;
+}
+
+h1 {
+    font-weight: normal;
+    //margin-top: 2rem;
+    margin-bottom: 0;
 }

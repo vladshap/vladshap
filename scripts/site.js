@@ -1,21 +1,21 @@
 ﻿$(document).ready(function () {
 
-    $('body').removeClass('loading');
-    setTimeout(function() {
-        $('body').addClass('loaded');
-    }, 0);
+    // $('body').removeClass('loading');
+    // setTimeout(function() {
+    //     $('body').addClass('loaded');
+    // }, 0);
 
     // Set the header height to the size of the viewport
-    var viewportHeight = 0;
-    function setHeaderHeight() {
-        viewportHeight = $(window).height();
-        $('.home-header').css('height', viewportHeight);
-        //console.log("viewport height: " + viewportHeight);
-    }
-
-    if ($('.home-header').length > 0) {
-        setHeaderHeight();
-    }
+    // var viewportHeight = 0;
+    // function setHeaderHeight() {
+    //     viewportHeight = $(window).height();
+    //     $('.home-header').css('height', viewportHeight);
+    //     //console.log("viewport height: " + viewportHeight);
+    // }
+    //
+    // if ($('.home-header').length > 0) {
+    //     // setHeaderHeight();
+    // }
 
 
     // Similar to a debounce function, just making sure resize events don't get triggered for every pixel, and delays it by 250ms.
@@ -24,7 +24,7 @@
 
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(function() {
-            setHeaderHeight();
+            // setHeaderHeight();
         }, 250);
     });
 
@@ -38,88 +38,88 @@
     var controller = new ScrollMagic.Controller();
 
     // Logo animation on scroll
-    var logo = new TimelineMax().add([
-        TweenMax.to(".logo-text", 1, { y: "-150%", opacity: .5 }),
-        TweenMax.to(".logo-mark", 1, { y: "10%", opacity: 0 }),
-        TweenMax.to(".bg", 1, { opacity: .5 }),
-        TweenMax.to(".scroll-indicator", 1, { opacity: 0 })
-    ]);
+    // var logo = new TimelineMax().add([
+    //     TweenMax.to(".logo-text", 1, { y: "-150%", opacity: .5 }),
+    //     TweenMax.to(".logo-mark", 1, { y: "10%", opacity: 0 }),
+    //     TweenMax.to(".bg", 1, { opacity: .5 }),
+    //     TweenMax.to(".scroll-indicator", 1, { opacity: 0 })
+    // ]);
 
 
 
-    if ($('.home-header').length > 0) {
-        new ScrollMagic.Scene({
-            triggerElement: ".home-header",
-            duration: "66.66%",
-            triggerHook: 0
-        })
-            .setTween(logo)
-            .addTo(controller);
-    }
+    // if ($('.home-header').length > 0) {
+    //     new ScrollMagic.Scene({
+    //         triggerElement: ".home-header",
+    //         duration: "66.66%",
+    //         triggerHook: 0
+    //     })
+    //         .setTween(logo)
+    //         .addTo(controller);
+    // }
 
     // Background pin
 
-    if($('#about').length > 0) {
-        var bg = new ScrollMagic.Scene({
-            triggerElement: "#about",
-            triggerHook: .25
-        })
-        .setClassToggle('.home-header', 'header--stuck')
-        .setPin('.bg')
-        .addTo(controller);
-    }
+    // if($('#about').length > 0) {
+    //     var bg = new ScrollMagic.Scene({
+    //         triggerElement: "#about",
+    //         triggerHook: .25
+    //     })
+    //     .setClassToggle('.home-header', 'header--stuck')
+    //     .setPin('.bg')
+    //     .addTo(controller);
+    // }
 
 
-    var docheight = $(document).height();
-    var winheight = $(window).height();
+    // var docheight = $(document).height();
+    // var winheight = $(window).height();
 
 
-    function activateFrames () {
-        // Activate frames as they scroll into view
-        $.each(frames, function (i, el) {
-            // console.log(frames[i]);
-
-            // if (frames[i].length > 0) {
-                new ScrollMagic.Scene({
-                    triggerElement: frames[i],
-                    duration: "0",
-                    triggerHook: .6
-                })
-                    .addTo(controller)
-                    // .addIndicators()
-                    .on("enter", function () {
-                        $(frames[i]).addClass(activeFrame);
-                        // $( 'a[href*="'+frames[i]+'"]' ).addClass('active');
-                    })
-                    .on("leave", function () {
-                        $(frames[i]).removeClass(activeFrame);
-                        // $( 'a[href*="'+frames[i]+'"]' ).removeClass('active');
-                    });
-                // var percentOffset = ( $(frames[i]).offset().top / (docheight - winheight) ) * 100;
-                // $('.scroll-menu').append('<li style="top: '+ percentOffset.toFixed(2) +'%"><a href="' + frames[i] + '">'+ frames[i].replace('#', '') +'</a></li>');
-            // }
-        });
-    }
+    // function activateFrames () {
+    //     // Activate frames as they scroll into view
+    //     $.each(frames, function (i, el) {
+    //         // console.log(frames[i]);
+    //
+    //         // if (frames[i].length > 0) {
+    //             new ScrollMagic.Scene({
+    //                 triggerElement: frames[i],
+    //                 duration: "0",
+    //                 triggerHook: .6
+    //             })
+    //                 .addTo(controller)
+    //                 // .addIndicators()
+    //                 .on("enter", function () {
+    //                     $(frames[i]).addClass(activeFrame);
+    //                     // $( 'a[href*="'+frames[i]+'"]' ).addClass('active');
+    //                 })
+    //                 .on("leave", function () {
+    //                     $(frames[i]).removeClass(activeFrame);
+    //                     // $( 'a[href*="'+frames[i]+'"]' ).removeClass('active');
+    //                 });
+    //             // var percentOffset = ( $(frames[i]).offset().top / (docheight - winheight) ) * 100;
+    //             // $('.scroll-menu').append('<li style="top: '+ percentOffset.toFixed(2) +'%"><a href="' + frames[i] + '">'+ frames[i].replace('#', '') +'</a></li>');
+    //         // }
+    //     });
+    // }
     // activateFrames();
 
-    function animateProjects () {
-        // Animate projects as they scroll into view
-        $.each(projects, function (i, el) {
-            // console.log(projects[i]);
-            new ScrollMagic.Scene({
-                triggerElement: projects[i],
-                duration: "0",
-                triggerHook: .6
-            })
-                .addTo(controller)
-                .on("enter", function () {
-                    $(projects[i]).addClass('show');
-                })
-                .on("leave", function () {
-                    $(projects[i]).removeClass('show');
-                });
-        });
-    }
+    // function animateProjects () {
+    //     // Animate projects as they scroll into view
+    //     $.each(projects, function (i, el) {
+    //         // console.log(projects[i]);
+    //         new ScrollMagic.Scene({
+    //             triggerElement: projects[i],
+    //             duration: "0",
+    //             triggerHook: .6
+    //         })
+    //             .addTo(controller)
+    //             .on("enter", function () {
+    //                 $(projects[i]).addClass('show');
+    //             })
+    //             .on("leave", function () {
+    //                 $(projects[i]).removeClass('show');
+    //             });
+    //     });
+    // }
 
 
     // Animating svg map on scroll
@@ -163,29 +163,29 @@
     });
 
     // Instagram feed
-    var imageCount = 1;
-    var feed = new Instafeed({
-        get: 'user',
-        userId: '12280671',
-        resolution: 'standard_resolution',
-        limit: '9',
-        template:
-        '<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" class="insta-{{model.customClassName}}">' +
-            '<a href="{{image}}" itemprop="contentUrl" data-size="{{width}}x{{height}}">' +
-                '<img src="{{image}}" id="{{id}}" alt="{{caption}}" itemprop="thumbnail" width="{{width}}" height="{{height}}"/>' +
-            '</a>' +
-            '<figcaption itemprop="caption description">{{caption}}</figcaption>' +
-        '</figure>',
-        accessToken: '12280671.1677ed0.b4f90dc8d77b4430bf876a02ca04baaf',
-        after: function() {
-            // animateProjects();
-        },
-        filter: function(image) {
-            image.customClassName = imageCount;
-            imageCount++;
-            return true;
-        }
-    });
+    // var imageCount = 1;
+    // var feed = new Instafeed({
+    //     get: 'user',
+    //     userId: '12280671',
+    //     resolution: 'standard_resolution',
+    //     limit: '10',
+    //     template:
+    //     '<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" class="insta-{{model.customClassName}}">' +
+    //         '<a href="{{image}}" itemprop="contentUrl" data-size="{{width}}x{{height}}">' +
+    //             '<img src="{{image}}" id="{{id}}" alt="{{caption}}" itemprop="thumbnail" width="{{width}}" height="{{height}}"/>' +
+    //         '</a>' +
+    //         '<figcaption itemprop="caption description">{{caption}}</figcaption>' +
+    //     '</figure>',
+    //     accessToken: '12280671.1677ed0.b4f90dc8d77b4430bf876a02ca04baaf',
+    //     after: function() {
+    //         // animateProjects();
+    //     },
+    //     filter: function(image) {
+    //         image.customClassName = imageCount;
+    //         imageCount++;
+    //         return true;
+    //     }
+    // });
 
     // Load more instagrams
     // var loadButton = document.getElementById('load-more');
@@ -195,11 +195,11 @@
     // });
 
 
-    if ($('#instafeed').length > 0) {
-        feed.run();
-    }
+    // if ($('#instafeed').length > 0) {
+    //     feed.run();
+    // }
 
-    // Photoswipe gallery
+    // Photoswipe photos
     var photoswipeGallery = function(gallerySelector) {
 
         // parse slide data (url, title, size ...) from DOM elements
@@ -298,7 +298,7 @@
             return false;
         };
 
-        // parse picture index and gallery index from URL (#&pid=1&gid=2)
+        // parse picture index and photos index from URL (#&pid=1&gid=2)
         var photoswipeParseHash = function() {
             var hash = window.location.hash.substring(1),
                 params = {};
@@ -337,7 +337,7 @@
             // define options (if needed)
             options = {
 
-                // define gallery index (for URL)
+                // define photos index (for URL)
                 galleryUID: galleryElement.getAttribute('data-pswp-uid'),
 
                 getThumbBoundsFn: function(index) {
@@ -354,7 +354,7 @@
                     return item.initialZoomLevel;
                 },
                 // UI options
-                zoomEl: false,
+                zoomEl: true,
                 fullscreenEl: false,
                 shareEl: true,
 
@@ -399,7 +399,7 @@
             gallery.init();
         };
 
-        // loop through all gallery elements and bind events
+        // loop through all photos elements and bind events
         var galleryElements = document.querySelectorAll( gallerySelector );
 
         for(var i = 0, l = galleryElements.length; i < l; i++) {
@@ -407,37 +407,30 @@
             galleryElements[i].onclick = onThumbnailsClick;
         }
 
-        // Parse URL and open gallery if it contains #&pid=3&gid=1
+        // Parse URL and open photos if it contains #&pid=3&gid=1
         var hashData = photoswipeParseHash();
         if(hashData.pid && hashData.gid) {
             openPhotoSwipe( hashData.pid ,  galleryElements[ hashData.gid - 1 ], true, true );
         }
     };
-
-    if ($('#instafeed').length > 0) {
-        // exists.
-        photoswipeGallery('.instafeed');
-    }
-
-    photoswipeGallery('.gallery');
+    //
+    // if ($('#instafeed').length > 0) {
+    //     photoswipeGallery('.instafeed');
+    // }
 
 
-    $('.photo a').on('click', function(e) {
-        e.preventDefault();
-        console.log("click: ");
+    $(".gallery").justifiedGallery({
+        rowHeight : 300,
+        margins : 5,
+        selector: '.photo',
+        lastRow: 'center'
     });
 
-    // window.onload=getExif;
-    //
-    // function getExif() {
-    //     var img = document.getElementById("img1");
-    //     EXIF.getData(img, function() {
-    //         var make = EXIF.getTag(this, "Make");
-    //         var model = EXIF.getTag(this, "Model");
-    //         var makeAndModel = document.getElementById("makeAndModel");
-    //         makeAndModel.innerHTML = `${make} ${model}`;
-    //     });
-    // }
+
+    $('.gallery').justifiedGallery().on('jg.complete', function (e) {
+        photoswipeGallery('.gallery');
+    });
+
 
     function checkForm($el) {
         $($el).keyup(function () {
@@ -457,5 +450,38 @@
         });
     }
     checkForm('.contact-form .input');
+
+
+    // var siteUrl = 'http://'+(document.location.hostname||document.location.host);
+    //
+    // $(document).delegate('a[href^="/"], a[href^="'+siteUrl+'"]', 'click', function(e) {
+    //     e.preventDefault();
+    //     History.pushState({}, '', this.pathname);
+    //
+    //     $('.site-nav a').removeClass();
+    //     $(this).addClass('active');
+    // });
+    //
+    // // Catch all History stateChange events
+    // History.Adapter.bind(window, 'statechange', function(){
+    //     var State = History.getState();
+    //
+    //     // Load the new state's URL via an Ajax Call
+    //     $.get(State.url, function(data){
+    //         // Replace the "<title>" tag's content
+    //         document.title = data.match(/<title>(.*?)<\/title>/)[1];
+    //
+    //         // Replace the content of the main container (.content)
+    //         // If you're using another div, you should change the selector
+    //         $('.content').html($(data).find('.content'));
+    //
+    //
+    //         // If you're using Google analytics, make sure the pageview is registered!
+    //         ga('send', 'pageview', {
+    //             'page': State.url,
+    //             'title': document.title
+    //         });
+    //     });
+    // });
 
 });

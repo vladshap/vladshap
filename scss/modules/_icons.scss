@@ -1,6 +1,6 @@
 .mtn {
     display: block;
-    fill: $color-white;
+    fill: $base-text-color;
     height: 14px;
     margin: 0 auto 1.25rem;
     width: 30px;
@@ -17,7 +17,7 @@
         margin-left: -10px;
         transform: translate(5px, 1px) scale(0);
         transform-origin: 10px 5px;
-        fill: $color-black;
+        fill: $color-white;
         z-index: -1;
         transition: .25s $cubic-bezier;
         opacity: 0;
@@ -27,6 +27,30 @@
     .btn:hover & {
         opacity: 1;
         transform: translate(10px, 1px) scale(1);
+    }
+
+    &-more {
+        width: 22px;
+        height: 22px;
+        stroke: $color-white;
+        display: block;
+        stroke-width: 0;
+        fill: $color-white;
+
+        //@extend %visuallyhidden;
+        //word-wrap: nowrap;
+        //display: block;
+
+        //&::before,
+        //&::after {
+        //    content: '';
+        //    display: inline-block;
+        //    width: 6px;
+        //    height: 6px;
+        //    border-radius: 4px;
+        //    border: 1px solid $color-white;
+        //
+        //}
     }
 }
 
@@ -55,7 +79,7 @@
 
     &::before {
         animation: dot 3s infinite ease-in-out;
-        border: 1px solid $color-white;
+        border: 1px solid $base-text-color;
         border-radius: 10px;
         height: 12px;
         width: 12px;
@@ -64,8 +88,8 @@
     &::after {
         animation: arrow 3s infinite ease-in-out;
         animation-delay: .75s;
-        border-bottom: 1px solid $color-white;
-        border-right: 1px solid $color-white;
+        border-bottom: 1px solid $base-text-color;
+        border-right: 1px solid $base-text-color;
         height: 7px;
         opacity: .25;
         transform: rotate(45deg);

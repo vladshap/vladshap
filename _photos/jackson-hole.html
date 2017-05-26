@@ -12,12 +12,12 @@ image_path: /assets/gallery/jackson-hole/DSCF2354.jpg
         <h1>{{ page.title }}</h1>
         <p>In June of 2016 I took a roadtrip from San Francisco, CA to Alberta, Canada. Along the way <a
                 href="http://nicolehammonds.com">Nicole</a> and I made stops at Crater Lake National Park, Sandpoint, Idaho, Canmore, AB, Vancouver, B.C. Seattle, WA, Mount Rainier National Park, and Portland, OR.</p>
-    </div>
-    <div class="gallery">
-        {% for image in site.static_files %}
-        {% if image.path contains '/assets/gallery/banff/' %}
+        <div class="gallery">
+            {% for image in site.static_files %}
+            {% if image.path contains '/assets/gallery/jackson-hole/' %}
             {% include single-img.html %}
-        {% endif %}
-        {% endfor %}
+            {% endif %}
+            {% endfor %}
+        </div>
     </div>
 </section>

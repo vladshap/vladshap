@@ -20,7 +20,7 @@ $label-width: 5rem;
 
 label {
     bottom: 0;
-    color: $color-white;
+    color: $base-text-color;
     display: block;
     font-size: .75rem;
     font-weight: $font-weight-bold;
@@ -31,17 +31,17 @@ label {
     position: absolute;
     text-transform: uppercase;
     top: 0;
-    transition: .2s;
+    //transition: .2s;
     width: 100%;
     z-index: 0;
 
 }
 
 .input {
-    background-color: $color-black;
+    background-color: $base-bg-color;
     border: 1px solid $base-border;
     border-radius: 0;
-    color: $color-white;
+    color: $base-text-color;
     display: block;
     font-size: .875rem;
     height: $field-height;
@@ -49,7 +49,7 @@ label {
     padding-left: 10px;
     padding-right: 10px;
     outline: none;
-    transition: .2s;
+    //transition: .2s;
     width: 100%;
     -webkit-appearance: none;
 
@@ -64,6 +64,7 @@ label {
     }
 
     &:focus {
-        border-color: $color-white;
+        border-color: $color-green;
+        box-shadow: inset 0 0 0 1px $color-green;
     }
 }
