@@ -4,7 +4,6 @@
 .tmp/
 .vagrant/
 _site/
-
 backup/
 node_modules/
 bower_components/
@@ -12,4 +11,3 @@ out/
 npm-debug.log
 /backup/
 *.scssc
-
