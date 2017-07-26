@@ -1,192 +1,167 @@
-/* latin-ext */
-//@import 'https://fonts.googleapis.com/css?family=Josefin+Sans:400,700';
-
 // Typography
 
 p {
-    font-size: 1.125rem;
     margin-bottom: 1.5rem;
 
-    .resume & {
-        font-size: 1rem;
-        margin-bottom: 1rem;
-    }
-
-    &.intro {
-
-        @include respond-to($small) {
-            font-size: 1.25rem;
-        }
-    }
-
-    &.job-title {
-        font-weight: $font-weight-bold;
-        //margin-bottom: .25rem;
-        margin-bottom: 0;
-        padding-right: 75px;
-        position: relative;
-        @include clearfix();
+    @include respond-to($medium) {
+        font-size: 1.125rem;
     }
 }
 
 a {
     color: inherit;
     text-decoration: underline;
+    transition: .15s $cubic-bezier;
+    position: relative;
+    white-space: nowrap;
+
+    @include respond-to($small) {
+        text-decoration: none;
+    }
 
     &:hover {
         text-decoration: none;
+
+        @include respond-to($small) {
+            color: $color-white;
+        }
+    }
+
+    p & {
+        word-wrap: break-word;
+        white-space: normal;
+
+        &::after {
+            @include respond-to($small) {
+                content: '';
+                display: block;
+                position: absolute;
+                height: 1px;
+                background-color: $base-text-color;
+                right: -2px;
+                left: -2px;
+                bottom: 2px;
+                transition: .2s;
+                z-index: -1;
+                pointer-events: none;
+                border-radius: 3px;
+            }
+
+            .site-footer & {
+                background-color: $color-white;
+            }
+        }
+
+        &:hover {
+            &::after {
+                @include respond-to($small) {
+                    height: 22px;
+                }
+            }
+
+            .site-footer & {
+                color: $color-black;
+            }
+        }
+    }
+
+    small & {
+        &:hover::after {
+            height: 14px;
+        }
     }
 }
 
-h1, h2, h3, h4 {
-    font-weight: inherit;
-    line-height: 1.2;
-    margin: 0 0 .5rem;
-    font-family: $base-sans-serif;
-    text-transform: uppercase;
+
+h1, h2, h3 {
+    margin-top: 0;
 }
 
 h1 {
-    font-size: 1.25rem;
-    font-weight: $font-weight-regular;
-    letter-spacing: 2px;
-    line-height: 1;
-    margin: 2rem 0;
-    text-align: center;
+    font-size: 1.75rem;
+    font-family: $base-serif;
+    font-weight: 400;
+    font-style: italic;
+    padding-top: 1.5rem;
+    margin-bottom: 1.5rem;
 
-    @include respond-to($small) {
-        font-size: 2rem;
-        letter-spacing: 3px;
-    }
-
-    .title {
-        display: block;
-        font-size: 1rem;
-        letter-spacing: 1px;
-
-        @include respond-to($small) {
-            font-size: 1.45rem;
-            letter-spacing: inherit;
-        }
-    }
+	@include respond-to($small) {
+		font-size: 2.5rem;
+	}
 }
 
 h2 {
-    background-color: $color-black;
-    display: table;
-    font-size: 1em;
+    font-size: 1.5rem;
+    font-family: $base-sans-serif;
     font-weight: $font-weight-bold;
-    letter-spacing: 3px;
-    line-height: normal;
-    margin: 0 auto 3rem;
-    padding: 0 .35rem 0 .5rem;
-    text-align: center;
-    color: transparent;
-    transition: .5s $cubic-bezier;
+    margin-bottom: 1.5rem;
 
-    @include respond-to($medium) {
-        margin-bottom: 5rem;
-    }
-
-    .frame--active & {
-        opacity: 1;
-        color: inherit;
-    }
-
-    .resume & {
-        background-color: $color-white;
-    }
-
-    &::before {
-        background-color: $color-white;
-        content: '';
-        display: block;
-        height: 1px;
-        left: 50%;
-        position: absolute;
-        right: 50%;
-        top: 10px;
-        z-index: -1;
-        transition: .75s $cubic-bezier;
-
-        .frame--active & {
-            left: 1.5rem;
-            right: 1.5rem;
-        }
-
-        .resume & {
-            background-color: $color-black;
-        }
-
-        .column & {
-            left: 0;
-            right: 0;
-        }
-    }
+	@include respond-to($small) {
+		font-size: 1.75rem;
+	}
 }
+
 
 h3 {
-    font-size: 1.4rem;
+    font-size: 1rem;
+    font-family: $base-sans-serif;
     font-weight: $font-weight-bold;
-    line-height: normal;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    //letter-spacing: 1px;
 }
 
-h4 {
-    font-size: 1.563em;
+h4, .h4 {
+    font-size: .75rem;
+    font-family: $base-sans-serif;
     font-weight: $font-weight-bold;
-    line-height: normal;
-    margin-bottom: 1.25rem;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: $color-gray;
 }
 
 ul {
     list-style: none;
 
-    &.bullets {
-        list-style-type: disc;
-        list-style-position: inside;
+    @include respond-to($medium) {
+        font-size: 1.125rem;
+    }
+
+    main & {
+        margin-bottom: 1.5rem;
+    }
+
+    p {
+        margin-bottom: 0;
+	    font-size: inherit;
     }
 }
 
+.grid--services {
+    @extend %clearfix;
+
+    li {
+        float: left;
+        width: 50%;
+    }
+
+	p {
+		font-size: .875rem;
+	}
+}
+
 em {
-    font-style: italic;
     font-weight: $font-weight-regular;
+    font-style: italic;
 }
 
 strong {
     font-weight: $font-weight-bold;
+	line-height: 1;
 }
 
 small {
     font-size: 75%;
-    opacity: .5;
-}
-
-.date {
-    font-size: .875rem;
-    font-weight: $font-weight-bold;
-    position: absolute;
-    right: 0;
-    top: 2px;
-}
-
-.copyright {
-    font-size: .75rem;
-    line-height: 20px;
-    margin-bottom: 0;
-
-    @include respond-to($medium) {
-        font-size: .875rem;
-    }
-}
-
-.small {
-    display: block;
-    font-size: .65rem;
-    font-weight: $font-weight-bold;
-    letter-spacing: 2px;
-    line-height: 1.2;
-    position: relative;
-    text-transform: uppercase;
-    text-align: center;
+    line-height: 1;
 }

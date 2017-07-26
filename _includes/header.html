@@ -1,0 +1,26 @@
+
+<header role="banner" class="site-header">
+    <!--
+        So where are we with the whole "h1" vs "a" thing on the website logos? Should this just be a link? Typically, for larger, multi-page websites,
+        I  leave this as just a link, and move the h1 tag to the title of the current page, but given that this site is only one page...I think its okay.
+        I'd love to hear your thoughts on this, though. 'Cuz you know, SEO.
+     -->
+    <div class="container">
+        <a href="/" class="site-logo"><svg class="logo-mark"><use xlink:href="#vs"></use></svg></a>
+        <button class="btn btn--elevated nav-toggle"><svg><use xlink:href="#icon-menu"></use></svg></button>
+        <nav class="site-nav" role="navigation">
+            <ul>
+                <!--<li><a href="/">About</a></li>-->
+                {% for item in site.navigation %}
+                {% assign class = nil %}
+                {% if page.url == item.url %}
+                {% assign class = 'active' %}
+                {% endif %}
+                <li><a href="{{ item.url }}" class="{{ class }}">{{ item.title }}</a></li>
+                {% endfor %}
+                <!--<li><a href="#info">Info</a></li>-->
+                <!--<li><a href="#info" class="info"><svg class="icon-more"><use xlink:href="#icon-more"></use></svg></a></li>-->
+            </ul>
+        </nav>
+    </div>
+</header>

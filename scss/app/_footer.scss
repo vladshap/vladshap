@@ -1,68 +1,151 @@
 .site-footer {
     padding-bottom: 1.5rem;
-    text-align: center;
+    padding-top: 1rem;
+    margin-top: 4.5rem;
+    text-align: right;
+    position: relative;
+    background-color: $color-black;
+    color: $color-white;
+    z-index: 1;
+}
 
-    @include respond-to($medium) {
-        //margin-top: 100px;
+.copyright {
+    margin-bottom: 0;
+    margin-top: 1.5rem;
+
+    @include respond-to($small) {
+        float: right;
+        margin-top: 0;
     }
 }
 
 .social-links {
     display: block;
-    margin-bottom: 1rem;
-    text-align: center;
-    width: 100%;
     font-size: 0;
 
-    .icon {
-        height: 1.25rem;
-        transition: .2s ease-out;
-        width: 1.25rem;
-        fill: $color-white;
+    .site-footer & {
+        //text-align: center;
+        margin-top: 0;
+
+        @include respond-to($small) {
+            float: left;
+            margin-bottom: 0;
+        }
+
+        .icon {
+            fill: $base-bg-color;
+        }
     }
 
     li {
         display: inline-block;
         vertical-align: top;
+        margin-right: .5rem;
+
+        &:last-child {
+            margin-right: 0;
+        }
     }
 
     a {
         display: block;
-        padding: 1rem;
+        border-radius: 20px;
+        overflow: hidden;
 
         &:hover {
 
+            .icon {
+                fill: $color-light-gray;
+            }
+
             .icon-github {
+                //background-color: #4183c4;
                 fill: #4183c4;
             }
 
             .icon-codepen {
+                //background-color: #fcd000;
                 fill: #fcd000;
             }
 
             .icon-flickr {
+                //background-color: #ff0084;
                 fill: #ff0084;
             }
 
             .icon-twitter {
+                //background-color: #55acee;
                 fill: #55acee;
             }
 
             .icon-instagram {
+                //background-color: #e4405f;
                 fill: #e4405f;
+                //background:
+                //    // left bottom
+                //    radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%),
+                //    radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%),
+                //        // left top
+                //    radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%),
+                //    radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, transparent 50%),
+                //        //  right top
+                //    radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%),
+                //    radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, transparent 50%),
+                //        // right bottom
+                //    radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent),
+                //
+                //        /////// create a base coat to smooth
+                //        /////// corner gradients
+                //    linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%);
             }
 
             .icon-dribbble {
+                //background-color: #ea4c89;
                 fill: #ea4c89;
             }
 
             .icon-spotify {
+                //background-color: #2ebd59;
                 fill: #2ebd59;
             }
 
             .icon-youtube {
+                //background-color: #cd201f;
                 fill: #cd201f;
             }
         }
+
+        //.icon-github {
+        //    fill: #4183c4;
+        //}
+        //
+        //.icon-codepen {
+        //    fill: #fcd000;
+        //}
+        //
+        //.icon-flickr {
+        //    fill: #ff0084;
+        //}
+        //
+        //.icon-twitter {
+        //    fill: #55acee;
+        //}
+        //
+        //.icon-instagram {
+        //    fill: #e4405f;
+        //}
+        //
+        //.icon-dribbble {
+        //    fill: #ea4c89;
+        //}
+        //
+        //.icon-spotify {
+        //    fill: #2ebd59;
+        //}
+        //
+        //.icon-youtube {
+        //    fill: #cd201f;
+        //}
     }
 }
+

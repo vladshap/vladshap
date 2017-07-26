@@ -1,0 +1,58 @@
+.grid {
+	display: flex;
+	align-content: center;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-left: -5px;
+	margin-right: -5px;
+	@include respond-to($small) {
+		margin-left: -.75rem;
+		margin-right: -.75rem;
+	}
+
+	li {
+		width: calc(100% / 3);
+		padding-left: 5px;
+		padding-right: 5px;
+		margin-bottom: 1.5rem;
+
+		@include respond-to($small) {
+			width: calc(100% / 6);
+			padding-left: .75rem;
+			padding-right: .75rem;
+			margin-bottom: 0;
+		}
+	}
+
+	.note {
+		width: auto;
+		display: block;
+		font-size: .875rem;
+		opacity: .25;
+	}
+}
+
+.grid--brands {
+	margin-bottom: 0;
+}
+
+.brand {
+	padding: 0 5px;
+	height: auto;
+
+	svg {
+		display: block;
+		max-width: 100%;
+		height: 3rem;
+		fill: $color-gray;
+	}
+
+	&--gogo {
+
+		svg {
+			height: 2.5rem;
+			margin-top: .25rem;
+		}
+	}
+}
+

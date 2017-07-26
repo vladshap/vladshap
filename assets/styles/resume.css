@@ -68,7 +68,13 @@ p.job-title:after {
 .align-right {
   float: right; }
 
-/* latin-ext */
+@font-face {
+  font-family: 'Sorts Mill Goudy';
+  font-style: italic;
+  font-weight: 400;
+  src: local("Sorts Mill Goudy Italic"), local("SortsMillGoudy-Italic"), url(https://fonts.gstatic.com/s/sortsmillgoudy/v6/UUu1lKiy4hRmBWk599VL1ScduHglN_S7aJvGYHj_Mow.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+
 p {
   font-size: 1.125rem;
   margin-bottom: 1.5rem; }
@@ -93,78 +99,34 @@ a {
 h1, h2, h3, h4 {
   font-weight: inherit;
   line-height: 1.2;
-  margin: 0 0 .5rem;
-  font-family: "brandon-grotesque", "Brandon Grotesque", sans-serif;
-  text-transform: uppercase; }
+  font-family: "brandon-grotesque", "Brandon Grotesque", sans-serif; }
 
 h1 {
-  font-size: 1.25rem;
+  font-size: 2.5rem;
+  font-family: "Sorts Mill Goudy", serif;
   font-weight: 400;
-  letter-spacing: 2px;
   line-height: 1;
-  margin: 2rem 0;
-  text-align: center; }
-  @media screen and (min-width: 34em) {
-    h1 {
-      font-size: 2rem;
-      letter-spacing: 3px; } }
-  h1 .title {
-    display: block;
-    font-size: 1rem;
-    letter-spacing: 1px; }
-    @media screen and (min-width: 34em) {
-      h1 .title {
-        font-size: 1.45rem;
-        letter-spacing: inherit; } }
+  display: table;
+  background-color: #eee;
+  margin: 0 0 1.5rem 0;
+  padding: 0 10px 0 0;
+  color: inherit; }
+  h1::after {
+    background-color: #08090E;
+    content: '';
+    position: absolute;
+    height: 1px;
+    top: 28px;
+    z-index: -1;
+    left: 1.5rem;
+    right: 100%;
+    transition: 0.75s cubic-bezier(0.58, 0.3, 0.51, 0.82);
+    transition-delay: .6s; }
+    .loaded h1::after {
+      right: 1.5rem; }
 
 h2 {
-  background-color: #08090E;
-  display: table;
-  font-size: 1em;
-  font-weight: 900;
-  letter-spacing: 3px;
-  line-height: normal;
-  margin: 0 auto 3rem;
-  padding: 0 .35rem 0 .5rem;
-  text-align: center;
-  color: transparent;
-  transition: 0.5s cubic-bezier(0.58, 0.3, 0.51, 0.82); }
-  @media screen and (min-width: 48em) {
-    h2 {
-      margin-bottom: 5rem; } }
-  .frame--active h2 {
-    opacity: 1;
-    color: inherit; }
-  .resume h2 {
-    background-color: #eee; }
-  h2::before {
-    background-color: #eee;
-    content: '';
-    display: block;
-    height: 1px;
-    left: 50%;
-    position: absolute;
-    right: 50%;
-    top: 10px;
-    z-index: -1;
-    transition: 0.75s cubic-bezier(0.58, 0.3, 0.51, 0.82); }
-    .frame--active h2::before {
-      left: 1.5rem;
-      right: 1.5rem; }
-    .resume h2::before {
-      background-color: #08090E; }
-    .column h2::before {
-      left: 0;
-      right: 0; }
-
-h3 {
   font-size: 1.4rem;
-  font-weight: 900;
-  line-height: normal;
-  margin-bottom: 1.25rem; }
-
-h4 {
-  font-size: 1.563em;
   font-weight: 900;
   line-height: normal;
   margin-bottom: 1.25rem; }
@@ -211,6 +173,11 @@ small {
   text-transform: uppercase;
   text-align: center; }
 
+.instagram-text {
+  text-decoration: none; }
+  .instagram-text:hover {
+    background: linear-gradient(-135deg, #1400c8, #b900b4, #f50000); }
+
 html {
   background-color: #eee;
   box-sizing: border-box; }
@@ -246,17 +213,37 @@ body {
 .wrapper {
   position: relative; }
 
+.resume-header {
+  padding-top: 3rem;
+  padding-bottom: 2rem; }
+
 .resume-footer {
   margin-top: 5rem;
   margin-bottom: 3rem;
   text-align: center; }
+
+.resume-body {
+  padding-top: 0; }
+
+h1 {
+  font-weight: normal;
+  margin-bottom: 0; }
+
+main {
+  padding-top: 8rem;
+  z-index: 1;
+  position: relative;
+  background-color: #eee; }
+  @media screen and (min-width: 34em) {
+    main {
+      padding-top: 6rem; } }
 
 .container {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   position: relative;
   width: 100%;
-  max-width: 48em;
+  max-width: 62em;
   margin-left: auto;
   margin-right: auto; }
   .container:after {
@@ -279,14 +266,20 @@ body {
       content: " ";
       display: block;
       clear: both; }
+  .container--large {
+    max-width: 62em;
+    margin-left: auto;
+    margin-right: auto; }
+    .container--large:after {
+      content: " ";
+      display: block;
+      clear: both; }
 
 .frame {
-  position: relative;
-  padding-top: 80px;
-  padding-bottom: 80px; }
+  position: relative; }
   @media screen and (min-width: 62em) {
     .frame {
-      min-height: 100vh;
+      min-height: calc( 100vh - 64px);
       display: -ms-flexbox;
       display: flex;
       -ms-flex-direction: column;
@@ -295,3 +288,9 @@ body {
           align-items: center;
       -ms-flex-pack: center;
           justify-content: center; } }
+
+.image {
+  margin-bottom: 1.5rem;
+  border: 1px solid #414447; }
+  .image img {
+    display: block; }

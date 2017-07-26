@@ -1,17 +1,15 @@
 .canvas {
     display: none;
+    text-align: center;
 
-    @include respond-to($large) {
-        bottom: 0;
+    @include respond-to($medium) {
         display: block;
-        left: 0;
-        overflow: hidden;
         pointer-events: none;
-        position: fixed;
-        right: 0;
-        top: 0;
+        position: relative;
         z-index: -1;
-
+        padding-bottom: 100%;
+        background: rgba(255,255,255,0);
+        background: radial-gradient(ellipse at center, rgba(#fff, 1) 0%, rgba(255,255,255,0) 50%);
     }
 
     .loading & {
@@ -19,50 +17,63 @@
     }
 
     svg {
+        width: 100%;
+        min-height: 100%;
+        left: 0;
+        height: 100%;
+        position: absolute;
 
         @include respond-to($medium) {
-            bottom: 0;
-            position: absolute;
-            right: 0;
-            height: 80%;
-            z-index: 0;
         }
 
         path {
             stroke: $base-border;
             stroke-miterlimit: 10;
-            stroke-width: .75;
-            fill: none;
+            stroke-width: .25;
+            fill: #fff;
         }
     }
 }
 
 .current-location {
     display: none;
+    position: relative;
 
-    @include respond-to($medium) {
-        display: block;
+    &::before {
         position: absolute;
-        right: 1.5rem;
-        bottom: 0;
-        font-size: .75rem;
-        font-weight: $font-weight-bold;
-        text-align: center;
-        text-transform: uppercase;
-        opacity: 0;
-        z-index: 1;
-        transition: .2s ease-in-out;
+        left: -3px;
+        bottom: -4px;
+        content: '';
+        width: 0;
+        height: 0;
+        transform: rotate(45deg);
+        border-left: 3px solid transparent;
+        border-right: 3px solid transparent;
+        border-top: 7px solid $color-black;
     }
 
-    .finished & {
-        @include respond-to($medium) {
-            opacity: 1;
-        }
+    @include respond-to($medium) {
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        left: 10%;
+        transform: translate(0%, 10%);
+        font-size: .6rem;
+        font-weight: $font-weight-bold;
+        text-align: center;
+        line-height: 1;
+        text-transform: uppercase;
+        z-index: 1;
+        background-color: $color-black;
+        color: $color-light-gray;
+        padding: .4rem .65rem .3rem;
+        //border-radius: 5px;
+        border-radius: 5px 5px 5px 0;
     }
 
     .title {
         display: block;
-        font-size: 1rem;
+        font-size: .75rem;
         font-weight: $font-weight-regular;
         text-transform: none;
         line-height: 1;

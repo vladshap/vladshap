@@ -17,37 +17,31 @@
     margin-bottom: 1.5rem;
     padding: 3.5em 1.5rem;
     width: 100%;
-    @extend %animated;
-    @extend %fadeOutDown;
+    border: 1px solid $base-border;
 
-    &.show {
-        @extend %fadeInUp;
-    }
-
-    @include respond-to($medium) {
-        width: 49%;
-        margin-bottom: 2%;
+    @include respond-to($small) {
+        width: 49.5%;
+        margin-bottom: 1%;
         padding: 7.5em 1.5rem;
-
     }
 
     &:nth-child(2n) {
-        @include respond-to($medium) {
+        @include respond-to($small) {
             margin-right: 0;
-            margin-left: 1%;
+            margin-left: .5%;
         }
     }
 
 
     &:nth-child(2n+1) {
-        @include respond-to($medium) {
+        @include respond-to($small) {
             margin-left: 0;
-            margin-right: 1%;
+            margin-right: .5%;
         }
     }
 
     &:last-child {
-        @include respond-to($medium) {
+        @include respond-to($small) {
             width: 100%;
             margin-right: 0;
             margin-bottom: 0;
@@ -55,7 +49,7 @@
     }
 
     &::before {
-        background-color: rgba($color-black, .8);
+        background-color: rgba($base-bg-color, .8);
         bottom: 0;
         content: '';
         left: 0;
@@ -65,33 +59,20 @@
         z-index: -1;
     }
 
-    h3 {
-        transition: .5s $cubic-bezier transform, .5s $cubic-bezier opacity;
-        opacity: 0;
-        transform: translate(0, -15px);
-    }
-
     &--btn {
         @extend .btn;
         margin-top: 1rem;
-        transition: .5s $cubic-bezier transform, .5s $cubic-bezier opacity;
-        opacity: 0;
-        transform: translate(0, 10px);
-
-    }
-
-    &.show {
-        h3 {
-            transform: translate(0, 0);
-            opacity: 1;
-        }
-
-        .project--btn {
-            transform: translate(0, 0);
-            opacity: 1;
-        }
     }
     
+    &__climatefacts {
+        background: linear-gradient(135deg,#FD9CD3 0,#6A0A0A 100%);
+
+        &::before {
+            //opacity: .5;
+        }
+    }
+
+
     &__hightimes {
         background-image: url('/assets/images/project-ht.jpg');
         background-position: 50% 20%;
@@ -113,9 +94,12 @@
     }
 
     &__work {
-        background-color: $base-border;
-        background-position: 50% 15%;
-        background-image: url('/assets/images/vlad_valle_frances_gwp29p_c_scale,w_1440.jpg');
+        border: 0;
+        padding-top: 4rem;
+        padding-bottom: 4rem;
 
+        &::before {
+            background: none;
+        }
     }
 }

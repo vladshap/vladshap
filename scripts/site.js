@@ -1,416 +1,137 @@
 ﻿$(document).ready(function () {
 
-    $('body').removeClass('loading');
-    setTimeout(function() {
-        $('body').addClass('loaded');
-    }, 0);
+    $(window).scroll(function() {
+        var scroll = $(window).scrollTop();
 
-    // Set the header height to the size of the viewport
-    var viewportHeight = 0;
-    function setHeaderHeight() {
-        viewportHeight = $(window).height();
-        $('.site-header').css('height', viewportHeight);
-        //console.log("viewport height: " + viewportHeight);
-    }
-    setHeaderHeight();
-
-    // Similar to a debounce function, just making sure resize events don't get triggered for every pixel, and delays it by 250ms.
-    var resizeTimer;
-    $(window).on('resize', function(e) {
-
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(function() {
-            setHeaderHeight();
-        }, 250);
+        if (scroll > 10) {
+            $(".site-header").addClass("sticky");
+        } else {
+            $(".site-header").removeClass("sticky");
+        }
     });
 
-    // Some classes that I'll use to activate frames
-    var activeFrame = 'frame--active',
-        frames = ['#about', '#projects', '#photography', '#contact'],
-        projects = ['.project__hightimes', '.project__northern-fork', '.project__flor', '.project__osx', '.project__work',
-            '.insta-1', '.insta-2', '.insta-3', '.insta-4', '.insta-5', '.insta-6', '.insta-7', '.insta-8', '.insta-9'];
+    $('body').removeClass('loading');
 
-    // ScrollMagic controller
-    var controller = new ScrollMagic.Controller();
-
-    // Logo animation on scroll
-    var logo = new TimelineMax().add([
-        TweenMax.to(".logo-text", 1, { y: "-150%", opacity: .5 }),
-        TweenMax.to(".logo-mark", 1, { y: "10%", opacity: 0 }),
-        TweenMax.to(".bg", 1, { opacity: .5 }),
-        TweenMax.to(".scroll-indicator", 1, { opacity: 0 })
-    ]);
-
-    new ScrollMagic.Scene({
-        triggerElement: ".site-header",
-        duration: "66.66%",
-        triggerHook: 0
-    })
-        .setTween(logo)
-        .addTo(controller);
-
-    // Background pin
-    var bg = new ScrollMagic.Scene({
-        triggerElement: "#about",
-        triggerHook: .25
-    })
-        .setPin('.bg')
-        .setClassToggle('.site-header', 'sticky')
-        .addTo(controller);
+    $('body').waitForImages().done(function() {
+        $(this).addClass('imgs-loaded');
+    });
 
 
-    var docheight = $(document).height();
-    var winheight = $(window).height();
 
-    function scrollLine () {
-        $(window).scroll(function() {
-            var wintop = $(window).scrollTop();
-            var scrolled = (wintop / (docheight - winheight)) * 100;
-            // $('.line').css('height', (scrolled + '%'));
+    $('#baseline').on("click", function() {
+        $(".frame--styleguide").toggleClass('baseline');
+    });
 
-            $('.counter').text(scrolled.toFixed(0));
-
-        });
-    }
-    // scrollLine();
-
-    function activateFrames () {
-        // Activate frames as they scroll into view
-        $.each(frames, function (i, el) {
-            // console.log(frames[i]);
-            new ScrollMagic.Scene({
-                triggerElement: frames[i],
-                duration: "0",
-                triggerHook: .6
-            })
-                .addTo(controller)
-                // .addIndicators()
-                .on("enter", function () {
-                    $(frames[i]).addClass(activeFrame);
-                    // $( 'a[href*="'+frames[i]+'"]' ).addClass('active');
-                })
-                .on("leave", function () {
-                    $(frames[i]).removeClass(activeFrame);
-                    // $( 'a[href*="'+frames[i]+'"]' ).removeClass('active');
-                });
-
-            // var percentOffset = ( $(frames[i]).offset().top / (docheight - winheight) ) * 100;
-            // $('.scroll-menu').append('<li style="top: '+ percentOffset.toFixed(2) +'%"><a href="' + frames[i] + '">'+ frames[i].replace('#', '') +'</a></li>');
-
-        });
-    }
-    activateFrames();
-
-
-    function animateProjects () {
-        // Animate projects as they scroll into view
-        $.each(projects, function (i, el) {
-            // console.log(projects[i]);
-            new ScrollMagic.Scene({
-                triggerElement: projects[i],
-                duration: "0",
-                triggerHook: .6
-            })
-                .addTo(controller)
-                .on("enter", function () {
-                    $(projects[i]).addClass('show');
-                })
-                .on("leave", function () {
-                    $(projects[i]).removeClass('show');
-                });
-        });
-    }
-
+    $('.nav-toggle').on('click', function(e) {
+        $('.site-nav').toggleClass('visible');
+    });
 
     // Animating svg map on scroll
-    var $svgPath = $(".canvas path");
+    // var $svgPath = $(".canvas path");
+    //
+    // // Get path lengths for a given SVG
+    // function getPathLength($el) {
+    //     $el.each(function (i) {
+    //         var lineLength = $el[i].getTotalLength();
+    //         $(this).css("stroke-dasharray", lineLength);
+    //         $(this).css("stroke-dashoffset", lineLength);
+    //     });
+    // }
+    // getPathLength($svgPath);
+    //
+    // if ( $($svgPath).length > 0 ) {
+    //     var mapTween = new TimelineMax().add(TweenMax.to($svgPath, 1, {strokeDashoffset: 0}));
+    //
+    //     new ScrollMagic.Scene({
+    //         triggerElement: "#contact",
+    //         triggerHook: .25
+    //     })
+    //         .setTween(mapTween)
+    //         .addTo(controller)
+    //         .on("enter", function () {
+    //             $('.canvas').addClass('finished');
+    //         })
+    //         .on("leave", function () {
+    //             $('.canvas').removeClass('finished');
+    //         });
+    // }
 
-    // Get path lengths for a given SVG
-    function getPathLength($el) {
-        $el.each(function (i) {
-            var lineLength = $el[i].getTotalLength();
-            $(this).css("stroke-dasharray", lineLength);
-            $(this).css("stroke-dashoffset", lineLength);
-        });
-    }
-    getPathLength($svgPath);
 
-    if ( $($svgPath).length > 0 ) {
-        var mapTween = new TimelineMax().add(TweenMax.to($svgPath, 1, {strokeDashoffset: 0}));
-
-        new ScrollMagic.Scene({
-            triggerElement: "#contact",
-            triggerHook: .25
-        })
-            .setTween(mapTween)
-            .addTo(controller)
-            .on("enter", function () {
-                $('.canvas').addClass('finished');
-            })
-            .on("leave", function () {
-                $('.canvas').removeClass('finished');
-            });
-    }
-
-    // Bind click handler to menu items so we can get a fancy smooth scroll animation
-    $('a').on("click", function (e) {
-        var href = $(this).attr("href"),
-            offsetTop = href === "#" ? 0 : $(href).offset().top + 1;
-        $('html, body').stop().animate({
-            scrollTop: offsetTop
-        }, 500);
-        e.preventDefault();
-    });
 
     // Instagram feed
-    var imageCount = 1;
-    var feed = new Instafeed({
-        get: 'user',
-        userId: '12280671',
-        resolution: 'standard_resolution',
-        limit: '9',
-        template:
-        '<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" class="insta-{{model.customClassName}}">' +
-            '<a href="{{image}}" itemprop="contentUrl" data-size="{{width}}x{{height}}">' +
-                '<img src="{{image}}" id="{{id}}" alt="{{caption}}" itemprop="thumbnail" width="{{width}}" height="{{height}}"/>' +
-            '</a>' +
-            '<figcaption itemprop="caption description">{{caption}}</figcaption>' +
-        '</figure>',
-        accessToken: '12280671.1677ed0.b4f90dc8d77b4430bf876a02ca04baaf',
-        after: function() {
-            animateProjects();
-        },
-        filter: function(image) {
-            image.customClassName = imageCount;
-            imageCount++;
-            return true;
-        }
-    });
-
-    // Load more instagrams
-    // var loadButton = document.getElementById('load-more');
-    // // // bind the load more button
-    // loadButton.addEventListener('click', function() {
-    //     feed.next();
+    // var imageCount = 1;
+    // var feed = new Instafeed({
+    //     get: 'user',
+    //     userId: '12280671',
+    //     resolution: 'standard_resolution',
+    //     limit: '10',
+    //     template:
+    //     '<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" class="insta-{{model.customClassName}}">' +
+    //         '<a href="{{image}}" itemprop="contentUrl" data-size="{{width}}x{{height}}">' +
+    //             '<img src="{{image}}" id="{{id}}" alt="{{caption}}" itemprop="thumbnail" width="{{width}}" height="{{height}}"/>' +
+    //         '</a>' +
+    //         '<figcaption itemprop="caption description">{{caption}}</figcaption>' +
+    //     '</figure>',
+    //     accessToken: '12280671.1677ed0.b4f90dc8d77b4430bf876a02ca04baaf',
+    //     after: function() {
+    //         // animateProjects();
+    //     },
+    //     filter: function(image) {
+    //         image.customClassName = imageCount;
+    //         imageCount++;
+    //         return true;
+    //     }
     // });
-    feed.run();
 
-    // Photoswipe gallery
-    var instagramGallery = function(gallerySelector) {
+    var gallery = '.gallery';
 
-        // parse slide data (url, title, size ...) from DOM elements
-        // (children of gallerySelector)
-        var parseThumbnailElements = function(el) {
-            var thumbElements = el.childNodes,
-                numNodes = thumbElements.length,
-                items = [],
-                figureEl,
-                linkEl,
-                size,
-                item;
+    if ( $(gallery).length > 0 ) {
+        $(gallery).justifiedGallery({
+            rowHeight : 300,
+            margins : 10,
+            selector: '.photo',
+            lastRow: 'nojustify',
+            captions: false
+        });
 
-            for(var i = 0; i < numNodes; i++) {
-
-                figureEl = thumbElements[i]; // <figure> element
-
-                // include only element nodes
-                if(figureEl.nodeType !== 1) {
-                    continue;
+        var slideSelector = 'a',
+            options     = {
+                shareEl: false,
+                fullscreenEl: false
+            },
+            events = {
+                close: function () {
+                    // console.log('closed');
                 }
-
-                linkEl = figureEl.children[0]; // <a> element
-
-                size = linkEl.getAttribute('data-size').split('x');
-
-                // create slide object
-                item = {
-                    src: linkEl.getAttribute('href'),
-                    w: parseInt(size[0], 10),
-                    h: parseInt(size[1], 10)
-                };
-
-                if(figureEl.children.length > 1) {
-                    // <figcaption> content
-                    item.title = figureEl.children[1].innerHTML;
-                }
-
-                if(linkEl.children.length > 0) {
-                    // <img> thumbnail element, retrieving thumbnail url
-                    item.msrc = linkEl.children[0].getAttribute('src');
-                }
-
-                item.el = figureEl; // save link to element for getThumbBoundsFn
-                items.push(item);
-            }
-
-            return items;
-        };
-
-        // find nearest parent element
-        var closest = function closest(el, fn) {
-            return el && ( fn(el) ? el : closest(el.parentNode, fn) );
-        };
-
-        // triggers when user clicks on thumbnail
-        var onThumbnailsClick = function(e) {
-            e = e || window.event;
-            e.preventDefault ? e.preventDefault() : e.returnValue = false;
-
-            var eTarget = e.target || e.srcElement;
-
-            // find root element of slide
-            var clickedListItem = closest(eTarget, function(el) {
-                return (el.tagName && el.tagName.toUpperCase() === 'FIGURE');
-            });
-
-            if(!clickedListItem) {
-                return;
-            }
-
-            // find index of clicked item by looping through all child nodes
-            // alternatively, you may define index via data- attribute
-            var clickedGallery = clickedListItem.parentNode,
-                childNodes = clickedListItem.parentNode.childNodes,
-                numChildNodes = childNodes.length,
-                nodeIndex = 0,
-                index;
-
-            for (var i = 0; i < numChildNodes; i++) {
-                if(childNodes[i].nodeType !== 1) {
-                    continue;
-                }
-
-                if(childNodes[i] === clickedListItem) {
-                    index = nodeIndex;
-                    break;
-                }
-                nodeIndex++;
-            }
-
-            if(index >= 0) {
-                // open PhotoSwipe if valid index found
-                openPhotoSwipe( index, clickedGallery );
-            }
-            return false;
-        };
-
-        // parse picture index and gallery index from URL (#&pid=1&gid=2)
-        var photoswipeParseHash = function() {
-            var hash = window.location.hash.substring(1),
-                params = {};
-
-            if(hash.length < 5) {
-                return params;
-            }
-
-            var vars = hash.split('&');
-            for (var i = 0; i < vars.length; i++) {
-                if(!vars[i]) {
-                    continue;
-                }
-                var pair = vars[i].split('=');
-                if(pair.length < 2) {
-                    continue;
-                }
-                params[pair[0]] = pair[1];
-            }
-
-            if(params.gid) {
-                params.gid = parseInt(params.gid, 10);
-            }
-
-            return params;
-        };
-
-        var openPhotoSwipe = function(index, galleryElement, disableAnimation, fromURL) {
-            var pswpElement = document.querySelectorAll('.pswp')[0],
-                gallery,
-                options,
-                items;
-
-            items = parseThumbnailElements(galleryElement);
-
-            // define options (if needed)
-            options = {
-
-                // define gallery index (for URL)
-                galleryUID: galleryElement.getAttribute('data-pswp-uid'),
-
-                getThumbBoundsFn: function(index) {
-                    // See Options -> getThumbBoundsFn section of documentation for more info
-                    var thumbnail = items[index].el.getElementsByTagName('img')[0], // find thumbnail
-                        pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
-                        rect = thumbnail.getBoundingClientRect();
-
-                    return {x:rect.left, y:rect.top + pageYScroll, w:rect.width};
-                },
-                // Gallery options
-                maxSpreadZoom: 1,
-                getDoubleTapZoom: function (isMouseClick, item) {
-                    return item.initialZoomLevel;
-                },
-                // UI options
-                zoomEl: false,
-                fullscreenEl: false,
-                shareEl: true,
-
-                shareButtons: [
-                    {id:'instagram', label:'Follow on Instagram', url:'https://www.instagram.com/vladshap/'},
-                    {id:'twitter', label:'Tweet It', url:'https://twitter.com/intent/tweet?text={{text}}&url={{url}}'},
-                    {id:'pinterest', label:'Pin it', url:'http://www.pinterest.com/pin/create/button/?url={{url}}&media={{image_url}}&description={{text}}'}
-                ]
-
             };
 
-            // PhotoSwipe opened from URL
-            if(fromURL) {
-                if(options.galleryPIDs) {
-                    // parse real index when custom PIDs are used
-                    // http://photoswipe.com/documentation/faq.html#custom-pid-in-url
-                    for(var j = 0; j < items.length; j++) {
-                        if(items[j].pid == index) {
-                            options.index = j;
-                            break;
-                        }
-                    }
-                } else {
-                    // in URL indexes start from 1
-                    options.index = parseInt(index, 10) - 1;
-                }
-            } else {
-                options.index = parseInt(index, 10);
+        // window.onload = getExif;
+
+        $(gallery).justifiedGallery().on('jg.complete', function (e) {
+            $(gallery).photoSwipe(slideSelector, options, events);
+
+            var allPhotos = $('.photo');
+
+            for (var i = 1; i <= allPhotos.length; i++) {
+                var img = document.getElementById("img-" + i);
+                console.log(img);
+                EXIF.getData(img, function() {
+                    var make = EXIF.getTag(this, "Make");
+                    var model = EXIF.getTag(this, "Model");
+
+
+                    console.log("make: " + make);
+                    console.log("model: " + model);
+                });
+
+
             }
+        });
 
-            // exit if index not found
-            if( isNaN(options.index) ) {
-                return;
-            }
+    } else {
+            // console.log('no gallery');
 
-            if(disableAnimation) {
-                options.showAnimationDuration = 0;
-            }
-
-            // Pass data to PhotoSwipe and initialize it
-            gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
-            gallery.init();
-        };
-
-        // loop through all gallery elements and bind events
-        var galleryElements = document.querySelectorAll( gallerySelector );
-
-        for(var i = 0, l = galleryElements.length; i < l; i++) {
-            galleryElements[i].setAttribute('data-pswp-uid', i+1);
-            galleryElements[i].onclick = onThumbnailsClick;
-        }
-
-        // Parse URL and open gallery if it contains #&pid=3&gid=1
-        var hashData = photoswipeParseHash();
-        if(hashData.pid && hashData.gid) {
-            openPhotoSwipe( hashData.pid ,  galleryElements[ hashData.gid - 1 ], true, true );
-        }
-    };
-    instagramGallery('.instafeed');
-
+    }
 
     function checkForm($el) {
         $($el).keyup(function () {
@@ -433,4 +154,70 @@
 
 
 
+
+    function debounce(a,b,c){var d;return function(){var e=this,f=arguments;clearTimeout(d),d=setTimeout(function(){d=null,c||a.apply(e,f)},b),c&&!d&&a.apply(e,f)}}
+
+    var TiltAnimation = function() {
+    
+    var
+        hero,
+        mouseX,
+        mouseY;
+
+    var _init = function() {
+        mouseX    = 0;
+        mouseY    = 0;
+        slider    = document.getElementById('about--image');
+        
+        _addEventHandlers();    
+    }
+    
+    var _addEventHandlers = function() {
+        window.addEventListener('mousemove', _getMousePos, false);
+        // if (window.DeviceMotionEvent != undefined) {
+        // window.addEventListener('devicemotion', _accelerometerUpdate, false);
+        // }
+    }
+    
+    // var _accelerometerUpdate = function(e) {
+    //     // http://stackoverflow.com/questions/4474508/access-accelerometer-via-javascript-in-android
+    //     var aX = event.accelerationIncludingGravity.x*1;
+    //     var aY = event.accelerationIncludingGravity.y*1;
+    //     var aZ = event.accelerationIncludingGravity.z*1;
+    //     //The following two lines are just to calculate a
+    //     // tilt. Not really needed. 
+    //     var xPosition = Math.atan2(aY, aZ) * 20;
+    //     var yPosition = Math.atan2(aX, aZ) * 20;
+        
+    //     xPosition = Math.round(xPosition * 1000) / 1000;
+    //     yPosition = Math.round(yPosition * 1000) / 1000;
+        
+    //     _animate(yPosition, xPosition);
+        
+    // }
+    
+    var _getMousePos = function(e) {
+        e = e || window.event;
+        
+        mouseX = e.pageX;
+        mouseY = e.pageY;
+        
+        var xPos = (mouseX / window.innerWidth) - 0.5;
+        var yPos = (mouseY / window.innerHeight) - 0.5;
+        var rotationYValue = 5 * xPos;
+        var rotationXValue = 5 * yPos;
+        
+        _animate(rotationYValue,rotationXValue);
+    }
+    
+    var _animate = function(rotationYValue, rotationXValue) {
+        TweenLite.to(slider, .25, { rotationY:rotationYValue, rotationX:rotationXValue, ease:Power1.easeOut, transformPerspective:900, transformOrigin:"center" });
+    }
+    
+    return {
+        init: _init
+    }
+    }();
+
+    TiltAnimation.init();
 });

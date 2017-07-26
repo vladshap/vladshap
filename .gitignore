@@ -1,17 +1,18 @@
 *~
 .DS_Store
-
 .idea/
 .tmp/
 .vagrant/
+<<<<<<< HEAD
 build/
 coverage/
+=======
+>>>>>>> v2
 _site/
 backup/
 node_modules/
 bower_components/
-npm-debug.log
 out/
+npm-debug.log
+/backup/
 *.scssc
-.awspublish-vladshap
-assets/styles/main.css

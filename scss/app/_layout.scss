@@ -1,32 +1,62 @@
+main {
+    padding-top: 4.5rem;
+    z-index: 1;
+    position: relative;
+
+    @include respond-to($small) {
+        padding-top: 6rem;
+    }
+}
+
+
 .container {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-left: $base-padding;
+    padding-right: $base-padding;
     position: relative;
     width: 100%;
-    @include container($medium);
-
-    .resume & {
-        @include container($large);
-    }
+    @include container($large);
 
     &--tiny {
-        @include container($small);
+        @include container($medium);
     }
 
 }
 
 .frame {
     position: relative;
-    padding-top: 80px;
-    padding-bottom: 80px;
-    //box-shadow: 0 1px 0 0 red;
-    //@include clearfix();
 
-    @include respond-to($large) {
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+    @include respond-to($small) {
+        min-height: calc( 100vh - 12rem);
+    }
+}
+
+.image {
+    margin-bottom: $base-padding;
+    border: 1px solid $base-border;
+
+    img {
+        display: block;
+    }
+}
+
+.column {
+    position: relative;
+
+    @include respond-to($medium) {
+        @include span(6);
+    }
+
+    &:last-child {
+        @include respond-to($medium) {
+            @include omega();
+        }
+    }
+}
+
+.baseline {
+    background-image: url(//basehold.it/i/24);
+
+    &:active {
+        background-image: none;
     }
 }

@@ -1,0 +1,29 @@
+---
+layout: default
+title: Contact
+permalink: /contact/
+---
+
+<section class="frame">
+    <div class="container">
+        <h1>Get in touch</h1>
+        <div class="column">
+            <p>If you have a project you're interested in discussing with me or just want to say hello, drop me a line below, I&rsquo;d love to talk.</p>
+            <form action="https://formspree.io/vladshap@gmail.com" class="contact-form" method="POST" autocomplete="off">
+                <label for="name" class="vh">Your name</label>
+                <input type="text" class="input" id="name" name="name" required placeholder="Name*">
+                <label for="email" class="vh">Your email</label>
+                <input type="email" class="input" id="email" name="email" required placeholder="Email*">
+                <label for="message" class="vh">Message</label>
+                <textarea class="input text-area" name="message" id="message" required placeholder="Message"></textarea>
+                <button type="submit" class="btn btn--alt btn--full" id="send-message" disabled="disabled">Finish Your Message</button>
+            </form>
+        </div>
+        <div class="column">
+            <div class="canvas">
+                <p class="current-location">I am currently in: <span class="title"><span class="flag">🇺🇸</span>Los Angeles, California</span></p>
+                {% include country-svg.html %}
+            </div>
+        </div>
+    </div>
+</section>

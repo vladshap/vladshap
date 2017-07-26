@@ -1,0 +1,114 @@
+.indent {
+	padding-left: 6rem;
+	position: relative;
+	//margin-bottom: 0;
+
+	.cap {
+		position: absolute;
+		left: 0;
+		font-size: 4rem;
+		line-height: 1;
+	}
+
+	.font--name {
+		font-size: 1.25rem;
+		line-height: 1.5rem;
+		margin-bottom: 1.5rem;
+	}
+
+	&.serif {
+		font-family: $base-serif;
+		margin-bottom: 3rem;
+
+		.cap {
+			padding: 1.5rem 0 .5rem;
+		}
+	}
+
+	&.sans-serif {
+		font-family: $base-sans-serif;
+		margin-bottom: 3rem;
+
+		.cap {
+			padding: 1.25rem 0 .75rem;
+		}
+	}
+}
+
+.sg {
+	margin-bottom: 1.5rem;
+	width: 100%;
+
+	&:last-of-type {
+		margin-bottom: 3rem;
+	}
+
+	&--heading {
+		border-bottom: 1px solid $base-border;
+		margin-top: -1px;
+		@extend h3;
+	}
+
+	code {
+		font-family: monospace;
+		font-size: .75rem;
+		font-weight: normal;
+		display: inline-block;
+		vertical-align: top;
+		box-shadow: inset 0 0 0 1px $base-border, inset 0 0 0 3px $color-white;
+		padding: 5px .5rem;
+		line-height: 14px;
+		border-radius: 5px;
+	}
+}
+
+
+.grid--colors {
+	margin-bottom: 0;
+
+	li {
+		@include respond-to($small) {
+			width: 20%;
+		}
+	}
+}
+
+.color-box {
+	border-radius: 5px;
+	display: block;
+	text-align: center;
+	height: 6rem;
+	position: relative;
+	overflow: hidden;
+	box-shadow: inset 0 0 0 1px $base-border, inset 0 0 0 3px $color-white;
+
+	@include respond-to($small) {
+		height: 10.5rem;
+	}
+
+	&:last-of-type {
+		margin-right: 0;
+	}
+
+	span {
+		position: absolute;
+		font-family: monospace;
+		font-size: .75rem;
+		left: 3px;
+		right: 3px;
+		bottom: 3px;
+		display: block;
+		padding: 5px 0;
+		line-height: 14px;
+		background-color: $color-white;
+	}
+}
+
+.bl-toggle {
+	position: absolute;
+	top: $base-padding;
+	right: $base-padding;
+	display: inline-block;
+	width: auto;
+	color: $color-gray;
+}

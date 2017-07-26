@@ -1,0 +1,24 @@
+name: Vlad Shapochnikov
+#collections:
+#  photos:
+#    output: true
+#    permalink: /photos/:path/
+exclude: [
+  "node_modules",
+  "gulpfile.js",
+  "package.json",
+  "scss",
+  "backup",
+  "bower_components",
+  "scripts"
+  ]
+keep_files: ["assets"]
+navigation:
+  - title: Home
+    url: /
+  - title: Projects
+    url: /projects/
+  - title: Photos
+    url: /photos/
+  - title: Contact
+    url: /contact/

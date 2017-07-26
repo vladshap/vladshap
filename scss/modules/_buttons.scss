@@ -1,76 +1,63 @@
 .btn {
     cursor: pointer;
     display: inline-block;
-    border: 1px solid $color-white;
-    border-radius: 22px;
+    border-radius: 3rem;
     font-size: .75rem;
     font-weight: $font-weight-regular;
     letter-spacing: 3px;
-    line-height: 1.65rem;
+    line-height: 1.5rem;
+    height: 3rem;
     margin: 0;
     outline: none;
-    padding: .5rem 1.5rem;
+    padding: .75rem 1.5rem;
     text-decoration: none;
     text-transform: uppercase;
-    transition: .2s ease-in-out;
+    transition: .1s $cubic-bezier;
     vertical-align: top;
-    background-color: transparent;
-    color: $color-white;
     overflow: hidden;
     position: relative;
-    transform: scale(1);
+
+    background-color: $color-green;
+    color: $color-light-gray;
+    box-shadow: inset 0 0 0 1px $color-green;
+	border: none;
 
     @include respond-to($medium) {
-        padding: .5rem 2.5rem;
-    }
-
-    &::before {
-        content: '';
-        position: absolute;
-        width: 100%;
-        top: 0;
-        left: 0;
-        height: 1000%;
-        background-color: $color-white;
-        opacity: 0;
-        transition: .2s ease-in-out;
-        z-index: -1;
-        pointer-events: none;
+        padding: .75rem 2.5rem;
     }
 
     &:hover {
-        color: $color-black;
+        background-color: $color-green-hover;
+        color: $color-light-gray;
         text-decoration: none;
-        //transform: scale(1.05) !important;
-
-        &::before {
-            opacity: 1;
-        }
     }
 
-    &--alt {
-        background-color: $color-white;
-        color: $color-black;
-        border: 1px solid $color-white;
+    &:active {
+        background-color: $color-green;
+    }
 
+    &:disabled {
+        cursor: not-allowed;
+        opacity: .25;
 
         &:hover {
-            background-color: transparent;
-            border-color: $color-white;
-            color: $color-white;
-            text-decoration: none;
-        }
-
-        &:disabled {
-            &:hover {
-                background-color: $color-white;
-                color: $color-black;
-            }
+            background-color: $color-green;
+            color: $color-light-gray;
         }
     }
 
-    + .btn {
-        margin-left: 1em;
+    &--elevated {
+        box-shadow: 10px 10px 20px 0 rgba($color-black, .25);
+
+        &:hover {
+            box-shadow: 8px 8px 25px 0 rgba($color-black, .25);
+            transform: scale(1.02);
+        }
+
+        &:active {
+            box-shadow: 3px 3px 15px 0 rgba($color-black, .25);
+            transform: scale(1);
+        }
     }
 
     &--centered {
@@ -84,8 +71,7 @@
         width: 100%;
     }
 
-    &:disabled {
-        cursor: not-allowed;
-        opacity: .25;
+    + .btn {
+        margin-left: 1em;
     }
 }
