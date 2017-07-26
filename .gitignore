@@ -3,11 +3,7 @@
 .idea/
 .tmp/
 .vagrant/
-<<<<<<< HEAD
-build/
 coverage/
-=======
->>>>>>> v2
 _site/
 backup/
 node_modules/
