@@ -1,22 +1,19 @@
+{% if page.url != "/" %}
 <footer role="contentinfo" class="site-footer">
-    <!-- Gotta have these, otherwise how will people find me? -->
-    <!--<svg class="mtn">-->
-    <!--<use xlink:href="#mtn"></use>-->
-    <!--</svg>-->
-    {% include social-links.html %}
+    <!--<div class="mountain">-->
+        <!--<svg><use xlink:href="#mountain"></use></svg>-->
+    <!--</div>-->
     <div class="container">
-        <p class="copyright">
-            &copy; 2017. Feel free to steal anything...but it won't make you happy. :)
-        </p>
+        {% include social-links.html %}
+        <p class="copyright"><small><a href="/styleguide/">Styleguide</a> | &copy; 2017 Vlad Shapochnikov.</small></p>
     </div>
+    <svg class="divider"><use xlink:href="#divider"></use></svg>
 </footer>
-
-{% include photoswipe.html %}
-
+{% endif %}
 </body>
 <!--Concatinated & Minified JS via Gulp-->
 <script src="/assets/js/site.min.js" async defer></script>
-<!--They are tracking us, (wo)man...RUN FOR YA LIFE!-->
+<!--Google jargon...-->
 <script>
         (function (i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r;
@@ -32,14 +29,4 @@
         ga('create', 'UA-28250928-1', 'auto');
         ga('send', 'pageview');
 </script>
-<!--<script type="text/javascript">-->
-    <!--var _gaq = _gaq || [];-->
-    <!--_gaq.push(['_setAccount', 'UA-28250928-1']);-->
-    <!--_gaq.push(['_trackPageview']);-->
-    <!--(function() {-->
-        <!--var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;-->
-        <!--ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';-->
-        <!--var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);-->
-    <!--})();-->
-<!--</script>-->
 </html>

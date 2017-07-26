@@ -1,8 +1,12 @@
 <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" class="photo photo-{{ forloop.index }}">
-    <a href="{{ site.baseurl }}{{ image.path }}" itemprop="contentUrl">
-        <img src="{{ site.baseurl }}{{ image.path }}" id="img-{{ forloop.index }}" alt="" itemprop="thumbnail">
+    <a href="{{ image.image_path }}" itemprop="contentUrl" data-size="{{ image.width}}x{{ image.height}}">
+        <img src="{{ image.thumb_path }}" id="img-{{ forloop.index }}" alt="{{ image.title}}" itemprop="thumbnail">
     </a>
-    <figcaption itemprop="caption description">
-        <pre id="makeAndModel"></pre>
+    <figcaption class="caption" itemprop="caption description">
+        {{ image.title}}
+        <span id="makeAndModel"></span>
     </figcaption>
+    <svg class="icon icon-expand">
+        <use xlink:href="#icon-expand"></use>
+    </svg>
 </figure>

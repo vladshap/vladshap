@@ -59,18 +59,20 @@ gulp.task('js', function(){
     return gulp.src(
             [
                 'bower_components/jquery/dist/jquery.js',
+                // 'bower_components/gsap/src/uncompressed/TweenMax.js',
                 'bower_components/gsap/src/uncompressed/TweenMax.js',
-                'bower_components/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js',
-                'bower_components/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js',
+                // 'bower_components/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js',
+                // 'bower_components/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js',
                 // 'bower_components/scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js',
                 // 'bower_components/slick-carousel/slick/slick.js',
-                // 'bower_components/waitForImages/src/jquery.waitforimages.js',
-                'bower_components/instafeed.js/instafeed.js',
-                'bower_components/photoswipe/dist/photoswipe.js',
-                'bower_components/photoswipe/dist/photoswipe-ui-default.js',
+                'bower_components/waitForImages/src/jquery.waitforimages.js',
+                // 'bower_components/instafeed.js/instafeed.js',
+                'node_modules/jquery.photoswipe/dist/jquery.photoswipe-global.js',
                 'bower_components/justifiedGallery/dist/js/jquery.justifiedGallery.js',
+                'bower_components/exif-js/exif.js',
+                // 'bower_components/fraction.js/fraction.js',
                 // 'bower_components/history.js/scripts/uncompressed/history.js',
-                'bower_components/history.js/scripts/bundled/html5/jquery.history.js',
+                // 'bower_components/history.js/scripts/bundled/html5/jquery.history.js',
                 'scripts/site.js'
             ])
         .pipe(sourcemaps.init())

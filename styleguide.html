@@ -1,0 +1,141 @@
+---
+layout: default
+title: Styleguide
+permalink: /styleguide/
+---
+
+<section class="frame frame--styleguide">
+    <div class="container">
+        <h1>Styleguide</h1>
+        <label for="baseline" class="bl-toggle">Toggle Baseline
+            <input type="checkbox" id="baseline" name="baseline" class="baseline">
+        </label>
+    </div>
+    <div class="sg sg--colors">
+        <div class="container">
+            <h2 class="sg--heading">Colors</h2>
+            <ul class="grid grid--colors">
+                <li>
+                    <div class="color-box" style="background-color: #ffffff;"><span>#ffffff</span></div>
+                </li>
+                <li>
+                    <div class="color-box" style="background-color: #eeeeee;"><span>#eeeeee</span></div>
+                </li>
+                <li>
+                    <div class="color-box" style="background-color: #b1b1b1;"><span>#b1b1b1</span></div>
+                </li>
+                <li>
+                    <div class="color-box" style="background-color: #08090E;"><span>#08090E</span></div>
+                </li>
+                <li>
+                    <div class="color-box" style="background-color: #2ead2b;"><span>#2ead2b</span></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="sg sg--typography">
+        <div class="container">
+            <h2 class="sg--heading">Typography</h2>
+        </div>
+        <div class="container">
+            <div class="column">
+                <p class="indent"><code>font-family: 'Sorts Mill Goudy';</code></p>
+                <p class="indent serif">
+                    <span class="cap">Ag</span>
+                    a b c d e f g h i j k l m n o p q r s t u v w x y z<br>
+                    A B C D E F G H I J K L M N O P Q R S T U V W X Y Z<br>
+                    1 2 3 4 5 6 7 8 9</p>
+                <!--<p class="indent"><pre><code>font-family: 'Sorts Mill Goudy', serif;</code></pre></p>-->
+            </div>
+            <div class="column">
+                <p class="indent"><code>font-family: 'Brandon Grotesque';</code></p>
+                <p class="indent sans-serif">
+                    <span class="cap">Ag</span>
+                    a b c d e f g h i j k l m n o p q r s t u v w x y z<br>
+                    A B C D E F G H I J K L M N O P Q R S T U V W X Y Z<br>
+                    1 2 3 4 5 6 7 8 9
+                </p>
+                <!--<p class="indent"><pre>font-family: 'Brandon Grotesque', sans-serif;</pre></p>-->
+            </div>
+        </div>
+        <div class="container">
+            <div class="column">
+                <h3 class="sg--heading">Headings</h3>
+                <h1>Heading Level 1</h1>
+                <h2>Heading Level 2</h2>
+                <h3>Heading Level 3</h3>
+                <h4>Heading Level 4</h4>
+            </div>
+            <div class="column">
+                <h3 class="sg--heading">Paragraphs</h3>
+                <p>This is the primary body copy. <a href="#nolink">This is a link</a>. Pellentesque ornare sem lacinia quam venenatis vestibulum. <em>This sentences is emphasized</em>. Donec ullamcorper nulla non metus auctor fringilla. <strong>This sentence is bold.</strong></p>
+                <p><small>This is a secondary, small body copy. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Donec ullamcorper nulla non metus auctor fringilla.</small></p>
+            </div>
+        </div>
+    </div>
+    <div class="sg sg--buttons">
+        <div class="container">
+            <h2 class="sg--heading">Forms &amp; Buttons</h2>
+        </div>
+        <div class="container">
+            <div class="column">
+                <form action="#" autocomplete="off">
+                    <label for="email" class="vh">Your email</label>
+                    <input type="email" class="input" id="email" name="email" required placeholder="Email*">
+                    <label for="message" class="vh">Message</label>
+                    <textarea class="input text-area" name="message" id="message" required placeholder="Message"></textarea>
+                </form>
+            </div>
+            <div class="column">
+                <p>
+                    <button class="btn">Default Button</button>
+                </p>
+                <p>
+                    <button class="btn" disabled>Disabled Button</button>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="sg sg--icons">
+        <div class="container">
+            <h2 class="sg--heading">Icons</h2>
+        </div>
+        <div class="container">
+            <svg class="icon icon-vs">
+                <use xlink:href="#vs"></use>
+            </svg>
+            <svg class="icon icon-instagram">
+                <use xlink:href="#icon-instagram"></use>
+            </svg>
+            <svg class="icon icon-twitter">
+                <use xlink:href="#icon-twitter"></use>
+            </svg>
+            <svg class="icon icon-github">
+                <use xlink:href="#icon-github"></use>
+            </svg>
+            <svg class="icon icon-codepen">
+                <use xlink:href="#icon-codepen"></use>
+            </svg>
+            <svg class="icon icon-new-tab">
+                <use xlink:href="#icon-new-tab"></use>
+            </svg>
+            <svg class="icon icon-expand">
+                <use xlink:href="#icon-expand"></use>
+            </svg>
+            <svg class="icon icon-menu">
+                <use xlink:href="#icon-menu"></use>
+            </svg>
+        </div>
+    </div>
+    <div class="sg sg--technology">
+        <div class="container">
+            <h2 class="sg--heading">Technology</h2>
+            <p><small>The SCSS and JavaScript is compiled, concatenated and minified using <a href="https://github.com/gulpjs/" rel="external">gulp.js</a> and some <a href="http://postcss.org/" rel="external">PostCSS</a>.
+                <br>
+            The front-end is compiled with <a href="https://jekyllrb.com" rel="external">Jekyll</a>, source files hosted by <a href="http://mbsy.co/hBsG2" rel="external">Dreamhost</a>.
+            <br>
+            Fonts are served by <a href="https://typekit.com/fonts/brandon-grotesque" ref="external">TypeKit</a> and
+                <a href="https://fonts.google.com/specimen/Sorts+Mill+Goudy" rel="external">Google Fonts</a>.</small></p>
+        </div>
+    </div>
+</section>

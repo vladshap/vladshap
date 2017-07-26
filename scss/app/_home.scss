@@ -1,7 +1,7 @@
 .about {
 
 	&--image {
-		max-width: 300px;
+		max-width: 200px;
 		margin: 0 auto;
 		position: relative;
 		clear: both;
@@ -9,14 +9,15 @@
 		@include respond-to($medium) {
 			position: fixed;
 			max-width: 500px;
-			bottom: 0;
+			bottom: -5px;
 			left: 50%;
+
 		}
 
 		&:hover {
 			figcaption {
 				opacity: 1;
-				transform: scale(1);
+				transform: scale(1) rotate(-10deg) translate(-5px, -15px);
 			}
 		}
 
@@ -30,15 +31,17 @@
 			font-size: 1rem;
 			top: 35%;
 			left: 10%;
-			color: $color-white;
+			color: $color-light-gray;
 			font-family: $base-serif;
 			background-color: $color-black;
 			border-radius: 50%;
 			opacity: 0;
 			line-height: 1;
 			transition: .1s $cubic-bezier;
-			transform: scale(.8);
+			transform: scale(.75) rotate(0);
 			padding: .75rem 1rem .5rem;
+			user-select: none;
+			cursor: default;
 
 			&::before {
 				content: '';
@@ -59,14 +62,22 @@
 			float: left;
 			padding-right: 1.5%;
 		}
+
+		.btn--centered {
+			margin-bottom: 3rem;
+
+			@include respond-to($medium) {
+				margin-left: 0;
+			}
+		}
 		
 		.social-links {
 			text-align: center;
+			margin-bottom: 3rem;
 
 			@include respond-to($medium) {
 				text-align: left;
 			}
 		}
 	}
-
 }

@@ -1,0 +1,296 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+main, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, main, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+  blockquote:before, blockquote:after, q:before, q:after {
+    content: '';
+    content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+p.job-title:after {
+  clear: both;
+  content: '';
+  display: table; }
+
+.vh {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px; }
+  .focusable.vh:active, .focusable.vh:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto; }
+
+.align-right {
+  float: right; }
+
+@font-face {
+  font-family: 'Sorts Mill Goudy';
+  font-style: italic;
+  font-weight: 400;
+  src: local("Sorts Mill Goudy Italic"), local("SortsMillGoudy-Italic"), url(https://fonts.gstatic.com/s/sortsmillgoudy/v6/UUu1lKiy4hRmBWk599VL1ScduHglN_S7aJvGYHj_Mow.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+
+p {
+  font-size: 1.125rem;
+  margin-bottom: 1.5rem; }
+  .resume p {
+    font-size: 1rem;
+    margin-bottom: 1rem; }
+  @media screen and (min-width: 34em) {
+    p.intro {
+      font-size: 1.25rem; } }
+  p.job-title {
+    font-weight: 900;
+    margin-bottom: 0;
+    padding-right: 75px;
+    position: relative; }
+
+a {
+  color: inherit;
+  text-decoration: underline; }
+  a:hover {
+    text-decoration: none; }
+
+h1, h2, h3, h4 {
+  font-weight: inherit;
+  line-height: 1.2;
+  font-family: "brandon-grotesque", "Brandon Grotesque", sans-serif; }
+
+h1 {
+  font-size: 2.5rem;
+  font-family: "Sorts Mill Goudy", serif;
+  font-weight: 400;
+  line-height: 1;
+  display: table;
+  background-color: #eee;
+  margin: 0 0 1.5rem 0;
+  padding: 0 10px 0 0;
+  color: inherit; }
+  h1::after {
+    background-color: #08090E;
+    content: '';
+    position: absolute;
+    height: 1px;
+    top: 28px;
+    z-index: -1;
+    left: 1.5rem;
+    right: 100%;
+    transition: 0.75s cubic-bezier(0.58, 0.3, 0.51, 0.82);
+    transition-delay: .6s; }
+    .loaded h1::after {
+      right: 1.5rem; }
+
+h2 {
+  font-size: 1.4rem;
+  font-weight: 900;
+  line-height: normal;
+  margin-bottom: 1.25rem; }
+
+ul {
+  list-style: none; }
+  ul.bullets {
+    list-style-type: disc;
+    list-style-position: inside; }
+
+em {
+  font-style: italic;
+  font-weight: 400; }
+
+strong {
+  font-weight: 900; }
+
+small {
+  font-size: 75%;
+  opacity: .5; }
+
+.date {
+  font-size: .875rem;
+  font-weight: 900;
+  position: absolute;
+  right: 0;
+  top: 2px; }
+
+.copyright {
+  font-size: .75rem;
+  line-height: 20px;
+  margin-bottom: 0; }
+  @media screen and (min-width: 48em) {
+    .copyright {
+      font-size: .875rem; } }
+
+.small {
+  display: block;
+  font-size: .65rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  line-height: 1.2;
+  position: relative;
+  text-transform: uppercase;
+  text-align: center; }
+
+.instagram-text {
+  text-decoration: none; }
+  .instagram-text:hover {
+    background: linear-gradient(-135deg, #1400c8, #b900b4, #f50000); }
+
+html {
+  background-color: #eee;
+  box-sizing: border-box; }
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit; }
+
+body {
+  color: #08090E;
+  font-family: "brandon-grotesque", "Brandon Grotesque", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.45;
+  opacity: 1;
+  -webkit-font-smoothing: antialiased; }
+  @media screen and (max-width: 62em) {
+    body {
+      -webkit-text-size-adjust: 100%; } }
+
+@media screen and (min-width: 48em) {
+  .column {
+    width: 47.82609%;
+    float: left;
+    margin-right: 4.34783%; } }
+
+@media screen and (min-width: 48em) {
+  .column:last-child {
+    float: right;
+    margin-right: 0; } }
+
+.wrapper {
+  position: relative; }
+
+.resume-header {
+  padding-top: 3rem;
+  padding-bottom: 2rem; }
+
+.resume-footer {
+  margin-top: 5rem;
+  margin-bottom: 3rem;
+  text-align: center; }
+
+.resume-body {
+  padding-top: 0; }
+
+h1 {
+  font-weight: normal;
+  margin-bottom: 0; }
+
+main {
+  padding-top: 8rem;
+  z-index: 1;
+  position: relative;
+  background-color: #eee; }
+  @media screen and (min-width: 34em) {
+    main {
+      padding-top: 6rem; } }
+
+.container {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  position: relative;
+  width: 100%;
+  max-width: 62em;
+  margin-left: auto;
+  margin-right: auto; }
+  .container:after {
+    content: " ";
+    display: block;
+    clear: both; }
+  .resume .container {
+    max-width: 62em;
+    margin-left: auto;
+    margin-right: auto; }
+    .resume .container:after {
+      content: " ";
+      display: block;
+      clear: both; }
+  .container--tiny {
+    max-width: 34em;
+    margin-left: auto;
+    margin-right: auto; }
+    .container--tiny:after {
+      content: " ";
+      display: block;
+      clear: both; }
+  .container--large {
+    max-width: 62em;
+    margin-left: auto;
+    margin-right: auto; }
+    .container--large:after {
+      content: " ";
+      display: block;
+      clear: both; }
+
+.frame {
+  position: relative; }
+  @media screen and (min-width: 62em) {
+    .frame {
+      min-height: calc( 100vh - 64px);
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-direction: column;
+          flex-direction: column;
+      -ms-flex-align: center;
+          align-items: center;
+      -ms-flex-pack: center;
+          justify-content: center; } }
+
+.image {
+  margin-bottom: 1.5rem;
+  border: 1px solid #414447; }
+  .image img {
+    display: block; }

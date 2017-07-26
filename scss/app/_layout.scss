@@ -1,8 +1,7 @@
 main {
-    padding-top: 8rem;
+    padding-top: 4.5rem;
     z-index: 1;
     position: relative;
-    background-color: $base-bg-color;
 
     @include respond-to($small) {
         padding-top: 6rem;
@@ -17,16 +16,8 @@ main {
     width: 100%;
     @include container($large);
 
-    .resume & {
-        @include container($large);
-    }
-
     &--tiny {
-        @include container($small);
-    }
-
-    &--large {
-        @include container($large);
+        @include container($medium);
     }
 
 }
@@ -34,12 +25,8 @@ main {
 .frame {
     position: relative;
 
-    @include respond-to($large) {
-        min-height: calc( 100vh - 64px);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+    @include respond-to($small) {
+        min-height: calc( 100vh - 12rem);
     }
 }
 
@@ -49,5 +36,27 @@ main {
 
     img {
         display: block;
+    }
+}
+
+.column {
+    position: relative;
+
+    @include respond-to($medium) {
+        @include span(6);
+    }
+
+    &:last-child {
+        @include respond-to($medium) {
+            @include omega();
+        }
+    }
+}
+
+.baseline {
+    background-image: url(//basehold.it/i/24);
+
+    &:active {
+        background-image: none;
     }
 }

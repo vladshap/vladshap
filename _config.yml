@@ -1,13 +1,14 @@
 name: Vlad Shapochnikov
-collections:
-  photos:
-    output: true
-    permalink: /photos/:path/
+#collections:
+#  photos:
+#    output: true
+#    permalink: /photos/:path/
 exclude: [
   "node_modules",
   "gulpfile.js",
   "package.json",
   "scss",
+  "backup",
   "bower_components",
   "scripts"
   ]

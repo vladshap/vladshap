@@ -1,5 +1,5 @@
 html {
-    background-color: $color-white;
+    background-color: $color-light-gray;
     box-sizing: border-box;
 }
 
@@ -22,25 +22,12 @@ body {
     opacity: 1;
     -webkit-font-smoothing: antialiased;
 
-
     //To prevent the iPhone and iPad from inflating fonts
     @include respond-to($large, max) {
         -webkit-text-size-adjust: 100%;
     }
 }
 
-.column {
-
-    @include respond-to($medium) {
-        @include span(6);
-    }
-
-    &:last-child {
-        @include respond-to($medium) {
-            @include omega();
-        }
-    }
-}
 
 .wrapper {
     position: relative;
@@ -48,7 +35,6 @@ body {
 
 .resume-header {
     padding-top: 3rem;
-    padding-bottom: 2rem;
 }
 
 .resume-footer {
@@ -59,10 +45,34 @@ body {
 
 .resume-body {
     padding-top: 0;
+
+
+
+    p {
+        font-size: 1rem;
+    }
+
+    .skills {
+        list-style: bullets;
+        font-size: inherit;
+
+        li {
+            margin-bottom: 0;
+        }
+    }
 }
 
-h1 {
-    font-weight: normal;
-    //margin-top: 2rem;
-    margin-bottom: 0;
+.job-title {
+    display: block;
+    margin-top: 1.5rem;
+    font-weight: $font-weight-bold;
+
+    .tight & {
+        margin-top: 0;
+    }
+    //border-bottom: 1px dotted $base-border;
+}
+
+.date {
+    float: right;
 }

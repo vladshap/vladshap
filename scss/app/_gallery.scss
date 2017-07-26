@@ -1,49 +1,95 @@
-.instafeed {
-	margin-left: -1px;
-	margin-right: -1px;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	@include clearfix();
+.frame--gallery {
+	margin-bottom: 6rem;
+}
 
-	figure {
-		width: 20%;
-		padding: 1px;
-		margin: 0;
+.gallery {
+	position: relative;
+	margin: -10px -10px 3rem;
 
-		> a {
-			display: block;
+	&.justified-gallery {
+
+		.photo {
+			opacity: 1;
+		}
+	}
+
+	.icon-expand {
+		pointer-events: none;
+		transition: .2s $cubic-bezier;
+		transform: translate(-50%, -50%) scale(.75);
+		position: absolute;
+		z-index: 20;
+		top: 50%;
+		left: 50%;
+		opacity: 0;
+		fill: $color-white;
+		width: 30px;
+		height: 25px;
+	}
+
+	.photo {
+		text-decoration: none;
+		opacity: 0;
+		background-color: $color-black;
+
+		&::before,
+		&::after {
+			content: '';
+			position: absolute;
+			pointer-events: none;
+			z-index: 20;
+			opacity: 0;
+			transition: .2s $cubic-bezier;
 		}
 
-		img {
-			display: block;
+		&::before {
+			width: 33.33%;
+			height: 100%;
+			top: 0;
+			left: 33.33%;
+			border-left: 1px solid $color-white;
+			border-right: 1px solid $color-white;
+		}
+
+		&::after {
+			height: 33.33%;
+			width: 100%;
+			left: 0;
+			top: 33.33%;
+			border-top: 1px solid $color-white;
+			border-bottom: 1px solid $color-white;
+		}
+
+		&:hover {
+
+			&::before,
+			&::after {
+				//transform: scale(1);
+				opacity: .15;
+			}
+
+			.icon-expand {
+				opacity: .75;
+				transform: translate(-50%, -50%) scale(1);
+			}
+
+			img {
+				opacity: .5;
+				transform: scale(1.009);
+			}
 		}
 	}
 
 	figcaption {
 		display: none;
 	}
-}
-
-
-.gallery {
-	margin-bottom: 2rem;
-	margin-left: -5px;
-	margin-right: -5px;
-
-	.photo {
-		text-decoration: none;
-	}
 
 	img {
 		display: block;
+		transition: .2s $cubic-bezier transform, .2s $cubic-bezier opacity;
 	}
 
 	a {
-		background-attachment: scroll;
-		background-repeat: no-repeat;
-		background-size: cover;
-		background-position: 50% 50%;
 		position: relative;
 		display: block;
 		height: 100%;
@@ -52,29 +98,20 @@
 	}
 }
 
-.gallery-stats {
-	text-align: center;
-	font-size: 0;
-	margin-top: 4rem;
-	margin-bottom: 4.5rem;
+.pswp__ui--fit {
 
-	li {
-		display: inline-block;
-		vertical-align: top;
-		padding-left: 1rem;
-		padding-right: 1rem;
+	.pswp__caption,
+	.pswp__top-bar {
+		background: none;
 	}
 
-	.number {
-		font-size: 3rem;
-		font-weight: $font-weight-bold;
-		display: block;
-		line-height: 1;
-	}
+}
 
-	.title {
-		display: block;
-		font-size: .75rem;
+.pswp__top-bar {
+	z-index: 10;
+
+	.pswp__counter {
+		font-size: .675rem;
 	}
 }
 
@@ -85,31 +122,48 @@
 a.pswp__share--instagram {
 	&:hover {
 		background: #e4405f;
-		color: #fff;
+		color: $color-white;
 	}
 }
 
 a.pswp__share--pinterest {
 	&:hover {
 		background: #CE272D;
-		color: #fff;
+		color: $color-white;
 	}
 }
 
 .pswp__caption {
-	color: $color-white;
+	color: $color-light-gray;
 	text-align: center;
-	padding-top: 5px;
+	//padding-top: 12px;
+	display: block;
+	top: 0;
+	bottom: auto;
+	z-index: 2;
+
 	p {
 		font-size: .75rem;
 		font-weight: $font-weight-regular;
+		margin-bottom: 0;
+		line-height: 20px;
+
 	}
 }
 
+.pswp__caption__center {
+	font-size: .75rem;
+	text-align: center;
+	padding: 12px 0;
+	max-width: $large;
+}
+
+.pswp__bg {
+	background-color: rgba($color-black, .99);
+}
 
 
 .justified-gallery {
-	width: 100%;
 	position: relative;
 	overflow: hidden;
 }
@@ -118,7 +172,6 @@ a.pswp__share--pinterest {
 	position: absolute;
 	display: inline-block;
 	overflow: hidden;
-	background: #888888;
 	opacity: 0.1;
 }
 .justified-gallery > a > img,
@@ -150,16 +203,14 @@ a.pswp__share--pinterest {
 .justified-gallery > figure > .caption.caption-visible {
 	display: initial;
 	opacity: 0.7;
-	transition: opacity 500ms ease-in;
 }
 .justified-gallery > .entry-visible {
 	opacity: 1;
-	background: none;
+	//background: none;
 }
 .justified-gallery > .entry-visible > img,
 .justified-gallery > .entry-visible > a > img {
 	opacity: 1;
-	transition: opacity 500ms ease-in;
 }
 .justified-gallery > .jg-filtered {
 	display: none;

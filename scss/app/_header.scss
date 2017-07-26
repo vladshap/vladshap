@@ -1,80 +1,167 @@
 .site-header {
 	padding: 0;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
 	z-index: 2;
-	background-color: rgba($base-bg-color, .98);
 	position: fixed;
 	left: 0;
-	width: 100%;
+	right: 0;
 	top: 0;
-	//box-shadow:  0 0 100px 0 rgba($base-text-color, .1), 0 0 5px 0 rgba($base-text-color, .05);
+
+	@include respond-to($small) {
+		background-color: rgba($base-bg-color, .98);
+	}
 
 	> .container {
-		padding-left: 0;
-		padding-right: 0;
 
-		@include respond-to($small) {
-			@include container($large);
-			padding-left: $base-padding;
-			padding-right: $base-padding;
+		&::before {
+
+			@include respond-to($small) {
+				content: '';
+				position: absolute;
+				opacity: 0;
+				left: $base-padding;
+				right: $base-padding;
+				pointer-events: none;
+				transition: .2s $cubic-bezier;
+				bottom: 0;
+				height: 1px;
+				background-color: $base-border;
+				z-index: 1;
+			}
+		}
+
+	}
+
+	&.sticky {
+
+		> .container {
+			&::before {
+				opacity: 1;
+			}
 		}
 	}
 }
 
-.site-nav {
+.nav-toggle {
+	position: fixed;
+	border-radius: 4.5rem;
+	border: 0;
+	bottom: $base-padding;
+	left: $base-padding;
+	padding: 0;
+	z-index: 30;
 
 	@include respond-to($small) {
+		display: none;
+	}
+
+	svg {
+		width: 1.5rem;
+		margin: .75rem;
+		height: 1.5rem;
+		fill: $color-light-gray;
+	}
+}
+
+.site-nav {
+	display: flex;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	text-align: center;
+	align-items: center;
+	z-index: 20;
+	transition: .2s $cubic-bezier;
+	pointer-events: none;
+
+	@include respond-to($small) {
+		display: block;
 		float: right;
 		position: relative;
+
+	}
+
+	&.visible {
+		background-color: rgba($color-light-gray, .97);
+
+		@include respond-to($small) {
+			background-color: transparent;
+		}
+
+		ul {
+			opacity: 1;
+			transition-delay: .2s;
+			transform: translate(0, 0%);
+		}
 	}
 
 	ul {
 		font-size: 0;
-		white-space: nowrap;
-		text-align: center;
+		width: 100%;
+		opacity: 0;
+		transform: translate(0, -500%);
+		transition: .4s $cubic-bezier;
+		pointer-events: auto;
 
 		@include respond-to($small) {
 			overflow: visible;
-			text-align: left;
+			white-space: nowrap;
+			opacity: 1;
+			transform: translate(0, 0);
 		}
 	}
 
 	li {
-		display: inline-block;
-		vertical-align: top;
+
+		@include respond-to($small) {
+			display: inline-block;
+			vertical-align: top;
+		}
+
+		&:first-child {
+			a {
+				margin-left: 0;
+			}
+		}
+
+		&:last-child {
+			a {
+				margin-right: 0;
+			}
+		}
 	}
 
 	a {
 		text-transform: uppercase;
 		text-decoration: none;
-		font-size: .75rem;
+		font-size: 1rem;
 		letter-spacing: 1px;
 		font-weight: $font-weight-bold;
 		position: relative;
-		padding-left: .5rem;
-		padding-right: .5rem;
-		line-height: 44px;
+		line-height: 4.5rem;
 		display: block;
 
 		@include respond-to($small) {
-			line-height: 64px;
-			padding-left: .75rem;
-			padding-right: .75rem;
+			line-height: 4.5rem;
+			margin-left: .75rem;
+			margin-right: .75rem;
+			font-size: .75rem;
 		}
 
 		&::before {
-			content: '';
-			position: absolute;
-			height: 0;
-			top: 0;
-			width: 100%;
-			background-color: $color-green;
-			left: 0;
-			transition: .15s linear all;
-			z-index: -1;
+			@include respond-to($medium) {
+				content: '';
+				position: absolute;
+				height: 0;
+				bottom: -1px;
+				width: 100%;
+				background-color: $color-green;
+				left: 0;
+				margin-top: 10px;
+				transition: .15s $cubic-bezier all;
+				z-index: 1;
+			}
 		}
 
 		&:hover {
@@ -85,7 +172,7 @@
 			color: $color-green;
 
 			&::before {
-				height: 3px;
+				//height: 2px;
 			}
 		}
 
@@ -109,14 +196,14 @@
 .site-logo {
 	display: block;
 	padding: 0;
-	margin: 10px auto 0;
+	margin: .75rem auto 0;
 	position: relative;
 	text-align: center;
 	background: none;
+	z-index: 30;
 
 	@include respond-to($small) {
 		float: left;
-		margin: 10px 0 0;
 	}
 
 	a {
@@ -129,9 +216,19 @@
 	position: relative;
 	fill: $base-text-color;
 	stroke-width: 0;
-	width: 2rem;
+	width: 3rem;
 	height: 3rem;
-	margin: 0 auto;
+	padding: 0 .5rem;
+	border-radius: 50%;
+	background: radial-gradient(ellipse at center, rgba($color-light-gray,1) 0%,rgba($color-light-gray,0) 75%);
+
+	@include respond-to($small) {
+		margin: 0 auto;
+		background: none;
+		padding: 0;
+		width: 2rem;
+	}
+
 
 	&:hover {
 		fill: $color-green;

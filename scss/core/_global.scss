@@ -5,8 +5,8 @@ html {
 
 html,
 body {
-    //height: 100%;
-    //width: 100%;
+    min-height: 100%;
+    width: 100%;
 }
 
 *,
@@ -14,6 +14,8 @@ body {
 *:after {
     box-sizing: inherit;
 }
+
+::selection { background: rgba($color-green, .75); color: $color-white; }
 
 body {
     color: $base-text-color;
@@ -23,156 +25,59 @@ body {
     line-height: $base-line-height;
     -webkit-font-smoothing: antialiased;
 
-    //background-color: red;
+	position: relative;
+
+
+	&::before {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		//content: '';
+		box-shadow: inset 0 0 0 3px $color-gray, inset 0 0 15px 0 $color-green;
+		z-index: 20;
+		pointer-events: none;
+	}
 
     //To prevent the iPhone and iPad from inflating fonts
     @include respond-to($large, max) {
         -webkit-text-size-adjust: 100%;
     }
+
+    &::after {
+	    @include respond-to($medium) {
+		    animation: loader 2s ease-in-out infinite;
+		    height: 2px;
+		    width: 100%;
+		    background: $color-green;
+		    box-shadow: 0 0 5px 0 $color-green;
+		    top: 0;
+		    position: fixed;
+		    content: '';
+		    z-index: 100;
+		    opacity: 0;
+	    }
+    }
+
+    &.loading {
+        &::after {
+            opacity: 1;
+        }
+    }
 }
-
-//.scroll-line{
-//    position: fixed;
-//    left: 0;
-//    top: 0;
-//    height: 100%;
-//    z-index: 10;
-//
-//
-//    .line {
-//        @include respond-to($medium) {
-//            width: 2px;
-//            position: absolute;
-//            top: 0;
-//            left: 5px;
-//            background-color: rgba($color-white, .2);
-//            height: 0%;
-//        }
-//    }
-//
-//    .scroll-menu {
-//        position: absolute;
-//        left: 3px;
-//        top: 0;
-//        height: 100%;
-//
-//        li {
-//            position: absolute;
-//        }
-//
-//        a {
-//            text-transform: uppercase;
-//            text-decoration: none;
-//            font-size: .75rem;
-//            display: block;
-//            line-height: 12px;
-//            padding-top: 1rem;
-//            padding-right: 1rem;
-//            padding-bottom: 1rem;
-//            margin-top: -24px;
-//            color: $base-border;
-//            position: relative;
-//            padding-left: 10px;
-//
-//            &::before {
-//                content: '';
-//                position: absolute;
-//                width: 6px;
-//                height: 6px;
-//                border-radius: 3px;
-//                top: 50%;
-//                margin-top: -3px;
-//                left: 0;
-//                background-color: $base-border;
-//            }
-//        }
-//    }
-//}
-
-//.animated {
-    //@extend %animated;
-    //@extend %fadeOutDown;
-    //animation-delay: 0;
-
-    //.frame--active & {
-    //    @extend %fadeInUp;
-    //    animation-delay: .5s;
-    //}
-//}
 
 img {
     max-width: 100%;
     height: auto;
+    opacity: 0;
+    transition: .2s $cubic-bezier opacity;
+
+    .imgs-loaded & {
+        opacity: 1;
+    }
 }
-.loader {
-    height: 50px;
-    left: 50%;
-    margin-left: -25px;
-    margin-top: -25px;
-    pointer-events: none;
-    position: fixed;
-    top: 50%;
-    transition: 1s ease-in-out opacity;
-    width: 50px;
-    z-index: 100;
 
-    &::before {
-        background-color: $base-bg-color;
-        bottom: 0;
-        content: '';
-        left: 0;
-        pointer-events: none;
-        position: fixed;
-        right: 0;
-        top: 0;
-        z-index: -1;
-    }
-
-    &::after {
-        color: $base-text-color;
-        content: 'Loading';
-        display: block;
-        font-family: "Helvetica Neue", "Helvetica", sans-serif;
-        font-size: .75rem;
-        font-weight: 500;
-        left: 50%;
-        letter-spacing: 1px;
-        pointer-events: none;
-        position: absolute;
-        text-align: center;
-        text-transform: uppercase;
-        transform: translate(-50%, 0);
-        white-space: nowrap;
-    }
-
-    svg {
-        animation: spin 1s linear infinite;
-        position: relative;
-        z-index: 0;
-
-        .path {
-            stroke-dasharray: 110;
-            stroke-dashoffset: 0;
-            stroke-linecap: round;
-            stroke: $base-text-color;
-        }
-    }
-
-    .loaded & {
-        opacity: 0;
-
-        svg {
-            .path {
-                transition: 1s ease-in-out;
-                stroke-dasharray: 200;
-                stroke-dashoffset: 200;
-            }
-        }
-
-        &::after {
-            opacity: 0;
-            transform: translate(-50%, 50%);
-            transition: .2s ease-in-out;
-        }
-    }
+svg {
+	transition: .15s $cubic-bezier fill;
 }

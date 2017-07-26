@@ -1,61 +1,63 @@
 .btn {
     cursor: pointer;
     display: inline-block;
-    border-radius: 22px;
+    border-radius: 3rem;
     font-size: .75rem;
     font-weight: $font-weight-regular;
     letter-spacing: 3px;
-    line-height: 1.65rem;
+    line-height: 1.5rem;
+    height: 3rem;
     margin: 0;
     outline: none;
-    padding: .5rem 1.5rem;
+    padding: .75rem 1.5rem;
     text-decoration: none;
     text-transform: uppercase;
     transition: .1s $cubic-bezier;
     vertical-align: top;
     overflow: hidden;
     position: relative;
+
     background-color: $color-green;
-    color: $color-white;
-    border: 1px solid $color-green;
+    color: $color-light-gray;
+    box-shadow: inset 0 0 0 1px $color-green;
+	border: none;
+
+    @include respond-to($medium) {
+        padding: .75rem 2.5rem;
+    }
 
     &:hover {
-        background-color: lighten($color-green, 5%);
-        color: $color-white;
+        background-color: $color-green-hover;
+        color: $color-light-gray;
         text-decoration: none;
     }
 
     &:active {
-        background-color: darken($color-green, 0);
+        background-color: $color-green;
     }
 
     &:disabled {
+        cursor: not-allowed;
+        opacity: .25;
+
         &:hover {
             background-color: $color-green;
-            color: $color-white;
+            color: $color-light-gray;
         }
     }
 
-    @include respond-to($medium) {
-        padding: .5rem 2.5rem;
-    }
+    &--elevated {
+        box-shadow: 10px 10px 20px 0 rgba($color-black, .25);
 
-    &::before {
-        content: '';
-        position: absolute;
-        width: 100%;
-        top: 0;
-        left: 0;
-        height: 1000%;
-        background-color: $base-bg-color;
-        opacity: 0;
-        transition: .2s ease-in-out;
-        z-index: -1;
-        pointer-events: none;
-    }
+        &:hover {
+            box-shadow: 8px 8px 25px 0 rgba($color-black, .25);
+            transform: scale(1.02);
+        }
 
-    + .btn {
-        margin-left: 1em;
+        &:active {
+            box-shadow: 3px 3px 15px 0 rgba($color-black, .25);
+            transform: scale(1);
+        }
     }
 
     &--centered {
@@ -69,8 +71,7 @@
         width: 100%;
     }
 
-    &:disabled {
-        cursor: not-allowed;
-        opacity: .25;
+    + .btn {
+        margin-left: 1em;
     }
 }

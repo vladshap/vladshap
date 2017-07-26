@@ -24,6 +24,7 @@
     <meta property="og:title" content="Vlad Shapochnikov - A web developer and an aspiring explorer.">
     <meta property="og:url" content="vladshap.com">
 
+    <link href="https://fonts.googleapis.com/css?family=Sorts+Mill+Goudy:400i" rel="stylesheet">
     {% if page.url == "/resume/" %}
     <link rel="stylesheet" href="/assets/styles/resume.min.css">
     {% else %}
@@ -66,17 +67,8 @@
         })(document);
     </script>
 </head>
-<body class="loaded">
+<body class="loading">
 
 {% if page.url != "/resume/" %}
 {% include svg.html %}
-<!--
-    You know, that thing that spins and says "LOADING" for a bit...
-    Meanwhile you contemplate leaving this website, and never coming back to it. Yeah, blame this.
--->
-<!--<div class="loader">-->
-    <!--<svg class="circular" viewBox="25 25 50 50">-->
-        <!--<circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>-->
-    <!--</svg>-->
-<!--</div>-->
 {% endif %}

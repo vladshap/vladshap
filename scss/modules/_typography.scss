@@ -1,153 +1,167 @@
-//@import url('https://fonts.googleapis.com/css?family=Sorts+Mill+Goudy:400i');
-
-@font-face {
-	font-family: 'Sorts Mill Goudy';
-	font-style: italic;
-	font-weight: 400;
-	src: local('Sorts Mill Goudy Italic'), local('SortsMillGoudy-Italic'), url(https://fonts.gstatic.com/s/sortsmillgoudy/v6/UUu1lKiy4hRmBWk599VL1ScduHglN_S7aJvGYHj_Mow.woff2) format('woff2');
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
-}
-
 // Typography
 
 p {
-    font-size: 1.125rem;
     margin-bottom: 1.5rem;
 
-    .resume & {
-        font-size: 1rem;
-        margin-bottom: 1rem;
-    }
-
-    &.intro {
-
-        @include respond-to($small) {
-            font-size: 1.25rem;
-        }
-    }
-
-    &.job-title {
-        font-weight: $font-weight-bold;
-        margin-bottom: 0;
-        padding-right: 75px;
-        position: relative;
-        @include clearfix();
+    @include respond-to($medium) {
+        font-size: 1.125rem;
     }
 }
 
 a {
     color: inherit;
     text-decoration: underline;
+    transition: .15s $cubic-bezier;
+    position: relative;
+    white-space: nowrap;
+
+    @include respond-to($small) {
+        text-decoration: none;
+    }
 
     &:hover {
         text-decoration: none;
-    }
-}
 
-h1, h2, h3, h4 {
-    font-weight: inherit;
-    line-height: 1.2;
-    font-family: $base-sans-serif;
-    //text-transform: uppercase;
-}
-
-h1 {
-    font-size: 2.5rem;
-    font-family: $base-serif;
-    font-weight: 400;
-    line-height: 1;
-	display: table;
-    background-color: $base-bg-color;
-    margin: 0 0 $base-padding 0;
-    padding: 0 10px 0 0;
-	color: inherit;
-
-    .loaded & {
+        @include respond-to($small) {
+            color: $color-white;
+        }
     }
 
-    &::after {
-        background-color: $base-text-color;
-        content: '';
-	    position: absolute;
-        height: 1px;
-        top: 28px;
-        z-index: -1;
-        left: $base-padding;
-        right: 100%;
-        transition: .75s $cubic-bezier;
-        transition-delay: .6s;
+    p & {
+        word-wrap: break-word;
+        white-space: normal;
 
-        .loaded & {
-            right: $base-padding;
+        &::after {
+            @include respond-to($small) {
+                content: '';
+                display: block;
+                position: absolute;
+                height: 1px;
+                background-color: $base-text-color;
+                right: -2px;
+                left: -2px;
+                bottom: 2px;
+                transition: .2s;
+                z-index: -1;
+                pointer-events: none;
+                border-radius: 3px;
+            }
+
+            .site-footer & {
+                background-color: $color-white;
+            }
+        }
+
+        &:hover {
+            &::after {
+                @include respond-to($small) {
+                    height: 22px;
+                }
+            }
+
+            .site-footer & {
+                color: $color-black;
+            }
+        }
+    }
+
+    small & {
+        &:hover::after {
+            height: 14px;
         }
     }
 }
 
+
+h1, h2, h3 {
+    margin-top: 0;
+}
+
+h1 {
+    font-size: 1.75rem;
+    font-family: $base-serif;
+    font-weight: 400;
+    font-style: italic;
+    padding-top: 1.5rem;
+    margin-bottom: 1.5rem;
+
+	@include respond-to($small) {
+		font-size: 2.5rem;
+	}
+}
+
 h2 {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
+    font-family: $base-sans-serif;
     font-weight: $font-weight-bold;
-    line-height: normal;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
+
+	@include respond-to($small) {
+		font-size: 1.75rem;
+	}
+}
+
+
+h3 {
+    font-size: 1rem;
+    font-family: $base-sans-serif;
+    font-weight: $font-weight-bold;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    //letter-spacing: 1px;
+}
+
+h4, .h4 {
+    font-size: .75rem;
+    font-family: $base-sans-serif;
+    font-weight: $font-weight-bold;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: $color-gray;
 }
 
 ul {
     list-style: none;
 
-    &.bullets {
-        list-style-type: disc;
-        list-style-position: inside;
+    @include respond-to($medium) {
+        font-size: 1.125rem;
+    }
+
+    main & {
+        margin-bottom: 1.5rem;
+    }
+
+    p {
+        margin-bottom: 0;
+	    font-size: inherit;
     }
 }
 
+.grid--services {
+    @extend %clearfix;
+
+    li {
+        float: left;
+        width: 50%;
+    }
+
+	p {
+		font-size: .875rem;
+	}
+}
+
 em {
-    font-style: italic;
     font-weight: $font-weight-regular;
+    font-style: italic;
 }
 
 strong {
     font-weight: $font-weight-bold;
+	line-height: 1;
 }
 
 small {
     font-size: 75%;
-    opacity: .5;
-}
-
-.date {
-    font-size: .875rem;
-    font-weight: $font-weight-bold;
-    position: absolute;
-    right: 0;
-    top: 2px;
-}
-
-.copyright {
-    font-size: .75rem;
-    line-height: 20px;
-    margin-bottom: 0;
-
-    @include respond-to($medium) {
-        font-size: .875rem;
-    }
-}
-
-.small {
-    display: block;
-    font-size: .65rem;
-    font-weight: $font-weight-bold;
-    letter-spacing: 2px;
-    line-height: 1.2;
-    position: relative;
-    text-transform: uppercase;
-    text-align: center;
-}
-
-.instagram-text {
-    text-decoration: none;
-    //font-weight: $font-weight-regular;
-    //text-transform: lowercase;
-    
-    &:hover {
-        background: linear-gradient(-135deg,#1400c8,#b900b4,#f50000);
-    }
+    line-height: 1;
 }

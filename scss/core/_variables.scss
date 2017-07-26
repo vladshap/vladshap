@@ -1,32 +1,31 @@
 //TYPOGRAPHY
-//$base-serif: "le-monde-livre-classic-std-s", serif;
+
 $base-serif: 'Sorts Mill Goudy', serif;
-$base-sans-serif: "brandon-grotesque", "Brandon Grotesque", sans-serif;
+$base-sans-serif: 'brandon-grotesque', 'Brandon Grotesque', sans-serif;
 
 $base-heading-font: $base-sans-serif;
 $base-body-font: $base-sans-serif;
-$base-line-height: 1.45;
+$base-line-height: 1.5rem;
 $base-font-size: 16px;
 
 $font-weight-regular: 400;
-//$font-weight-bold: 700;
-$font-weight-bold: 900;
+$font-weight-bold: 700;
 
 //MAIN COLOR PALETTE - For naming colors variables, I used http://chir.ag/projects/name-that-color/
-//$color-black: #090d11;
 $color-black: #08090E;
-$color-white: #eee;
+$color-white: #ffffff;
+$color-light-gray: #eeeeee;
+$color-gray: #b1b1b1;
 $color-green: #2ead2b;
-
-//$color-black: #eee;
-//$color-white: #08090E;
+$color-green-hover: lighten($color-green, 5%);
+$color-teal: #79febd;
+$color-blue: #3b91fe;
 
 //COMMON COLORS
 $base-text-color: $color-black;
-$base-bg-color: $color-white;
-
-$system-highlight: #227df4;
-$base-border: #414447;
+$base-bg-color: $color-light-gray;
+$system-highlight: $color-green;
+$base-border: $color-gray;
 
 //Forms
 $input-placeholder-color: rgba($base-text-color, .35);
@@ -59,7 +58,7 @@ $pswp__background-color: $color-black;
 $pswp__placeholder-color: #222 !default;
 $pswp__box-sizing-border-box: false; // disable .pswp * { box-sizing:border-box } (in case you already have it in your site css)
 $pswp__root-z-index: 1500 !default;
-$pswp__assets-path: '/assets/default-skin/'; // path to skin assets folder (preloader, PNG and SVG sprite)
+$pswp__assets-path: '/assets/images/'; // path to skin assets folder (preloader, PNG and SVG sprite)
 $pswp__error-text-color: #CCC !default; // "Image not loaded" text color
 $pswp__include-minimal-style: true !default;
 
