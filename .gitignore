@@ -3,8 +3,14 @@
 .idea/
 .tmp/
 .vagrant/
+<<<<<<< HEAD
 _site/
 
+=======
+build/
+coverage/
+_site/
+>>>>>>> master
 backup/
 node_modules/
 bower_components/
