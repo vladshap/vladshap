@@ -6,7 +6,8 @@
 .vagrant/
 build/
 coverage/
-dist/
+_site/
+backup/
 node_modules/
 bower_components/
 npm-debug.log
