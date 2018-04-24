@@ -27,9 +27,9 @@ gulp.task('browser-sync', function () {
     });
 });
 
-// gulp.task('bs-reload', function () {
-//     browserSync.reload();
-// });
+gulp.task('bs-reload', function () {
+    browserSync.reload();
+});
 
 gulp.task('styles', function () {
     gulp.src(['scss/**/*.scss'])
@@ -98,6 +98,18 @@ gulp.task('jekyll-rebuild', ['jekyll-build', 'styles', 'js'], function () {
     browserSync.reload();
 });
 
+var gulp  = require('gulp');
+
+gulp.task('npmUpdate', function () {
+ var update = require('gulp-update');
+
+ gulp.watch('./package.json').on('change', function (file) {
+   update.write(file);
+ });
+
+})
+
+
 // gulp.task('s3-publish', function() {
 //     var publisher = awspublish.create({
 //         region: 'us-west-2',
@@ -124,6 +136,7 @@ gulp.task('jekyll-rebuild', ['jekyll-build', 'styles', 'js'], function () {
 gulp.task('watch', ['browser-sync'], function () {
     gulp.watch(['*.html', '_layouts/*.html', '_posts/*', '_photos/*', '_includes/*.html'], ['jekyll-rebuild']);
     gulp.watch("scss/**/*.scss", ['styles']);
-    // gulp.watch("*.html", ['bs-reload']);
+    gulp.watch("*.html", ['bs-reload']);
     gulp.watch("scripts/*.js", ['js']);
+    // gulp.task('update', ['npmUpdate']);
 });

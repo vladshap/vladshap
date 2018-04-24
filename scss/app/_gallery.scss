@@ -60,6 +60,12 @@
 			border-bottom: 1px solid $color-white;
 		}
 
+		> a {
+			&:hover {
+				box-shadow: none;
+			}
+		}
+
 		&:hover {
 
 			&::before,

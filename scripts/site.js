@@ -209,9 +209,11 @@
         
         _animate(rotationYValue,rotationXValue);
     }
-    
-    var _animate = function(rotationYValue, rotationXValue) {
-        TweenLite.to(slider, .25, { rotationY:rotationYValue, rotationX:rotationXValue, ease:Power1.easeOut, transformPerspective:900, transformOrigin:"center" });
+
+    if (slider) {
+        var _animate = function(rotationYValue, rotationXValue) {
+            TweenLite.to(slider, .25, { rotationY:rotationYValue, rotationX:rotationXValue, ease:Power1.easeOut, transformPerspective:900, transformOrigin:"center" });
+        }
     }
     
     return {

@@ -9,7 +9,7 @@
         z-index: -1;
         padding-bottom: 100%;
         background: rgba(255,255,255,0);
-        background: radial-gradient(ellipse at center, rgba(#fff, 1) 0%, rgba(255,255,255,0) 50%);
+        // background: radial-gradient(ellipse at center, rgba($base-border, .1) 0%, rgba($base-border, 0) 50%);
     }
 
     .loading & {
@@ -27,10 +27,10 @@
         }
 
         path {
-            stroke: $base-border;
+            stroke: $color-gray;
             stroke-miterlimit: 10;
             stroke-width: .25;
-            fill: #fff;
+            fill: $base-bg-color;
         }
     }
 }
@@ -41,22 +41,22 @@
 
     &::before {
         position: absolute;
-        left: -3px;
-        bottom: -4px;
+        left: -3.5px;
+        bottom: -3.5px;
         content: '';
         width: 0;
         height: 0;
         transform: rotate(45deg);
         border-left: 3px solid transparent;
         border-right: 3px solid transparent;
-        border-top: 7px solid $color-black;
+        border-top: 7px solid $base-text-color;
     }
 
     @include respond-to($medium) {
         display: inline-block;
         position: absolute;
-        top: 50%;
-        left: 10%;
+        top: 36.75%;
+        left: 3%;
         transform: translate(0%, 10%);
         font-size: .6rem;
         font-weight: $font-weight-bold;
@@ -64,10 +64,9 @@
         line-height: 1;
         text-transform: uppercase;
         z-index: 1;
-        background-color: $color-black;
-        color: $color-light-gray;
+        background-color: $base-text-color;
+        color: $base-bg-color;
         padding: .4rem .65rem .3rem;
-        //border-radius: 5px;
         border-radius: 5px 5px 5px 0;
     }
 

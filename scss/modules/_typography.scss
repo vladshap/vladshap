@@ -3,16 +3,22 @@
 p {
     margin-bottom: 1.5rem;
 
+    @media print {
+        margin-bottom: .75rem;
+    }
+
     @include respond-to($medium) {
         font-size: 1.125rem;
     }
 }
 
 a {
+    box-shadow: inset 0 0 0 0 transparent;
     color: inherit;
+    font-weight: $font-weight-medium;
+    position: relative;
     text-decoration: underline;
     transition: .15s $cubic-bezier;
-    position: relative;
     white-space: nowrap;
 
     @include respond-to($small) {
@@ -20,49 +26,17 @@ a {
     }
 
     &:hover {
+        box-shadow: inset 0 -2px 0 0 $color-green;
         text-decoration: none;
 
         @include respond-to($small) {
-            color: $color-white;
+            color: $color-green;
         }
     }
 
     p & {
-        word-wrap: break-word;
         white-space: normal;
-
-        &::after {
-            @include respond-to($small) {
-                content: '';
-                display: block;
-                position: absolute;
-                height: 1px;
-                background-color: $base-text-color;
-                right: -2px;
-                left: -2px;
-                bottom: 2px;
-                transition: .2s;
-                z-index: -1;
-                pointer-events: none;
-                border-radius: 3px;
-            }
-
-            .site-footer & {
-                background-color: $color-white;
-            }
-        }
-
-        &:hover {
-            &::after {
-                @include respond-to($small) {
-                    height: 22px;
-                }
-            }
-
-            .site-footer & {
-                color: $color-black;
-            }
-        }
+        word-wrap: break-word;
     }
 
     small & {
@@ -77,34 +51,66 @@ h1, h2, h3 {
     margin-top: 0;
 }
 
-h1 {
-    font-size: 1.75rem;
+h1, .h1 {
     font-family: $base-serif;
-    font-weight: 400;
+    font-size: 1.75rem;
     font-style: italic;
-    padding-top: 1.5rem;
+    font-weight: $font-weight-regular;
     margin-bottom: 1.5rem;
+    padding-top: 1.5rem;
 
 	@include respond-to($small) {
 		font-size: 2.5rem;
-	}
+    }
+    @media print {
+        padding-top: 0;
+    }
+    
+    .resume-header & {
+        text-align: center;
+        font-size: 2rem;
+        font-style: normal;
+        font-family: $base-sans-serif;
+        @include respond-to($small) {
+            margin-bottom: 3rem;
+        }
+    }
+
+    .role {
+        font-size: 1rem;
+        display: block;
+        font-weight: $font-weight-bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-top: .75rem;
+    }
 }
 
 h2 {
-    font-size: 1.5rem;
     font-family: $base-sans-serif;
+    font-size: 1.25rem;
     font-weight: $font-weight-bold;
     margin-bottom: 1.5rem;
 
 	@include respond-to($small) {
-		font-size: 1.75rem;
-	}
+        font-size: 1.5rem;
+    }
+
+    @media print {
+        margin-bottom: 0!important;
+    }
+
+    .resume-body & {
+        font-size: 1rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
 }
 
 
 h3 {
-    font-size: 1rem;
     font-family: $base-sans-serif;
+    font-size: 1rem;
     font-weight: $font-weight-bold;
     margin-bottom: 1.5rem;
     text-transform: uppercase;
@@ -112,13 +118,13 @@ h3 {
 }
 
 h4, .h4 {
-    font-size: .75rem;
+    color: $color-gray;
     font-family: $base-sans-serif;
+    font-size: .75rem;
     font-weight: $font-weight-bold;
+    letter-spacing: 1px;
     margin-bottom: 0;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    color: $color-gray;
 }
 
 ul {
@@ -130,11 +136,24 @@ ul {
 
     main & {
         margin-bottom: 1.5rem;
+        
+        @media print {
+            margin-bottom: .75rem;
+        }
+    }
+
+    li {
+        &:first-child {
+
+            .job-title {
+                margin-top: 0;
+            }
+        }
     }
 
     p {
-        margin-bottom: 0;
 	    font-size: inherit;
+        margin-bottom: 0;
     }
 }
 
@@ -152,8 +171,8 @@ ul {
 }
 
 em {
-    font-weight: $font-weight-regular;
     font-style: italic;
+    font-weight: $font-weight-regular;
 }
 
 strong {
@@ -164,4 +183,26 @@ strong {
 small {
     font-size: 75%;
     line-height: 1;
+}
+
+abbr {
+    position: relative;
+    line-height: 1;
+    transition: .2s;
+    cursor: help;
+    text-decoration: none;
+
+    &::before {
+        font-size: 0;
+        content: attr(title);
+        transition: .2s;
+    }
+
+    &:hover {
+        font-size: 0;
+
+        &::before {
+            font-size: 1.125rem;
+        }
+    }
 }

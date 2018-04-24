@@ -9,11 +9,13 @@ $base-line-height: 1.5rem;
 $base-font-size: 16px;
 
 $font-weight-regular: 400;
+$font-weight-medium: 500;
 $font-weight-bold: 700;
 
 //MAIN COLOR PALETTE - For naming colors variables, I used http://chir.ag/projects/name-that-color/
 $color-black: #08090E;
 $color-white: #ffffff;
+
 $color-light-gray: #eeeeee;
 $color-gray: #b1b1b1;
 $color-green: #2ead2b;
@@ -24,8 +26,15 @@ $color-blue: #3b91fe;
 //COMMON COLORS
 $base-text-color: $color-black;
 $base-bg-color: $color-light-gray;
+
+// $base-text-color: $color-light-gray;
+// $base-bg-color: $color-black;
+
+
+
 $system-highlight: $color-green;
 $base-border: $color-gray;
+$base-border: darken($color-gray, 50%);
 
 //Forms
 $input-placeholder-color: rgba($base-text-color, .35);

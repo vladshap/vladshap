@@ -17,10 +17,8 @@
     "reset-css": "^2.0.2011012603",
     "waitForImages": "^2.2.0",
     "susy": "^2.2.12",
-    "exif-js": "^2.1.1",
     "history.js": "history#^1.8.0",
     "justifiedGallery": "justified-gallery#^3.6.3",
-    "fraction.js": "^4.0.0",
     "photoswipe": "^4.1.2"
   }
 }

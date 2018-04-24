@@ -8,7 +8,6 @@ exclude: [
   "gulpfile.js",
   "package.json",
   "scss",
-  "backup",
   "bower_components",
   "scripts"
   ]
@@ -20,5 +19,7 @@ navigation:
     url: /projects/
   - title: Photos
     url: /photos/
+  # - title: Physical
+  #   url: /projects/physical/
   - title: Contact
     url: /contact/

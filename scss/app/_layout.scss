@@ -45,8 +45,14 @@ main {
     @include respond-to($medium) {
         @include span(6);
     }
+    @media print {
+        @include span(6);
+    }
 
     &:last-child {
+        @media print {
+            @include omega();
+        }
         @include respond-to($medium) {
             @include omega();
         }
@@ -59,4 +65,9 @@ main {
     &:active {
         background-image: none;
     }
+}
+
+.alignright {
+    float: right;
+
 }
